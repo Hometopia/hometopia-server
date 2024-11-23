@@ -10,7 +10,7 @@ jobs:
 
   build:
 
-    runs-on: [self-hosted, hometopia]
+    runs-on: self-hosted
 
     steps:
       - uses: actions/checkout@v3
