@@ -1,0 +1,20 @@
+package com.hometopia.coreservice.dto.request;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+import java.util.List;
+
+public record CreateListCategoriesRequest(
+        @NotNull
+        List<Category> categories
+) {
+    public record Category(
+            @NotBlank
+            String name,
+            @NotBlank
+            String description,
+            @NotNull
+            List<Category> subCategories
+    ) {}
+}

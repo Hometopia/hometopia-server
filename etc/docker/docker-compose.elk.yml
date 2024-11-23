@@ -1,0 +1,35 @@
+version: '3.8'
+
+name: 'elk'
+
+services:
+  elasticsearch:
+    container_name: elasticsearch
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.10.4
+    restart: unless-stopped
+    environment:
+      node.name: es-node
+      cluster.name: docker-cluster
+      discovery.type: single-node
+      bootstrap.memory_lock: true
+      ES_JAVA_OPTS: -Xms1g -Xmx1g
+      xpack.license.self_generated.type: basic
+      xpack.security.enabled: true
+      ELASTIC_PASSWORD: hometopia
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    healthcheck:
+      interval: 30s
+      retries: 10
+      test: [ "CMD-SHELL", "curl --write-out 'HTTP %{http_code}' --fail --silent --output /dev/null --user elastic:hometopia http://localhost:9200" ]
+    volumes:
+      - elasticsearch:/usr/share/elasticsearch/data
+
+volumes:
+  elasticsearch:
+    driver: local
+
+networks:
+  hometopia-network:
+    external: true

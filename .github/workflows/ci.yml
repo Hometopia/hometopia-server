@@ -1,0 +1,40 @@
+name: Hometopia CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: hometopia
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Stop container and delete image
+        run: | 
+          docker rm -f core-service || true && docker rmi -f core-service || true
+          docker rm -f gateway-service || true && docker rmi -f gateway-service || true
+          docker rm -f media-service || true && docker rmi -f media-service || true
+          docker rm -f rule-service || true && docker rmi -f rule-service || true
+          docker rm -f scheduled-service || true && docker rmi -f scheduled-service || true
+          docker rm -f vendor-service || true && docker rmi -f vendor-service || true
+      - name: Build commons
+        run:  cd commons && mvn clean install -DskipTests
+      - name: Build core
+        run: cd core-service && mvn clean install -DskipTests
+      - name: Build gateway
+        run: cd gateway-service && mvn clean install -DskipTests
+      - name: Build media
+        run: cd media-service && mvn clean install -DskipTests
+      - name: Build rule
+        run: cd rule-service && mvn clean install -DskipTests
+      - name: Build scheduled
+        run: cd scheduled-service && mvn clean install -DskipTests
+      - name: Build vendor
+        run: cd vendor-service && mvn clean install -DskipTests
+      - name: Run containers
+        run: docker compose up -d

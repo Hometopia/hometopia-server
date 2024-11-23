@@ -1,0 +1,28 @@
+version: '3.8'
+
+name: 'minio'
+
+services:
+  minio:
+    image: quay.io/minio/minio
+    container_name: minio
+    environment:
+      MINIO_ROOT_USER: admin
+      MINIO_ROOT_PASSWORD: password
+    restart: unless-stopped
+    ports:
+      - "9000:9000"
+      - "9002:9001"
+    volumes:
+      - minio:/data
+    command: server /data --console-address ":9001"
+    networks:
+      - hometopia-network
+
+volumes:
+  minio:
+    driver: local
+
+networks:
+  hometopia-network:
+    external: true

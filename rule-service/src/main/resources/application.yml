@@ -1,0 +1,50 @@
+server:
+  port: 8030
+  servlet:
+    context-path: /rule
+
+grpc:
+  server:
+    port: 8040
+
+spring:
+  application:
+    name: rule-service
+  profiles:
+    active: dev
+  config:
+    import: vault://
+  cloud:
+    consul:
+      host: ${CONSUL_HOST}
+      port: ${CONSUL_PORT}
+      discovery:
+        instance-id: ${spring.application.name}:${random.value}
+        health-check-path: ${server.servlet.context-path}/actuator/health
+        health-check-interval: 30s
+        acl-token: ${CONSUL_TOKEN}
+        fail-fast: false
+        prefer-ip-address: true
+        query-passing: true
+    vault:
+      kv:
+        enabled: true
+        default-context: ${spring.application.name}
+        backend: hometopia
+      authentication: token
+      token: ${VAULT_TOKEN}
+      scheme: ${VAULT_SCHEME}
+      host: ${VAULT_HOST}
+      port: ${VAULT_PORT}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  #  zipkin:
+  #    tracing:
+  #      endpoint: http://${ZIPKIN_HOST}:${ZIPKIN_PORT}/api/v2/spans
+  tracing:
+    sampling:
+      probability: 1.0

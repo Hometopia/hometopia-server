@@ -1,0 +1,143 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: gateway-service
+  profiles:
+    active: dev
+  config:
+    import: vault://
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${ISSUER_URI}
+          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+  cloud:
+    consul:
+      host: ${CONSUL_HOST}
+      port: ${CONSUL_PORT}
+      discovery:
+        instance-id: ${spring.application.name}:${random.value}
+        health-check-path: /actuator/health
+        health-check-interval: 30s
+        acl-token: ${CONSUL_TOKEN}
+        fail-fast: false
+        prefer-ip-address: true
+        query-passing: true
+    vault:
+      kv:
+        enabled: true
+        default-context: ${spring.application.name}
+        backend: hometopia
+      authentication: token
+      token: ${VAULT_TOKEN}
+      scheme: ${VAULT_SCHEME}
+      host: ${VAULT_HOST}
+      port: ${VAULT_PORT}
+    gateway:
+      routes:
+        - id: keycloak
+          uri: ${KEYCLOAK_URL}
+          predicates:
+            - Path=/api/auth/sign-in
+          filters:
+            - SetPath=/realms/hometopia/protocol/openid-connect/token
+        - id: auth-api
+          uri: lb://core-service
+          predicates:
+            - Path=/api/auth/**
+          filters:
+            - RewritePath=/api/auth/(?<segment>.*), /core/auth/$\{segment}
+        - id: province-api
+          uri: lb://core-service
+          predicates:
+            - Path=/api/provinces/**
+          filters:
+            - RewritePath=/api/provinces, /core/provinces
+            - RewritePath=/api/provinces/(?<segment>.*), /core/provinces/$\{segment}
+        - id: district-api
+          uri: lb://core-service
+          predicates:
+            - Path=/api/districts/**
+          filters:
+            - RewritePath=/api/districts, /core/districts
+            - RewritePath=/api/districts/(?<segment>.*), /core/districts/$\{segment}
+        - id: ward-api
+          uri: lb://core-service
+          predicates:
+            - Path=/api/wards/**
+          filters:
+            - RewritePath=/api/wards, /core/wards
+            - RewritePath=/api/wards/(?<segment>.*), /core/wards/$\{segment}
+        - id: category-api
+          uri: lb://core-service
+          predicates:
+            - Path=/api/categories/**
+          filters:
+            - RewritePath=/api/categories, /core/categories
+            - RewritePath=/api/categories/(?<segment>.*), /core/categories/$\{segment}
+        - id: asset-api
+          uri: lb://core-service
+          predicates:
+            - Path=/api/assets/**
+          filters:
+            - RewritePath=/api/assets, /core/assets
+            - RewritePath=/api/assets/(?<segment>.*), /core/assets/$\{segment}
+        - id: media-service
+          uri: lb://media-service
+          predicates:
+            - Path=/api/files/**
+          filters:
+            - RewritePath=/api/files, /media/files
+            - RewritePath=/api/files/(?<segment>.*), /media/files/$\{segment}
+        - id: rule-service
+          uri: lb://rule-service
+          predicates:
+            - Path=/api/rule/**
+          filters:
+            - RewritePath=/api/rule, /rule
+            - RewritePath=/api/rule/(?<segment>.*), /rule/$\{segment}
+        - id: brand-api
+          uri: lb://vendor-service
+          predicates:
+            - Path=/api/brands/**
+          filters:
+            - RewritePath=/api/brands, /vendor/brands
+            - RewritePath=/api/brands/(?<segment>.*), /vendor/brands/$\{segment}
+        - id: schedule-api
+          uri: lb://core-service
+          predicates:
+            - Path=/api/schedules/**
+          filters:
+            - RewritePath=/api/schedules, /core/schedules
+            - RewritePath=/api/schedules/(?<segment>.*), /core/schedules/$\{segment}
+        - id: asset-life-cycle-api
+          uri: lb://core-service
+          predicates:
+            - Path=/api/asset-life-cycles/**
+          filters:
+            - RewritePath=/api/asset-life-cycles, /core/asset-life-cycles
+            - RewritePath=/api/asset-life-cycles/(?<segment>.*), /core/asset-life-cycles/$\{segment}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+#  zipkin:
+#    tracing:
+#      endpoint: http://${ZIPKIN_HOST}:${ZIPKIN_PORT}/api/v2/spans
+  tracing:
+    sampling:
+      probability: 1.0
+
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        security: TRACE
+        cloud:
+          gateway: TRACE

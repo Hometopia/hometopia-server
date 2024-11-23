@@ -1,0 +1,45 @@
+[
+  {
+    "name": "Thiết bị phòng khách",
+    "subCategories": [
+      { "name": "TV" },
+      { "name": "Quạt" },
+      { "name": "Đèn chiếu sáng" }
+    ]
+  },
+  {
+    "name": "Thiết bị phòng bếp",
+    "subCategories": [
+      { "name": "Bếp" },
+      { "name": "Tủ lạnh" }
+    ]
+  },
+  {
+    "name": "Thiết bị phòng ngủ",
+    "subCategories": [
+      { "name": "Giường" },
+      { "name": "Tủ quần áo" },
+      { "name": "Quạt" }
+    ]
+  },
+  {
+    "name": "Thiết bị phòng tắm",
+    "subCategories": [
+      { "name": "Vòi sen" },
+      { "name": "Bồn cầu" }
+    ]
+  },
+  {
+    "name": "Thiết bị phòng giặt",
+    "subCategories": [
+      { "name": "Giàn phơi" }
+    ]
+  },
+  {
+    "name": "Thiết bị cá nhân",
+    "subCategories": [
+      { "name": "Laptop" },
+      { "name": "Điện thoại" }
+    ]
+  }
+]

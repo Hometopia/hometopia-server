@@ -1,0 +1,37 @@
+version: '3.8'
+
+name: 'vault'
+
+services:
+  vault:
+    image: hashicorp/vault:1.15
+    container_name: vault
+    hostname: vault
+    restart: unless-stopped
+    ports:
+      - "8200:8200"
+    environment:
+      VAULT_ADDR: "http://0.0.0.0:8200"
+      VAULT_API_ADDR: "http://0.0.0.0:8200"
+      VAULT_LOCAL_CONFIG: '{"storage": {"file": {"path": "/vault/file"}}, "listener": [{"tcp": { "address": "0.0.0.0:8200", "tls_disable": true}}], "default_lease_ttl": "168h", "max_lease_ttl": "720h", "ui": true}'
+    cap_add:
+      - IPC_LOCK
+    volumes:
+      - vault-file:/vault/file
+      - vault-log:/vault/log
+      - vault-logs:/vault/logs
+    command: "server"
+    networks:
+      - hometopia-network
+
+volumes:
+  vault-file:
+    driver: local
+  vault-log:
+    driver: local
+  vault-logs:
+    driver: local
+
+networks:
+  hometopia-network:
+    external: true

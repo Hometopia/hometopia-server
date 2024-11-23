@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package com.hometopia.proto.category;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+
+option java_multiple_files = true;
+option java_package = "com.hometopia.proto.category";
+option java_outer_classname = "CategoryProto";
+
+service CategoryGrpcService {
+  rpc getListCategory(GetListCategoryRequest) returns (GetListCategoryResponse) {
+  }
+}
+
+enum HouseType {
+  HIGH_GRADE = 0;
+  MID_HIGH_GRADE = 1;
+  MID_GRADE = 2;
+  LOW_GRADE = 3;
+}
+
+message GetListCategoryRequest {
+  HouseType houseType = 1;
+}
+
+message CategoryResponse {
+  string name = 1;
+  repeated CategoryResponse subCategories = 2;
+}
+
+message GetListCategoryResponse {
+  repeated CategoryResponse categories = 1;
+}

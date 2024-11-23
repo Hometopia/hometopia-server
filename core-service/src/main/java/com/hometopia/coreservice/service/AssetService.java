@@ -1,0 +1,21 @@
+package com.hometopia.coreservice.service;
+
+import com.hometopia.commons.response.ListResponse;
+import com.hometopia.commons.response.RestResponse;
+import com.hometopia.coreservice.dto.request.CreateAssetRequest;
+import com.hometopia.coreservice.dto.request.UpdateAssetRequest;
+import com.hometopia.coreservice.dto.response.CreateAssetResponse;
+import com.hometopia.coreservice.dto.response.GetListAssetResponse;
+import com.hometopia.coreservice.dto.response.GetOneAssetResponse;
+import com.hometopia.coreservice.dto.response.UpdateAssetResponse;
+
+import java.util.List;
+
+public interface AssetService {
+    RestResponse<ListResponse<GetListAssetResponse>> getListAssets(int page, int size, String sort, String filter, boolean all);
+    RestResponse<GetOneAssetResponse> getOneAsset(String id);
+    RestResponse<CreateAssetResponse> createAsset(CreateAssetRequest request);
+    RestResponse<UpdateAssetResponse> updateAsset(String id, UpdateAssetRequest request);
+    void deleteAsset(String id);
+    void deleteListAssets(List<String> ids);
+}

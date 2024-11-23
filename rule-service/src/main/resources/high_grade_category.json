@@ -1,0 +1,61 @@
+[
+  {
+    "name": "Thiết bị phòng khách",
+    "subCategories": [
+      { "name": "TV" },
+      { "name": "Hệ thống âm thanh" },
+      { "name": "Thiết bị chiếu" },
+      { "name": "Điều hòa" },
+      { "name": "Đèn chiếu sáng" },
+      { "name": "Máy lọc không khí" }
+    ]
+  },
+  {
+    "name": "Thiết bị phòng bếp",
+    "subCategories": [
+      { "name": "Bếp" },
+      { "name": "Lò vi sóng" },
+      { "name": "Lò nướng" },
+      { "name": "Tủ lạnh" },
+      { "name": "Máy lọc nước" },
+      { "name": "Máy hút mùi" }
+    ]
+  },
+  {
+    "name": "Thiết bị phòng ngủ",
+    "subCategories": [
+      { "name": "Giường" },
+      { "name": "Tủ quần áo" },
+      { "name": "Bàn đầu giường" },
+      { "name": "Điều hòa" },
+      { "name": "Quạt" },
+      { "name": "Đèn ngủ" }
+    ]
+  },
+  {
+    "name": "Thiết bị phòng tắm",
+    "subCategories": [
+      { "name": "Vòi sen" },
+      { "name": "Bồn tắm" },
+      { "name": "Bồn rửa" },
+      { "name": "Máy nước nóng" },
+      { "name": "Quạt thông gió" }
+    ]
+  },
+  {
+    "name": "Thiết bị phòng giặt",
+    "subCategories": [
+      { "name": "Máy giặt" },
+      { "name": "Máy sấy quần áo" },
+      { "name": "Giàn phơi" },
+      { "name": "Bàn là" }
+    ]
+  },
+  {
+    "name": "Thiết bị cá nhân",
+    "subCategories": [
+      { "name": "Laptop" },
+      { "name": "Điện thoại" }
+    ]
+  }
+]

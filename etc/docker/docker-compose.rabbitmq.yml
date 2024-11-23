@@ -1,0 +1,27 @@
+version: '3.8'
+
+name: 'rabbitmq'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3.12.7-management-alpine
+    container_name: rabbitmq
+    restart: unless-stopped
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: quangduong
+      RABBITMQ_DEFAULT_PASS: 292003
+    volumes:
+      - rabbitmq:/var/lib/rabbitmq
+    networks:
+      - hometopia-network
+
+volumes:
+  rabbitmq:
+    driver: local
+
+networks:
+  hometopia-network:
+    external: true

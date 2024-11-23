@@ -1,0 +1,52 @@
+version: '3.8'
+
+name: estate-infra
+
+services:
+
+  consul:
+    image: hashicorp/consul:1.14
+    container_name: consul
+    restart: unless-stopped
+    ports:
+      - "8500:8500"
+      - "8600:8600/tcp"
+      - "8600:8600/udp"
+    volumes:
+      - consul:/consul/data
+      - ./consul/acl.json:/consul/config/acl.json
+    command: "agent -server -ui -node=server-1 -bootstrap-expect=1 -client=0.0.0.0"
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:25.0.2
+    container_name: keycloak
+    restart: unless-stopped
+    ports:
+      - "8008:8080"
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+    volumes:
+      - ./keycloak:/opt/keycloak/data/import
+    command: start-dev --import-realm
+
+#  zipkin:
+#    container_name: zipkin
+#    image: openzipkin/zipkin:3
+#    restart: unless-stopped
+#    ports:
+#      - "9411:9411"
+#    networks:
+#      - estate-network
+
+volumes:
+  consul:
+    driver: local
+  minio:
+    driver: local
+  vault-file:
+    driver: local
+  vault-log:
+    driver: local
+  vault-logs:
+    driver: local
