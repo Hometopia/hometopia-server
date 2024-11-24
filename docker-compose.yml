@@ -7,7 +7,7 @@ services:
     container_name: core-service
     image: core-service
     env_file:
-      - .env
+      - /root/.env
     restart: unless-stopped
     environment:
       SPRING_PROFILES_ACTIVE: prod
@@ -20,7 +20,7 @@ services:
     container_name: gateway-service
     image: gateway-service
     env_file:
-      - .env
+      - /root/.env
     restart: unless-stopped
     environment:
       SPRING_PROFILES_ACTIVE: prod
@@ -33,7 +33,7 @@ services:
     container_name: media-service
     image: media-service
     env_file:
-      - .env
+      - /root/.env
     restart: unless-stopped
     environment:
       SPRING_PROFILES_ACTIVE: prod
@@ -46,7 +46,7 @@ services:
     container_name: rule-service
     image: rule-service
     env_file:
-      - .env
+      - /root/.env
     restart: unless-stopped
     environment:
       SPRING_PROFILES_ACTIVE: prod
