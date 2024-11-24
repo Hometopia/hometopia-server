@@ -33,7 +33,7 @@ jobs:
       - name: Build rule
         run: cd rule-service && mvn clean install -DskipTests && docker build --build-arg SERVICE_NAME=rule-service --platform linux/amd64 -t rule-service .
       - name: Build scheduled
-        run: cd scheduled-service && mvn clean install -DskipTests && docker build --build-arg SERVICE_NAME=scheduled-service build --platform linux/amd64 -t scheduled-service .
+        run: cd scheduled-service && mvn clean install -DskipTests && docker build --build-arg SERVICE_NAME=scheduled-service --platform linux/amd64 -t scheduled-service .
       - name: Build vendor
         run: cd vendor-service && mvn clean install -DskipTests && docker build --build-arg SERVICE_NAME=vendor-service --platform linux/amd64 -t vendor-service .
       - name: Run containers
