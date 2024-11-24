@@ -3,15 +3,10 @@ version: '3.8'
 name: hometopia
 
 services:
-  hometopia-core-service:
-    container_name: hometopia-core-service
-    image: hometopia-core-service
+  core-service:
+    container_name: core-service
+    image: core-service
     restart: unless-stopped
-    build:
-      context: ./core-service
-      dockerfile: Dockerfile
-      args:
-        SERVICE_NAME: core-service
     environment:
       SPRING_PROFILES_ACTIVE: prod
     ports:
@@ -19,15 +14,10 @@ services:
     networks:
       - hometopia-network
 
-  hometopia-gateway-service:
-    container_name: hometopia-gateway-service
-    image: hometopia-gateway-service
+  gateway-service:
+    container_name: gateway-service
+    image: gateway-service
     restart: unless-stopped
-    build:
-      context: ./gateway-service
-      dockerfile: Dockerfile
-      args:
-        SERVICE_NAME: gateway-service
     environment:
       SPRING_PROFILES_ACTIVE: prod
     ports:
@@ -35,15 +25,10 @@ services:
     networks:
       - hometopia-network
 
-  hometopia-media-service:
-    container_name: hometopia-media-service
-    image: hometopia-media-service
+  media-service:
+    container_name: media-service
+    image: media-service
     restart: unless-stopped
-    build:
-      context: ./media-service
-      dockerfile: Dockerfile
-      args:
-        SERVICE_NAME: media-service
     environment:
       SPRING_PROFILES_ACTIVE: prod
     ports:
@@ -51,15 +36,10 @@ services:
     networks:
       - hometopia-network
 
-  hometopia-rule-service:
-    container_name: hometopia-rule-service
-    image: hometopia-rule-service
+  rule-service:
+    container_name: rule-service
+    image: rule-service
     restart: unless-stopped
-    build:
-      context: ./rule-service
-      dockerfile: Dockerfile
-      args:
-        SERVICE_NAME: rule-service
     environment:
       SPRING_PROFILES_ACTIVE: prod
     ports:

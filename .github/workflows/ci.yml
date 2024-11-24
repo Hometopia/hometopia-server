@@ -25,16 +25,16 @@ jobs:
       - name: Build commons
         run:  cd commons && mvn clean install -DskipTests
       - name: Build core
-        run: cd core-service && mvn clean install -DskipTests
+        run: cd core-service && mvn clean install -DskipTests && docker build --build-arg SERVICE_NAME=core-service --platform linux/amd64 -t core-service .
       - name: Build gateway
-        run: cd gateway-service && mvn clean install -DskipTests
+        run: cd gateway-service && mvn clean install -DskipTests && docker build --build-arg SERVICE_NAME=gateway-service --platform linux/amd64 -t gateway-service .
       - name: Build media
-        run: cd media-service && mvn clean install -DskipTests
+        run: cd media-service && mvn clean install -DskipTests && docker build --build-arg SERVICE_NAME=media-service --platform linux/amd64 -t media-service .
       - name: Build rule
-        run: cd rule-service && mvn clean install -DskipTests
+        run: cd rule-service && mvn clean install -DskipTests && docker build --build-arg SERVICE_NAME=rule-service --platform linux/amd64 -t rule-service .
       - name: Build scheduled
-        run: cd scheduled-service && mvn clean install -DskipTests
+        run: cd scheduled-service && mvn clean install -DskipTests && docker --build-arg SERVICE_NAME=scheduled-service build --platform linux/amd64 -t scheduled-service .
       - name: Build vendor
-        run: cd vendor-service && mvn clean install -DskipTests
+        run: cd vendor-service && mvn clean install -DskipTests && docker build --build-arg SERVICE_NAME=vendor-service --platform linux/amd64 -t vendor-service .
       - name: Run containers
         run: docker compose up -d
