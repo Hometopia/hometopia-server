@@ -9,6 +9,10 @@ services:
     restart: unless-stopped
     environment:
       SPRING_PROFILES_ACTIVE: prod
+      VAULT_TOKEN: ${VAULT_TOKEN}
+      VAULT_SCHEME: ${VAULT_SCHEME}
+      VAULT_HOST: ${VAULT_SCHEME}
+      VAULT_PORT: ${VAULT_PORT}
     ports:
       - "8010:8010"
     networks:
