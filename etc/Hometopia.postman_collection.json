@@ -1,0 +1,684 @@
+{
+	"info": {
+		"_postman_id": "ab3c6386-e2aa-45f5-b2e0-3467c94193b9",
+		"name": "Hometopia",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "21537436"
+	},
+	"item": [
+		{
+			"name": "Sign Up",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"1234quangduong\",\r\n    \"firstName\": \"Duong\",\r\n    \"lastName\": \"Dinh\",\r\n    \"email\": \"12quan34gduong@gmail.com\",\r\n    \"password\": \"292003\",\r\n    \"address\": {\r\n        \"line\": \"2/9 Nguyễn Thị Định\",\r\n        \"provinceId\": 77,\r\n        \"districtId\": 747,\r\n        \"wardId\": 26530\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/auth/sign-up"
+			},
+			"response": []
+		},
+		{
+			"name": "Sign In",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "quangduong",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "292003",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "hometopia-client",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "kFqHBBp6AMbqtHkTlqo6GeR6KQ8qqmeB",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8000/api/auth/sign-in"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Suggested Categories",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYVFNEU1hpU1M3Zm5vcHlObEMyMzBzWEdweFhTcThVQTZtZk5QWXJiVEh3In0.eyJleHAiOjE3Mjk2MTMzNTksImlhdCI6MTcyOTYxMzA1OSwianRpIjoiNzUxZjdhMTktYzIyOC00YjczLThmNTQtYmNhNDVmZWFjMzM3IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNTY1ODQ0N2MtNzg2Zi00MTk2LTg5NjYtOGU0ZDdjNWYxMzhhIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjBiYjRlMGJjLWIzMzEtNDNiNC1iMTM5LWQ0NTVmZDAzZTVkNSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6InF1YW5nZHVvbmciLCJnaXZlbl9uYW1lIjoiRHVvbmciLCJmYW1pbHlfbmFtZSI6IkRpbmgiLCJlbWFpbCI6InF1YW5nZHVvbmdAZ21haWwuY29tIn0.e-5NyCajcCTuX27vvyQ1ownVTG8I3_U8obCBUHyyV3Gz_W5zW1ywYWRb_wV3JqW_qbr42CyieCLkbeCMzTJm4atkxTMVFv_0lAGGtHabqgQME1wbfRj2lk0_wNtjKatVAp4IcBzGT89aUKx4P66jBfEga9rcxAZw7NlGr23dZ9OyGqdpyFZSi6V_bF8eePBelrKlF39yoa4-aqp8AYzSrxoQaFwzyqAE0aE3y9xc6Zs159jA2zZbv6nsogLatP-pxQVmGx7zaLwfZGyT5fZ-znAZIvl6NNrcb7bP8ZFtqTztdtOwECjhgoWN3SN2hvceHdd7Fr1RnjPKFCxE25VYJw"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/categories/suggested?houseType=HIGH_GRADE",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"categories",
+						"suggested"
+					],
+					"query": [
+						{
+							"key": "houseType",
+							"value": "HIGH_GRADE"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get List Provinces",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8000/api/provinces"
+			},
+			"response": []
+		},
+		{
+			"name": "Get List Wards",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/wards?districtId=747",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"wards"
+					],
+					"query": [
+						{
+							"key": "districtId",
+							"value": "747"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get List Districts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/districts?provinceId=77",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"districts"
+					],
+					"query": [
+						{
+							"key": "provinceId",
+							"value": "77"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create List Categories",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYVFNEU1hpU1M3Zm5vcHlObEMyMzBzWEdweFhTcThVQTZtZk5QWXJiVEh3In0.eyJleHAiOjE3MzAwMTE2NTAsImlhdCI6MTczMDAxMTM1MCwianRpIjoiNDFmYjg3NGMtZjhkZC00OTYxLWE5YTktY2ZjNTZiOTQzMDVkIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNTY1ODQ0N2MtNzg2Zi00MTk2LTg5NjYtOGU0ZDdjNWYxMzhhIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6ImNlMjk4NjZjLTM0ZWQtNDE1Yy1hYzc3LWNjOGIxOWUxNzQzNyIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6InF1YW5nZHVvbmciLCJnaXZlbl9uYW1lIjoiRHVvbmciLCJmYW1pbHlfbmFtZSI6IkRpbmgiLCJlbWFpbCI6InF1YW5nZHVvbmdAZ21haWwuY29tIn0.g2pMqZwl9KFGjQj5TBcD2QOHgnn3p0FHt1fUQuConDZiXEv7ykC_hQMmGlQtlQ_TYBcZYDd963OSaru0OX3HnwtC1YEZrEKkq9EzQkPWRLH6e9ZVO3RYQKLc5igvhaB77EA-pOS1wj7h2oSmCVVCahgpp5aDfcnshiOy8vbv6plq2qWBIiPaP53_Hx9ayP1WBboZjg_G7L1LeaW4Tte2p-OXeQkjmxs91Bl1Q67b0yvmnVyBmRjWbkwKI-VfanQ7v1dG4klnXXNZjcDRjQ_QBYkHwbSGgQ2OQx6X77n5nZHhrp9cLL1xKoFVPqYymh19lYyokhlpwtzT32sXd8nLJA"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"categories\": [\r\n        {\r\n            \"name\": \"Thiết bị phòng khách\",\r\n            \"description\": \"\",\r\n            \"subCategories\": [\r\n                {\r\n                    \"name\": \"TV\",\r\n                    \"description\": \"\",\r\n                    \"subCategories\": []\r\n                },\r\n                {\r\n                    \"name\": \"Hệ thống âm thanh\",\r\n                    \"description\": \"\",\r\n                    \"subCategories\": []\r\n                },\r\n                {\r\n                    \"name\": \"Thiết bị chiếu\",\r\n                    \"description\": \"\",\r\n                    \"subCategories\": []\r\n                },\r\n                {\r\n                    \"name\": \"Điều hòa\",\r\n                    \"description\": \"\",\r\n                    \"subCategories\": []\r\n                },\r\n                {\r\n                    \"name\": \"Đèn chiếu sáng\",\r\n                    \"description\": \"\",\r\n                    \"subCategories\": []\r\n                },\r\n                {\r\n                    \"name\": \"Máy lọc không khí\",\r\n                    \"description\": \"\",\r\n                    \"subCategories\": []\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"name\": \"Thiết bị phòng bếp\",\r\n            \"description\": \"\",\r\n            \"subCategories\": [\r\n                {\r\n                    \"name\": \"Bếp\",\r\n                    \"description\": \"\",\r\n                    \"subCategories\": []\r\n                },\r\n                {\r\n                    \"name\": \"Lò vi sóng\",\r\n                    \"description\": \"\",\r\n                    \"subCategories\": []\r\n                },\r\n                {\r\n                    \"name\": \"Lò nướng\",\r\n                    \"description\": \"\",\r\n                    \"subCategories\": []\r\n                },\r\n                {\r\n                    \"name\": \"Tủ lạnh\",\r\n                    \"description\": \"\",\r\n                    \"subCategories\": []\r\n                },\r\n                {\r\n                    \"name\": \"Máy lọc nước\",\r\n                    \"description\": \"\",\r\n                    \"subCategories\": []\r\n                },\r\n                {\r\n                    \"name\": \"Máy hút mùi\",\r\n                    \"description\": \"\",\r\n                    \"subCategories\": []\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"name\": \"Thiết bị phòng ngủ\",\r\n            \"description\": \"\",\r\n            \"subCategories\": [\r\n                {\r\n                    \"name\": \"Giường\",\r\n                    \"description\": \"\",\r\n                    \"subCategories\": []\r\n                },\r\n                {\r\n                    \"name\": \"Tủ quần áo\",\r\n                    \"description\": \"\",\r\n                    \"subCategories\": []\r\n                },\r\n                {\r\n                    \"name\": \"Bàn đầu giường\",\r\n                    \"description\": \"\",\r\n                    \"subCategories\": []\r\n                },\r\n                {\r\n                    \"name\": \"Điều hòa\",\r\n                    \"description\": \"\",\r\n                    \"subCategories\": []\r\n                },\r\n                {\r\n                    \"name\": \"Quạt\",\r\n                    \"description\": \"\",\r\n                    \"subCategories\": []\r\n                },\r\n                {\r\n                    \"name\": \"Đèn ngủ\",\r\n                    \"description\": \"\",\r\n                    \"subCategories\": []\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"name\": \"Thiết bị phòng tắm\",\r\n            \"description\": \"\",\r\n            \"subCategories\": [\r\n                {\r\n                    \"name\": \"Vòi sen\",\r\n                    \"description\": \"\",\r\n                    \"subCategories\": []\r\n                },\r\n                {\r\n                    \"name\": \"Bồn tắm\",\r\n                    \"description\": \"\",\r\n                    \"subCategories\": []\r\n                },\r\n                {\r\n                    \"name\": \"Bồn rửa\",\r\n                    \"description\": \"\",\r\n                    \"subCategories\": []\r\n                },\r\n                {\r\n                    \"name\": \"Máy nước nóng\",\r\n                    \"description\": \"\",\r\n                    \"subCategories\": []\r\n                },\r\n                {\r\n                    \"name\": \"Quạt thông gió\",\r\n                    \"description\": \"\",\r\n                    \"subCategories\": []\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"name\": \"Thiết bị phòng giặt\",\r\n            \"description\": \"\",\r\n            \"subCategories\": [\r\n                {\r\n                    \"name\": \"Máy giặt\",\r\n                    \"description\": \"\",\r\n                    \"subCategories\": []\r\n                },\r\n                {\r\n                    \"name\": \"Máy sấy quần áo\",\r\n                    \"description\": \"\",\r\n                    \"subCategories\": []\r\n                },\r\n                {\r\n                    \"name\": \"Giàn phơi\",\r\n                    \"description\": \"\",\r\n                    \"subCategories\": []\r\n                },\r\n                {\r\n                    \"name\": \"Bàn là\",\r\n                    \"description\": \"\",\r\n                    \"subCategories\": []\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/categories"
+			},
+			"response": []
+		},
+		{
+			"name": "Get List Categories",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYVFNEU1hpU1M3Zm5vcHlObEMyMzBzWEdweFhTcThVQTZtZk5QWXJiVEh3In0.eyJleHAiOjE3MzAwMjQ0NDYsImlhdCI6MTczMDAyMDg0NiwianRpIjoiNWI2MzZmOTAtNzI5NC00YTU0LWFiYmYtNjRjZTkzNGVmYzczIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNTY1ODQ0N2MtNzg2Zi00MTk2LTg5NjYtOGU0ZDdjNWYxMzhhIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6Ijg5ZjZiZWE4LWFiYWYtNGNjOC1iZWFiLWJjOTc5MzA4OTk2MiIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6InF1YW5nZHVvbmciLCJnaXZlbl9uYW1lIjoiRHVvbmciLCJmYW1pbHlfbmFtZSI6IkRpbmgiLCJlbWFpbCI6InF1YW5nZHVvbmdAZ21haWwuY29tIn0.ETCGRfi78lbztjVGETHtKKCvmjGSqEh3E3VyFE8iw9UJKVjqvhSi7sMvzMCFYLFkYGqDVO1Oz3kZDyh6mdKD6WNxaUNggjg6oxLJFpuBPwGxz_c4UazfTl_IlvOeY4ViBunLZU_VkcugL6h6HG7FeX8dizJLSjVKLhwNcHUTlbasfIG8aeJNiLbHchKxSKAnlW3xia9O5YOqYjqfohmGLY7pO1ezHLANnnwPUXiNf6LPbI_K_IGOULucy67EkYo42xDvMSlUY3sfqWMNvEP2x1aX9cgKpdYnlQw9odj5fe8ES2448RNBI17MHsaYMmFywfsTmmvwuD_KpUG30Xekbw"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/categories?all=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"categories"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "size",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "all",
+							"value": "true"
+						},
+						{
+							"key": "filter",
+							"value": "parent=isnotnull=notnull;name=ilike=thanh",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Category",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYVFNEU1hpU1M3Zm5vcHlObEMyMzBzWEdweFhTcThVQTZtZk5QWXJiVEh3In0.eyJleHAiOjE3Mjk5NDU5NTQsImlhdCI6MTcyOTk0NTY1NCwianRpIjoiNzE1YTVjODMtODFjZC00N2U0LTkxYjItZWYwMTAwNDMyMzEwIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNTY1ODQ0N2MtNzg2Zi00MTk2LTg5NjYtOGU0ZDdjNWYxMzhhIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6ImFmOTA3MjcwLWQ3ZTItNGIzZS05ZjEzLTIxOTZhZjkxNzdlMyIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6InF1YW5nZHVvbmciLCJnaXZlbl9uYW1lIjoiRHVvbmciLCJmYW1pbHlfbmFtZSI6IkRpbmgiLCJlbWFpbCI6InF1YW5nZHVvbmdAZ21haWwuY29tIn0.SYo-XJiq62qI159wvpliJekNjf3tj_NA2g9nWiJB8PnpB3kJgpZ8HiChJwjpv2exHBUAGhyNohSXnU9prFk8xgucGBv0yhJJb0C2qMT1qRKfTR4srGQJxeWcqP-lBQmNKYcON32cXWXvTq9_v2iR1vGNIah0N4BZVR4WtpVZ96Jx9Cm8w9Kzw5cpIiH8fgWTC2IPZ9mP-yyIs6WwXQXSqd3Fms70NjGCbcdKTlmnHOVLrfwea1qxv0Rulfg0csd8Do2MQ8p6iTafrjOLyYpSwj3EvkG1qKDwhZRBOzwkz2P1dRGUATYSMlwOTVKCgShZdGgtu6jbgOXnOroGpVuaKw"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Thiết bị phòng kháchkkk\",\r\n    \"description\": \"dfsdf\",\r\n    \"parentId\": null,\r\n    \"subCategoryIds\": [\r\n        // 1850018377846886400,\r\n        // 1850018377855275008,\r\n        // 1850018377859469312,\r\n        // 1850018377863663616,\r\n        // 1850018377867857920,\r\n        // 1850018377867857921\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/categories/0HPMS8PMNEWZZ"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Category",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYVFNEU1hpU1M3Zm5vcHlObEMyMzBzWEdweFhTcThVQTZtZk5QWXJiVEh3In0.eyJleHAiOjE3Mjk5NDU5NTQsImlhdCI6MTcyOTk0NTY1NCwianRpIjoiNzE1YTVjODMtODFjZC00N2U0LTkxYjItZWYwMTAwNDMyMzEwIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNTY1ODQ0N2MtNzg2Zi00MTk2LTg5NjYtOGU0ZDdjNWYxMzhhIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6ImFmOTA3MjcwLWQ3ZTItNGIzZS05ZjEzLTIxOTZhZjkxNzdlMyIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6InF1YW5nZHVvbmciLCJnaXZlbl9uYW1lIjoiRHVvbmciLCJmYW1pbHlfbmFtZSI6IkRpbmgiLCJlbWFpbCI6InF1YW5nZHVvbmdAZ21haWwuY29tIn0.SYo-XJiq62qI159wvpliJekNjf3tj_NA2g9nWiJB8PnpB3kJgpZ8HiChJwjpv2exHBUAGhyNohSXnU9prFk8xgucGBv0yhJJb0C2qMT1qRKfTR4srGQJxeWcqP-lBQmNKYcON32cXWXvTq9_v2iR1vGNIah0N4BZVR4WtpVZ96Jx9Cm8w9Kzw5cpIiH8fgWTC2IPZ9mP-yyIs6WwXQXSqd3Fms70NjGCbcdKTlmnHOVLrfwea1qxv0Rulfg0csd8Do2MQ8p6iTafrjOLyYpSwj3EvkG1qKDwhZRBOzwkz2P1dRGUATYSMlwOTVKCgShZdGgtu6jbgOXnOroGpVuaKw"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8000/api/categories/0HPMS8PMNEWZZ"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete List Categories",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYVFNEU1hpU1M3Zm5vcHlObEMyMzBzWEdweFhTcThVQTZtZk5QWXJiVEh3In0.eyJleHAiOjE3Mjk5NDY1MzQsImlhdCI6MTcyOTk0NjIzNCwianRpIjoiNzAzZTFlNjktYzc1MC00ODYyLTgwZjgtODk5MTU4ZjkzMmQ5IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNTY1ODQ0N2MtNzg2Zi00MTk2LTg5NjYtOGU0ZDdjNWYxMzhhIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6ImFmZGMzZjQyLTVjMjYtNGE5MS1hN2EwLTNhY2ZiNDFlMWJkZCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6InF1YW5nZHVvbmciLCJnaXZlbl9uYW1lIjoiRHVvbmciLCJmYW1pbHlfbmFtZSI6IkRpbmgiLCJlbWFpbCI6InF1YW5nZHVvbmdAZ21haWwuY29tIn0.WKmerD5sM_3kJjDKyH6m-RVJob1Qptjd_n5Ya7gJ4s1FqfMrU5UqnMK2wRILITOKjkz4BHxEa9nh4wO39rYygmzec97FlsVJKHWmgjBhv7AiC291LF7ijmVa3Vgj7BXgw3Cv-nJbGKSJL2MKHcnq0gXJppF9ogBEIn15SHZm_99RHe0yQytvADJ8nR_cgd1hYHvzZDbS3fieN9bAIXyc7fyd7cX4HlISv1L6b6HxoHvAXm22oUl6quhe7aS9mca_OQo7MqqxVQzBIE5UJJWzDNNRqbN7j9X6xvUiPj26y5g5HzS9i4xwzf2ekcrErk-r0rCYtApgJGF73VikJxHBHg"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/categories?ids=0HPMS8PTDEX2Z,0HPMS8PTSEW9M,0HPMS8PV1EYRV,0HPMS8PV9EXJA",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"categories"
+					],
+					"query": [
+						{
+							"key": "ids",
+							"value": "0HPMS8PTDEX2Z,0HPMS8PTSEW9M,0HPMS8PV1EYRV,0HPMS8PV9EXJA"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload Files",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "files",
+							"type": "file",
+							"src": "/C:/Users/HP/Downloads/laptop.jpg"
+						}
+					]
+				},
+				"url": "http://localhost:8000/api/files"
+			},
+			"response": []
+		},
+		{
+			"name": "Get File",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/files?fileName=20241027140223_laptop.jpg",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"files"
+					],
+					"query": [
+						{
+							"key": "fileName",
+							"value": "20241027140223_laptop.jpg"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get List Assets",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYVFNEU1hpU1M3Zm5vcHlObEMyMzBzWEdweFhTcThVQTZtZk5QWXJiVEh3In0.eyJleHAiOjE3MzA3NDA1OTAsImlhdCI6MTczMDczNjk5MCwianRpIjoiNTdhYzNjYTctN2E1OS00N2U0LWJlZWUtYmMxN2M3MDk5ZWZkIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNTY1ODQ0N2MtNzg2Zi00MTk2LTg5NjYtOGU0ZDdjNWYxMzhhIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjhkYTg2YmEwLWU2NDgtNGMzNS1iNjIwLTc2MDg4ODQ2NTFiMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6InF1YW5nZHVvbmciLCJnaXZlbl9uYW1lIjoiRHVvbmciLCJmYW1pbHlfbmFtZSI6IkRpbmgiLCJlbWFpbCI6InF1YW5nZHVvbmdAZ21haWwuY29tIn0.WqiIP3czUGRwm12xQrbFr6tTe4ZoMNAVjoGK8ybM0yXd1Ojaulnboo60WdvNAhI-Xk70l9e4MWN_TNJ89-ZExE3oWhXiomoZo0bw8OdUArY8V8cK8UwuLKl1gO13cWuLUX_qYf_ZEWaxH3bV7HXfOHrd9NcB948Mbgrg7DygUxD5YPWh-1OkcDDod7O-KkT0CAc1Zp22vXp7zj8YgziLujGCSDudJuwyqvr30E521LhmHB9kT5INiBtfTeZcR9ySu0OBaSrxXn7mmpfY7-l05nw51njjDCOYc2nTh96yxSHOhA1f0GHO4r1XV0LBNWQXCOOJhJ3_kDhSllC8wAUvIw"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/assets?page=1&size=10&filter=name=ilike=laptop;category.id==0HPWKWJNAS114",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"assets"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "filter",
+							"value": "name=ilike=laptop;category.id==0HPWKWJNAS114"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get One Asset",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYVFNEU1hpU1M3Zm5vcHlObEMyMzBzWEdweFhTcThVQTZtZk5QWXJiVEh3In0.eyJleHAiOjE3MzAwMTcwNDIsImlhdCI6MTczMDAxNjc0MiwianRpIjoiMDJhNTFlNDEtZDI5YS00ZmU3LTk1MGYtYTFjOTUyODMzOWYyIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNTY1ODQ0N2MtNzg2Zi00MTk2LTg5NjYtOGU0ZDdjNWYxMzhhIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjY5Y2U3Nzk2LTUxOTMtNGE5MS05N2UwLTJlODhiZTNlODEyNCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6InF1YW5nZHVvbmciLCJnaXZlbl9uYW1lIjoiRHVvbmciLCJmYW1pbHlfbmFtZSI6IkRpbmgiLCJlbWFpbCI6InF1YW5nZHVvbmdAZ21haWwuY29tIn0.b9joVNqB_uRIKK19JPiMkj3mIXYJfXhh8tnku58Xijx-Mlkl4iGDiqa9MXEVvJ-5w8vTNjGnJxcFg3DGpoNT0icvWNXcQJXKz0-olFa9V3LqjNK69J6W1n6a-IjPiCggmoTUVGeD3ON_1W17QFgtNV8n8yUk6HG-dd3tJ7qyoLHgnKSidHK-HaUFyuhqJ9a9jREruSVEIfKgxcPsTQINaJhWPuD_dmceBga6q-RNMr0dKvVdJONY2uorctRSispi5-_y0AQfWbK6Evjy4JTVn77CpUvH-PBeNR5au75Z7qYpVLNa2zyTe6xaeNr6ejnTBScxd60vVr22Pdxtzhor2Q"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8000/api/assets/0HPX8EEXAJ6V0"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Asset",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYVFNEU1hpU1M3Zm5vcHlObEMyMzBzWEdweFhTcThVQTZtZk5QWXJiVEh3In0.eyJleHAiOjE3MzAwMTcwNDIsImlhdCI6MTczMDAxNjc0MiwianRpIjoiMDJhNTFlNDEtZDI5YS00ZmU3LTk1MGYtYTFjOTUyODMzOWYyIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNTY1ODQ0N2MtNzg2Zi00MTk2LTg5NjYtOGU0ZDdjNWYxMzhhIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjY5Y2U3Nzk2LTUxOTMtNGE5MS05N2UwLTJlODhiZTNlODEyNCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6InF1YW5nZHVvbmciLCJnaXZlbl9uYW1lIjoiRHVvbmciLCJmYW1pbHlfbmFtZSI6IkRpbmgiLCJlbWFpbCI6InF1YW5nZHVvbmdAZ21haWwuY29tIn0.b9joVNqB_uRIKK19JPiMkj3mIXYJfXhh8tnku58Xijx-Mlkl4iGDiqa9MXEVvJ-5w8vTNjGnJxcFg3DGpoNT0icvWNXcQJXKz0-olFa9V3LqjNK69J6W1n6a-IjPiCggmoTUVGeD3ON_1W17QFgtNV8n8yUk6HG-dd3tJ7qyoLHgnKSidHK-HaUFyuhqJ9a9jREruSVEIfKgxcPsTQINaJhWPuD_dmceBga6q-RNMr0dKvVdJONY2uorctRSispi5-_y0AQfWbK6Evjy4JTVn77CpUvH-PBeNR5au75Z7qYpVLNa2zyTe6xaeNr6ejnTBScxd60vVr22Pdxtzhor2Q"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Office Laptop\",\r\n    \"description\": \"High-end laptop for development work\",\r\n    \"images\": [\r\n        {\r\n            \"originalFileName\": \"laptop.jpg\",\r\n            \"fileName\": \"20241027140223_laptop.jpg\",\r\n            \"fileExtension\": \"jpg\",\r\n            \"mimeType\": \"image/jpeg\",\r\n            \"bucket\": \"hometopia\",\r\n            \"path\": \"/hometopia/20241027140223_laptop.jpg\"\r\n        }\r\n    ],\r\n    \"purchaseDate\": \"2023-08-15\",\r\n    \"purchasePlace\": \"TechStore Ltd.\",\r\n    \"purchasePrice\": 1500.99,\r\n    \"vendor\": \"Dell Inc.\",\r\n    \"serialNumber\": \"SN123456789\",\r\n    \"location\": \"Hanoi Office\",\r\n    \"warrantyExpiryDate\": \"2026-08-15\",\r\n    \"documents\": [],\r\n    \"status\": \"IN_USE\",\r\n    \"maintenanceCycle\": null,\r\n    \"categoryId\": \"0HPWKWJNAS114\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/assets"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Asset",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYVFNEU1hpU1M3Zm5vcHlObEMyMzBzWEdweFhTcThVQTZtZk5QWXJiVEh3In0.eyJleHAiOjE3MzAwMTU3MDEsImlhdCI6MTczMDAxNTQwMSwianRpIjoiMjczNmY2MGMtOWY1Zi00YmQ4LWIyOGYtYzVkNzk0MDA3MTczIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNTY1ODQ0N2MtNzg2Zi00MTk2LTg5NjYtOGU0ZDdjNWYxMzhhIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjU2ZDA5ZTUyLTJlN2UtNDNhMy04ZDg1LTE5YjM1ZmU2YThmMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6InF1YW5nZHVvbmciLCJnaXZlbl9uYW1lIjoiRHVvbmciLCJmYW1pbHlfbmFtZSI6IkRpbmgiLCJlbWFpbCI6InF1YW5nZHVvbmdAZ21haWwuY29tIn0.WJv4lH78Z5oV2sF0reIqT7zjxkE_yo0nxgCFoYBHi2bcrTn7OmzsuzorEnqcf0on60ASybn-kTt3TSWVeB-LBznKC6sxs0d_xRXLxWKGgg6lf_5qWuR4n6hY41HXM_AKacEz9bFiEabo2blKmxh70MYRcgJj8fchXZfyhf1cIy6PojYgeK97zeVl_R1WlNMMT9MlkqkvU7u2Ogy9J6FvKcd_32qf4MnSiSYK6mEa5Z6YJdL4kJPKhccQZcC04dcYvmr-sqf7vjmnd8rtwKsekc-Tlels7-AmnbiKgrdk2oMscJyS18VZiKv45KQ1G0eFqtPP7m0urrHMy1LZhx6ovA"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8000/api/assets/0HPWTDPBENVHQ"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete List Assets",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYVFNEU1hpU1M3Zm5vcHlObEMyMzBzWEdweFhTcThVQTZtZk5QWXJiVEh3In0.eyJleHAiOjE3MzAwMTU3MDEsImlhdCI6MTczMDAxNTQwMSwianRpIjoiMjczNmY2MGMtOWY1Zi00YmQ4LWIyOGYtYzVkNzk0MDA3MTczIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNTY1ODQ0N2MtNzg2Zi00MTk2LTg5NjYtOGU0ZDdjNWYxMzhhIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjU2ZDA5ZTUyLTJlN2UtNDNhMy04ZDg1LTE5YjM1ZmU2YThmMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6InF1YW5nZHVvbmciLCJnaXZlbl9uYW1lIjoiRHVvbmciLCJmYW1pbHlfbmFtZSI6IkRpbmgiLCJlbWFpbCI6InF1YW5nZHVvbmdAZ21haWwuY29tIn0.WJv4lH78Z5oV2sF0reIqT7zjxkE_yo0nxgCFoYBHi2bcrTn7OmzsuzorEnqcf0on60ASybn-kTt3TSWVeB-LBznKC6sxs0d_xRXLxWKGgg6lf_5qWuR4n6hY41HXM_AKacEz9bFiEabo2blKmxh70MYRcgJj8fchXZfyhf1cIy6PojYgeK97zeVl_R1WlNMMT9MlkqkvU7u2Ogy9J6FvKcd_32qf4MnSiSYK6mEa5Z6YJdL4kJPKhccQZcC04dcYvmr-sqf7vjmnd8rtwKsekc-Tlels7-AmnbiKgrdk2oMscJyS18VZiKv45KQ1G0eFqtPP7m0urrHMy1LZhx6ovA"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/assets?ids=0HPX3MHKYDZ6R",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"assets"
+					],
+					"query": [
+						{
+							"key": "ids",
+							"value": "0HPX3MHKYDZ6R"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Asset",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYVFNEU1hpU1M3Zm5vcHlObEMyMzBzWEdweFhTcThVQTZtZk5QWXJiVEh3In0.eyJleHAiOjE3MzAwMTc0NzUsImlhdCI6MTczMDAxNzE3NSwianRpIjoiYzM1YTAyZDktM2FhZS00NDJmLWJkNjItYjY1NTBjZWNmNDdmIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNTY1ODQ0N2MtNzg2Zi00MTk2LTg5NjYtOGU0ZDdjNWYxMzhhIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6ImFmMDNiYmZmLTA2MjctNGFkYi05MDgyLTA1ZGY1NDcwYjlkMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6InF1YW5nZHVvbmciLCJnaXZlbl9uYW1lIjoiRHVvbmciLCJmYW1pbHlfbmFtZSI6IkRpbmgiLCJlbWFpbCI6InF1YW5nZHVvbmdAZ21haWwuY29tIn0.k5W7-qjE9dbuB00LHbGTwRFSHdrhAx5ZJyZyoCq9Q3q_ATv_nz0HlUtvOOLjEYcuao7eCPXnglbOFlxRL31uBzxiq4FbAyUs9o1a_LxXxIlK4ipJJKuYoBLb1GcDzEnuR1L9agMKAKjtQR63ilszWcNTr9nSGclP6vggIYqXqqoQFKHeyc2vEQBEnvKnHCzjN8PGSzS3rVqxwDGO0Y4KpvYL7-eXUYATW2TAnN50TaXWYYkEwJUGiXS1-ZngFMg3KxjFpN1nZT2qrHgmFmubpBPz0jw2pNLMLeGc-CT7_UEqBE8A6PvEbkVSx5E1mF_3PEX1WIGiBxK2Ekw3CDmhWg"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"QD Laptop\",\r\n    \"description\": \"High-end laptop for development work\",\r\n    \"images\": [\r\n        {\r\n            \"originalFileName\": \"laptop.jpg\",\r\n            \"fileName\": \"20241027140223_laptop.jpg\",\r\n            \"fileExtension\": \"jpg\",\r\n            \"mimeType\": \"image/jpeg\",\r\n            \"bucket\": \"hometopia\",\r\n            \"path\": \"/hometopia/20241027140223_laptop.jpg\"\r\n        }\r\n    ],\r\n    \"purchaseDate\": \"2023-08-15\",\r\n    \"purchasePlace\": \"TechStore Ltd.\",\r\n    \"purchasePrice\": 1500.99,\r\n    \"vendor\": \"Dell Inc.\",\r\n    \"serialNumber\": \"SN123456789\",\r\n    \"location\": \"Hanoi Office\",\r\n    \"warrantyExpiryDate\": \"2026-08-15\",\r\n    \"documents\": [\r\n        {\r\n            \"originalFileName\": \"laptop.jpg\",\r\n            \"fileName\": \"20241027140223_laptop.jpg\",\r\n            \"fileExtension\": \"jpg\",\r\n            \"mimeType\": \"image/jpeg\",\r\n            \"bucket\": \"hometopia\",\r\n            \"path\": \"/hometopia/20241027140223_laptop.jpg\"\r\n        }\r\n    ],\r\n    \"status\": \"MAINTENANCE\",\r\n    \"maintenanceCycle\": 10,\r\n    \"categoryId\": \"0HPWKWJNAS114\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/assets/0HPX8EEXAJ6V0"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Useful Life",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYVFNEU1hpU1M3Zm5vcHlObEMyMzBzWEdweFhTcThVQTZtZk5QWXJiVEh3In0.eyJleHAiOjE3MzAwMjgxNDMsImlhdCI6MTczMDAyNDU0MywianRpIjoiMTEwYzk3YzYtMzM2Zi00YTFjLTk1NzMtMjVjOTM0N2M4MjdmIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNTY1ODQ0N2MtNzg2Zi00MTk2LTg5NjYtOGU0ZDdjNWYxMzhhIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6ImY5ZGUzNmFhLTUzYTUtNGJlNi1iYzM5LWYwY2M4MGJiZGQ5ZCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6InF1YW5nZHVvbmciLCJnaXZlbl9uYW1lIjoiRHVvbmciLCJmYW1pbHlfbmFtZSI6IkRpbmgiLCJlbWFpbCI6InF1YW5nZHVvbmdAZ21haWwuY29tIn0.e-aNzQQnw9fb7MdcPmwo2B_f9LsS2ci6-_jS1iz2zlEXj_q-hUQJpF50d5PJWLa0fo-Ee5orBZvkhXuwMPmil0ven28NY39i5Gw3VPFYy5AaWDjhVcDGE4LIg1PHYNuHUHjWnp0KEQRPpWaVVPJ-Na9asqN2-oKFP7gXBLMfTPDZyf41tedrAio-ADocYtRGVmdjVyimEDkokymKIe-zJeBvpHGAGW8whLmp6rRlIBbY9Xf-0mJIjm43ZnzDKatWdbD9ZuEgCKXT09t55ardgnXMtAi4NRg_OcVYPHD5Fr2628iSp7KyHCmqBgbF-4QZseA-hxjnTimLhpRrpO45Kg"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/rule/useful-life?category=Điện thoại",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"rule",
+						"useful-life"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "Điện thoại"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get List Brands",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYVFNEU1hpU1M3Zm5vcHlObEMyMzBzWEdweFhTcThVQTZtZk5QWXJiVEh3In0.eyJleHAiOjE3MzA3NDA1OTAsImlhdCI6MTczMDczNjk5MCwianRpIjoiNTdhYzNjYTctN2E1OS00N2U0LWJlZWUtYmMxN2M3MDk5ZWZkIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNTY1ODQ0N2MtNzg2Zi00MTk2LTg5NjYtOGU0ZDdjNWYxMzhhIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjhkYTg2YmEwLWU2NDgtNGMzNS1iNjIwLTc2MDg4ODQ2NTFiMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6InF1YW5nZHVvbmciLCJnaXZlbl9uYW1lIjoiRHVvbmciLCJmYW1pbHlfbmFtZSI6IkRpbmgiLCJlbWFpbCI6InF1YW5nZHVvbmdAZ21haWwuY29tIn0.WqiIP3czUGRwm12xQrbFr6tTe4ZoMNAVjoGK8ybM0yXd1Ojaulnboo60WdvNAhI-Xk70l9e4MWN_TNJ89-ZExE3oWhXiomoZo0bw8OdUArY8V8cK8UwuLKl1gO13cWuLUX_qYf_ZEWaxH3bV7HXfOHrd9NcB948Mbgrg7DygUxD5YPWh-1OkcDDod7O-KkT0CAc1Zp22vXp7zj8YgziLujGCSDudJuwyqvr30E521LhmHB9kT5INiBtfTeZcR9ySu0OBaSrxXn7mmpfY7-l05nw51njjDCOYc2nTh96yxSHOhA1f0GHO4r1XV0LBNWQXCOOJhJ3_kDhSllC8wAUvIw"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/brands?filter=sumsang&all=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"brands"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "size",
+							"value": "5",
+							"disabled": true
+						},
+						{
+							"key": "filter",
+							"value": "sumsang"
+						},
+						{
+							"key": "all",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Schedule",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYVFNEU1hpU1M3Zm5vcHlObEMyMzBzWEdweFhTcThVQTZtZk5QWXJiVEh3In0.eyJleHAiOjE3MzA3NDA1OTAsImlhdCI6MTczMDczNjk5MCwianRpIjoiNTdhYzNjYTctN2E1OS00N2U0LWJlZWUtYmMxN2M3MDk5ZWZkIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNTY1ODQ0N2MtNzg2Zi00MTk2LTg5NjYtOGU0ZDdjNWYxMzhhIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjhkYTg2YmEwLWU2NDgtNGMzNS1iNjIwLTc2MDg4ODQ2NTFiMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6InF1YW5nZHVvbmciLCJnaXZlbl9uYW1lIjoiRHVvbmciLCJmYW1pbHlfbmFtZSI6IkRpbmgiLCJlbWFpbCI6InF1YW5nZHVvbmdAZ21haWwuY29tIn0.WqiIP3czUGRwm12xQrbFr6tTe4ZoMNAVjoGK8ybM0yXd1Ojaulnboo60WdvNAhI-Xk70l9e4MWN_TNJ89-ZExE3oWhXiomoZo0bw8OdUArY8V8cK8UwuLKl1gO13cWuLUX_qYf_ZEWaxH3bV7HXfOHrd9NcB948Mbgrg7DygUxD5YPWh-1OkcDDod7O-KkT0CAc1Zp22vXp7zj8YgziLujGCSDudJuwyqvr30E521LhmHB9kT5INiBtfTeZcR9ySu0OBaSrxXn7mmpfY7-l05nw51njjDCOYc2nTh96yxSHOhA1f0GHO4r1XV0LBNWQXCOOJhJ3_kDhSllC8wAUvIw"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Monthly Maintenance\",\r\n    \"start\": \"2024-11-10T09:00:00\",\r\n    \"end\": \"2024-11-10T17:00:00\",\r\n    \"vendor\": \"ABC Maintenance Services\",\r\n    // \"cost\": 1500.00,\r\n    \"documents\": [],\r\n    \"type\": \"MAINTENANCE\",\r\n    \"assetId\": \"0HPX8EEXAJ6V0\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/schedules"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Schedule",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYVFNEU1hpU1M3Zm5vcHlObEMyMzBzWEdweFhTcThVQTZtZk5QWXJiVEh3In0.eyJleHAiOjE3MzA3NDA1OTAsImlhdCI6MTczMDczNjk5MCwianRpIjoiNTdhYzNjYTctN2E1OS00N2U0LWJlZWUtYmMxN2M3MDk5ZWZkIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNTY1ODQ0N2MtNzg2Zi00MTk2LTg5NjYtOGU0ZDdjNWYxMzhhIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjhkYTg2YmEwLWU2NDgtNGMzNS1iNjIwLTc2MDg4ODQ2NTFiMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6InF1YW5nZHVvbmciLCJnaXZlbl9uYW1lIjoiRHVvbmciLCJmYW1pbHlfbmFtZSI6IkRpbmgiLCJlbWFpbCI6InF1YW5nZHVvbmdAZ21haWwuY29tIn0.WqiIP3czUGRwm12xQrbFr6tTe4ZoMNAVjoGK8ybM0yXd1Ojaulnboo60WdvNAhI-Xk70l9e4MWN_TNJ89-ZExE3oWhXiomoZo0bw8OdUArY8V8cK8UwuLKl1gO13cWuLUX_qYf_ZEWaxH3bV7HXfOHrd9NcB948Mbgrg7DygUxD5YPWh-1OkcDDod7O-KkT0CAc1Zp22vXp7zj8YgziLujGCSDudJuwyqvr30E521LhmHB9kT5INiBtfTeZcR9ySu0OBaSrxXn7mmpfY7-l05nw51njjDCOYc2nTh96yxSHOhA1f0GHO4r1XV0LBNWQXCOOJhJ3_kDhSllC8wAUvIw"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Monthly Maintenance\",\r\n    \"start\": \"2024-11-10T09:00:00\",\r\n    \"end\": \"2024-11-10T17:00:00\",\r\n    \"vendor\": \"ABC Maintenance Services\",\r\n    \"cost\": 1500.00,\r\n    \"documents\": [],\r\n    \"type\": \"MAINTENANCE\",\r\n    \"assetId\": \"0HPX8EEXAJ6V0\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/schedules/0HSK8QKHZ3ZR5"
+			},
+			"response": []
+		},
+		{
+			"name": "Get List Schedules",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYVFNEU1hpU1M3Zm5vcHlObEMyMzBzWEdweFhTcThVQTZtZk5QWXJiVEh3In0.eyJleHAiOjE3MzA3NDMwMTEsImlhdCI6MTczMDczOTQxMSwianRpIjoiNzQ1NzY4NWUtZGQ4Ni00NzU3LTljYTEtMzI5ZjZhMTkwZDUxIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNTY1ODQ0N2MtNzg2Zi00MTk2LTg5NjYtOGU0ZDdjNWYxMzhhIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjFmYmEwMzBlLTRiZGMtNGU3Ni1iZGQzLTQ0YWJiZGI5MTg2ZCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6InF1YW5nZHVvbmciLCJnaXZlbl9uYW1lIjoiRHVvbmciLCJmYW1pbHlfbmFtZSI6IkRpbmgiLCJlbWFpbCI6InF1YW5nZHVvbmdAZ21haWwuY29tIn0.WALXMR8pQaJFZnb-T2m0fob3WXYKki9j0M4a3HMpPJFpj0udGubyjXkGYmc8Vr1P6nyvwRgc_bhz04NLXwlZv1h8wb_kfHYCSXcb47dwaoMzOjfXoQY1wKzTz8mjRxV6Q2agtgk9rQnU88bvslWm29x-UH57cotKE29RJ1JdlXTpD10vRgymTtMVg-zKVjrNxc5dgTm5tXJYigP-aDa6B9XsaGkAIz_RUnSbAfruJF4xxhUfGHOJWxHIaLso9hO7qhpjA5nQcOpF1Fep-scVwTds4W7XdkmdBHjyaNjoaqUSDBMi0ajz3acuHOelo6hJP7P_x-S2mqmwIOeGc7ljYg"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/schedules?all=true&filter=type==MAINTENANCE",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"schedules"
+					],
+					"query": [
+						{
+							"key": "all",
+							"value": "true"
+						},
+						{
+							"key": "filter",
+							"value": "type==MAINTENANCE"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Schedule",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYVFNEU1hpU1M3Zm5vcHlObEMyMzBzWEdweFhTcThVQTZtZk5QWXJiVEh3In0.eyJleHAiOjE3MzA3NDA1OTAsImlhdCI6MTczMDczNjk5MCwianRpIjoiNTdhYzNjYTctN2E1OS00N2U0LWJlZWUtYmMxN2M3MDk5ZWZkIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNTY1ODQ0N2MtNzg2Zi00MTk2LTg5NjYtOGU0ZDdjNWYxMzhhIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjhkYTg2YmEwLWU2NDgtNGMzNS1iNjIwLTc2MDg4ODQ2NTFiMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6InF1YW5nZHVvbmciLCJnaXZlbl9uYW1lIjoiRHVvbmciLCJmYW1pbHlfbmFtZSI6IkRpbmgiLCJlbWFpbCI6InF1YW5nZHVvbmdAZ21haWwuY29tIn0.WqiIP3czUGRwm12xQrbFr6tTe4ZoMNAVjoGK8ybM0yXd1Ojaulnboo60WdvNAhI-Xk70l9e4MWN_TNJ89-ZExE3oWhXiomoZo0bw8OdUArY8V8cK8UwuLKl1gO13cWuLUX_qYf_ZEWaxH3bV7HXfOHrd9NcB948Mbgrg7DygUxD5YPWh-1OkcDDod7O-KkT0CAc1Zp22vXp7zj8YgziLujGCSDudJuwyqvr30E521LhmHB9kT5INiBtfTeZcR9ySu0OBaSrxXn7mmpfY7-l05nw51njjDCOYc2nTh96yxSHOhA1f0GHO4r1XV0LBNWQXCOOJhJ3_kDhSllC8wAUvIw"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8000/api/schedules/0HSK8QKHZ3ZR5"
+			},
+			"response": []
+		}
+	]
+}

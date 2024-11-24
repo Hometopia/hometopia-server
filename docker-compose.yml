@@ -3,9 +3,9 @@ version: '3.8'
 name: hometopia
 
 services:
-  core-service:
-    container_name: core-service
-    image: core-service
+  hometopia-core-service:
+    container_name: hometopia-core-service
+    image: hometopia-core-service
     restart: unless-stopped
     build:
       context: ./core-service
@@ -19,9 +19,9 @@ services:
     networks:
       - hometopia-network
 
-  gateway-service:
-    container_name: gateway-service
-    image: gateway-service
+  hometopia-gateway-service:
+    container_name: hometopia-gateway-service
+    image: hometopia-gateway-service
     restart: unless-stopped
     build:
       context: ./gateway-service
@@ -35,9 +35,9 @@ services:
     networks:
       - hometopia-network
 
-  media-service:
-    container_name: media-service
-    image: media-service
+  hometopia-media-service:
+    container_name: hometopia-media-service
+    image: hometopia-media-service
     restart: unless-stopped
     build:
       context: ./media-service
@@ -51,9 +51,9 @@ services:
     networks:
       - hometopia-network
 
-  rule-service:
-    container_name: rule-service
-    image: rule-service
+  hometopia-rule-service:
+    container_name: hometopia-rule-service
+    image: hometopia-rule-service
     restart: unless-stopped
     build:
       context: ./rule-service
