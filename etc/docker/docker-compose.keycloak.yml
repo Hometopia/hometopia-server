@@ -3,6 +3,19 @@ version: "3.8"
 name: 'keycloak'
 
 services:
+
+  postgres:
+    container_name: postgres
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: keycloak_db
+      POSTGRES_USER: quangduong
+      POSTGRES_PASSWORD: 292003
+    ports:
+      - "5432:5432"
+    networks:
+      - hometopia-network
+
   keycloak:
     image: quay.io/keycloak/keycloak:25.0.2
     container_name: keycloak
@@ -10,11 +23,21 @@ services:
     ports:
       - "8008:8080"
     environment:
-      - KEYCLOAK_ADMIN=admin
-      - KEYCLOAK_ADMIN_PASSWORD=admin
+      KC_HOSTNAME: 193.203.161.141
+      KC_HOSTNAME_PORT: 8008
+      KC_HOSTNAME_STRICT_BACKCHANNEL: false
+      KC_HTTP_ENABLED: true
+      KC_HOSTNAME_STRICT_HTTPS: false
+      KC_HEALTH_ENABLED: true
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres/keycloak_db
+      KC_DB_USERNAME: quangduong
+      KC_DB_PASSWORD: 292003
 #    volumes:
-      - ./keycloak:/opt/keycloak/data/import
-#    command: start-dev --import-realm
+#      - ./keycloak:/opt/keycloak/data/import
+#    command: -v start-dev --import-realm
     command: start-dev
     networks:
       - hometopia-network

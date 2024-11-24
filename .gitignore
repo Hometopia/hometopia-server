@@ -36,3 +36,4 @@ __pycache__/
 venv/
 *.pth
 .env
+config-vault.sh
