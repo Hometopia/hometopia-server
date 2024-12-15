@@ -89,7 +89,7 @@ ALTER TABLE ward_lan
 
 CREATE TABLE address
 (
-    id          BIGINT                      NOT NULL,
+    id          VARCHAR(255)                NOT NULL,
     version     SMALLINT                    NOT NULL,
     created_at  TIMESTAMP WITHOUT TIME ZONE NOT NULL,
     updated_at  TIMESTAMP WITHOUT TIME ZONE NOT NULL,
@@ -123,7 +123,7 @@ CREATE TABLE "user"
     email      VARCHAR(255)                NOT NULL,
     first_name VARCHAR(255)                NOT NULL,
     last_name  VARCHAR(255)                NOT NULL,
-    address_id BIGINT                      NOT NULL,
+    address_id VARCHAR(255)                NOT NULL,
     CONSTRAINT pk_user PRIMARY KEY (id)
 );
 

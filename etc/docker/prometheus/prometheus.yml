@@ -1,0 +1,32 @@
+global:
+  scrape_interval: 10s
+  evaluation_interval: 10s
+
+scrape_configs:
+  - job_name: 'core-service'
+    metrics_path: /core/actuator/prometheus
+    static_configs:
+      - targets: ['193.203.161.141:8010']
+        labels:
+          application: 'Core Service Application'
+
+  - job_name: 'gateway-service'
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets: ['193.203.161.141:8000']
+        labels:
+          application: 'Gateway Service Application'
+
+  - job_name: 'rule-service'
+    metrics_path: /rule/actuator/prometheus
+    static_configs:
+      - targets: ['193.203.161.141:8030']
+        labels:
+          application: 'Rule Service Application'
+
+  - job_name: 'media-service'
+    metrics_path: /media/actuator/prometheus
+    static_configs:
+      - targets: ['193.203.161.141:8050']
+        labels:
+          application: 'Media Service Application'

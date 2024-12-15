@@ -1,0 +1,35 @@
+version: '3.8'
+
+name: 'monitoring'
+
+services:
+  prometheus:
+    container_name: prometheus
+    image: prom/prometheus:v2.48.1
+    restart: unless-stopped
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus:/prometheus
+    ports:
+      - "9090:9090"
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+    networks:
+      - monitoring-network
+
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:10.2.2
+    restart: unless-stopped
+    ports:
+      - "80:3000"
+    networks:
+      - monitoring-network
+
+volumes:
+  prometheus:
+    driver: local
+
+networks:
+  monitoring-network:
+    driver: bridge
