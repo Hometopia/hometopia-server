@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"1234quangduong\",\r\n    \"firstName\": \"Duong\",\r\n    \"lastName\": \"Dinh\",\r\n    \"email\": \"12quan34gduong@gmail.com\",\r\n    \"password\": \"292003\",\r\n    \"address\": {\r\n        \"line\": \"2/9 Nguyễn Thị Định\",\r\n        \"provinceId\": 77,\r\n        \"districtId\": 747,\r\n        \"wardId\": 26530\r\n    }\r\n}",
+					"raw": "{\r\n    \"username\": \"quangduong\",\r\n    \"firstName\": \"Duong\",\r\n    \"lastName\": \"Dinh\",\r\n    \"email\": \"quangduong@gmail.com\",\r\n    \"password\": \"292003\",\r\n    \"address\": {\r\n        \"line\": \"2/9 Nguyễn Thị Định\",\r\n        \"provinceId\": 77,\r\n        \"districtId\": 747,\r\n        \"wardId\": 26530\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -64,7 +64,7 @@
 						}
 					]
 				},
-				"url": "http://193.203.161.141:8000/api/auth/sign-in"
+				"url": "http://localhost:8000/api/auth/sign-in"
 			},
 			"response": []
 		},
@@ -680,6 +680,58 @@
 				"method": "DELETE",
 				"header": [],
 				"url": "http://localhost:8000/api/schedules/0HSK8QKHZ3ZR5"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Predicted Asset Category",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"url\": \"http://193.203.161.141:8000/api/files?fileName=20241208163958_laptop.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/predict"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Token By Refresh Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "hometopia-client",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "TEQJRvxLkbny0hHAGsSYDrEDrsmMPh3n",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIzMGVjZjE3Ny1kMTA5LTQ0OTMtYTg0Ni0wMjQ4ZGQ0ZWM3OWUifQ.eyJleHAiOjE3MzQzNzE3MDEsImlhdCI6MTczNDM2NDUwMSwianRpIjoiNWMzNGRiMmItMTlkNC00ZmEwLWE2OTMtNDEyZGIwZTcyMTlkIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjgwMDgvcmVhbG1zL2hvbWV0b3BpYSIsInN1YiI6ImQzYTZhMmI3LTRmMTctNGUwMS1iZDgyLWMzYWQ1MTMyZGIxNyIsInR5cCI6IlJlZnJlc2giLCJhenAiOiJob21ldG9waWEtY2xpZW50Iiwic2lkIjoiMTFjNjk0MmYtOWYyNy00MWRlLWI4NWMtOGExYzIyY2MwOGY1Iiwic2NvcGUiOiJhY3IgZW1haWwgYmFzaWMgcm9sZXMgd2ViLW9yaWdpbnMgcHJvZmlsZSJ9.HdRz1lNATvflHwhLLomQLGGC3DuRyZFm3Rk4_gMFZlzhzHKOqWe9un975-0hc364a3_Puq09e3LCvXGWXE0YOg",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8000/api/auth/token"
 			},
 			"response": []
 		}
