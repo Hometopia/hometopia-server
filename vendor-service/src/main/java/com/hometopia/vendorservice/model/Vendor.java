@@ -27,8 +27,8 @@ public class Vendor {
     @Field(type = FieldType.Text, name = "name")
     private String name;
 
-    @Field(type = FieldType.Text, name = "address")
-    private String address;
+    @Field(type = FieldType.Object, name = "address")
+    private Address address;
 
     @Field(type = FieldType.Text, name = "website")
     private String website;
