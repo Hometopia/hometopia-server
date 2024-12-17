@@ -1,6 +1,14 @@
 server:
   port: 8070
 
+grpc:
+  client:
+    core-service:
+      address: core-service
+      enable-keep-alive: true
+      keep-alive-without-calls: true
+      negotiation-type: plaintext
+
 spring:
   application:
     name: scheduled-service
@@ -37,7 +45,7 @@ spring:
     password: ${RABBITMQ_PASSWORD}
 
 scheduling:
-  computer-maintenance-vendor: 0 13 18 * * ?
+  computer-maintenance-vendor: 0 52 23 * * ?
 
 management:
   endpoints:

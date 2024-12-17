@@ -113,4 +113,14 @@ public class KeycloakServiceImpl implements KeycloakService {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public boolean isEmailExist(String email) {
+        try {
+            return !realmResource.users().searchByEmail(email, true).isEmpty();
+        } catch (Exception e) {
+            log.error("Error when delete user by id: {}", e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
 }

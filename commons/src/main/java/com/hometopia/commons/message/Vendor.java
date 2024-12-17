@@ -1,12 +1,26 @@
 package com.hometopia.commons.message;
 
 import com.hometopia.commons.enumeration.AssetCategory;
+import lombok.Builder;
 
 public record Vendor(
         String link,
         String name,
-        String address,
+        Address address,
         String website,
         String phoneNumber,
         AssetCategory assetCategory
-) {}
+) {
+
+    @Builder
+    public record Address(
+            String line,
+            Long provinceCode,
+            String provinceName,
+            Long districtCode,
+            String districtName,
+            Long wardCode,
+            String wardName
+    ) {}
+
+}

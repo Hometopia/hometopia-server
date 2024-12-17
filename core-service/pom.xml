@@ -23,6 +23,7 @@
 		<keycloak.version>25.0.2</keycloak.version>
 		<querydsl.version>5.1.0</querydsl.version>
 		<datasource-proxy-spring-boot-starter.version>1.9.1</datasource-proxy-spring-boot-starter.version>
+		<grpc-server-spring-boot-starter.version>3.1.0.RELEASE</grpc-server-spring-boot-starter.version>
 		<grpc-client-spring-boot-starter.version>3.1.0.RELEASE</grpc-client-spring-boot-starter.version>
 		<rsql-jpa-spring-boot-starter.verison>6.0.6</rsql-jpa-spring-boot-starter.verison>
 	</properties>
@@ -98,6 +99,11 @@
 			<groupId>com.github.gavlyukovskiy</groupId>
 			<artifactId>datasource-proxy-spring-boot-starter</artifactId>
 			<version>${datasource-proxy-spring-boot-starter.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.devh</groupId>
+			<artifactId>grpc-server-spring-boot-starter</artifactId>
+			<version>${grpc-server-spring-boot-starter.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>net.devh</groupId>

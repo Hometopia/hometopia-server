@@ -7,4 +7,5 @@ import com.hometopia.coreservice.dto.response.UserResponse;
 public interface UserService {
     RestResponse<UserResponse> createUser(CreateUserRequest request);
     RestResponse<UserResponse> getUser(String id);
+    void isEmailExist(String email);
 }

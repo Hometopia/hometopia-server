@@ -44,6 +44,12 @@ spring:
             - Path=/api/auth/sign-in, /api/auth/token
           filters:
             - SetPath=/realms/hometopia/protocol/openid-connect/token
+        - id: user-api
+          uri: lb://core-service
+          predicates:
+            - Path=/api/users/**
+          filters:
+            - RewritePath=/api/users/(?<segment>.*), /core/users/$\{segment}
         - id: auth-api
           uri: lb://core-service
           predicates:

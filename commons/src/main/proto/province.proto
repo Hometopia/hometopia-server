@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package com.hometopia.proto.province;
+
+option java_multiple_files = true;
+option java_package = "com.hometopia.proto.province";
+option java_outer_classname = "ProvinceProto";
+
+service ProvinceGrpcService {
+  rpc getProvince(GetProvinceRequest) returns (GetProvinceResponse) {
+  }
+}
+
+message GetProvinceRequest {
+  string name = 1;
+  string countryCode = 2;
+}
+
+message GetProvinceResponse {
+  int64 code = 1;
+  string name = 2;
+}

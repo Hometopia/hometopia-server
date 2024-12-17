@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package com.hometopia.proto.ward;
+
+option java_multiple_files = true;
+option java_package = "com.hometopia.proto.ward";
+option java_outer_classname = "WardProto";
+
+service WardGrpcService {
+  rpc getWard(GetWardRequest) returns (GetWardResponse) {
+  }
+}
+
+message GetWardRequest {
+  string name = 1;
+  string countryCode = 2;
+}
+
+message GetWardResponse {
+  int64 code = 1;
+  string name = 2;
+}

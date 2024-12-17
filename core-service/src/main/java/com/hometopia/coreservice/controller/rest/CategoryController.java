@@ -1,4 +1,4 @@
-package com.hometopia.coreservice.controller;
+package com.hometopia.coreservice.controller.rest;
 
 import com.hometopia.commons.enumeration.HouseType;
 import com.hometopia.commons.response.ListResponse;

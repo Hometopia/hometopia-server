@@ -12,4 +12,5 @@ import java.util.Optional;
 public interface DistrictLanRepository extends JpaRepository<DistrictLan, DistrictLanId> {
     Optional<DistrictLan> findOneByIdDistrictIdAndIdCountryCode(Integer districtId, CountryCode countryCode);
     List<DistrictLan> findAllByIdCountryCode(CountryCode code);
+    Optional<DistrictLan> findOneByNameContainingIgnoreCaseAndIdCountryCode(String name, CountryCode countryCode);
 }

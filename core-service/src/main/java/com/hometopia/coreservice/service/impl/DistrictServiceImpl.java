@@ -1,5 +1,6 @@
 package com.hometopia.coreservice.service.impl;
 
+import com.hometopia.commons.exception.ResourceNotFoundException;
 import com.hometopia.commons.response.ListResponse;
 import com.hometopia.coreservice.dto.response.DistrictResponse;
 import com.hometopia.coreservice.entity.District;
@@ -10,10 +11,14 @@ import com.hometopia.coreservice.entity.enumeration.CountryCode;
 import com.hometopia.coreservice.mapper.DistrictMapper;
 import com.hometopia.coreservice.repository.DistrictLanRepository;
 import com.hometopia.coreservice.service.DistrictService;
+import com.hometopia.proto.district.GetDistrictRequest;
+import com.hometopia.proto.district.GetDistrictResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
@@ -45,5 +50,16 @@ public class DistrictServiceImpl implements DistrictService {
         return ListResponse.of(districtLanRepository.findAll(Example.of(districtLan)).stream()
                 .map(districtMapper::toDistrictResponse)
                 .toList());
+    }
+
+    @Override
+    public GetDistrictResponse getGetDistrict(GetDistrictRequest request) {
+        CountryCode countryCode = CountryCode.valueOf(request.getCountryCode());
+        return districtLanRepository.findOneByNameContainingIgnoreCaseAndIdCountryCode(request.getName(), countryCode)
+                .map(districtLan -> GetDistrictResponse.newBuilder()
+                        .setCode(districtLan.getDistrict().getCode())
+                        .setName(districtLan.getName())
+                        .build())
+                .orElseThrow(() -> new ResourceNotFoundException("DistrictLan", "name", request.getName()));
     }
 }

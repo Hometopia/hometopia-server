@@ -14,4 +14,5 @@ public interface KeycloakService {
     List<RoleRepresentation> getListRealmRolesByUserId(String id);
     List<RoleRepresentation> getListClientRolesByUserId(String id);
     void deleteUser(String id);
+    boolean isEmailExist(String email);
 }

@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package com.hometopia.proto.district;
+
+option java_multiple_files = true;
+option java_package = "com.hometopia.proto.district";
+option java_outer_classname = "DistrictProto";
+
+service DistrictGrpcService {
+  rpc getDistrict(GetDistrictRequest) returns (GetDistrictResponse) {
+  }
+}
+
+message GetDistrictRequest {
+  string name = 1;
+  string countryCode = 2;
+}
+
+message GetDistrictResponse {
+  int64 code = 1;
+  string name = 2;
+}

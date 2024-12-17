@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional
+@Transactional(readOnly = true)
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
@@ -30,6 +30,7 @@ public class UserServiceImpl implements UserService {
     private final KeycloakService keycloakService;
 
     @Override
+    @Transactional
     public RestResponse<UserResponse> createUser(CreateUserRequest request) {
         String id = keycloakService.createUser(request);
         try {
@@ -68,5 +69,12 @@ public class UserServiceImpl implements UserService {
                                 .orElseThrow(() -> new ResourceNotFoundException("Ward", "code", user.getAddress().getWard().getCode()))))
                 .map(RestResponse::ok)
                 .orElseThrow(() -> new ResourceNotFoundException("User", "id", id));
+    }
+
+    @Override
+    public void isEmailExist(String email) {
+        if(keycloakService.isEmailExist(email)) {
+            throw new RuntimeException("Email already exists");
+        }
     }
 }

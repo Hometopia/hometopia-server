@@ -20,7 +20,7 @@
 						}
 					}
 				},
-				"url": "http://localhost:8000/api/auth/sign-up"
+				"url": "http://{{dev}}/api/auth/sign-up"
 			},
 			"response": []
 		},
@@ -64,7 +64,7 @@
 						}
 					]
 				},
-				"url": "http://localhost:8000/api/auth/sign-in"
+				"url": "http://{{dev}}/api/auth/sign-in"
 			},
 			"response": []
 		},
@@ -80,12 +80,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/api/categories/suggested?houseType=HIGH_GRADE",
+					"raw": "http://{{dev}}/api/categories/suggested?houseType=HIGH_GRADE",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{dev}}"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"categories",
@@ -109,7 +108,7 @@
 				},
 				"method": "GET",
 				"header": [],
-				"url": "http://localhost:8000/api/provinces"
+				"url": "http://{{dev}}/api/provinces"
 			},
 			"response": []
 		},
@@ -119,12 +118,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/api/wards?districtId=747",
+					"raw": "http://{{dev}}/api/wards?districtId=747",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{dev}}"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"wards"
@@ -145,12 +143,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/api/districts?provinceId=77",
+					"raw": "http://{{dev}}/api/districts?provinceId=77",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{dev}}"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"districts"
@@ -185,7 +182,7 @@
 						}
 					}
 				},
-				"url": "http://localhost:8000/api/categories"
+				"url": "http://{{dev}}/api/categories"
 			},
 			"response": []
 		},
@@ -201,12 +198,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/api/categories?all=true",
+					"raw": "http://{{dev}}/api/categories?all=true",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{dev}}"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"categories"
@@ -256,7 +252,7 @@
 						}
 					}
 				},
-				"url": "http://localhost:8000/api/categories/0HPMS8PMNEWZZ"
+				"url": "http://{{dev}}/api/categories/0HPMS8PMNEWZZ"
 			},
 			"response": []
 		},
@@ -271,7 +267,7 @@
 				},
 				"method": "DELETE",
 				"header": [],
-				"url": "http://localhost:8000/api/categories/0HPMS8PMNEWZZ"
+				"url": "http://{{dev}}/api/categories/0HPMS8PMNEWZZ"
 			},
 			"response": []
 		},
@@ -287,12 +283,11 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/api/categories?ids=0HPMS8PTDEX2Z,0HPMS8PTSEW9M,0HPMS8PV1EYRV,0HPMS8PV9EXJA",
+					"raw": "http://{{dev}}/api/categories?ids=0HPMS8PTDEX2Z,0HPMS8PTSEW9M,0HPMS8PV1EYRV,0HPMS8PV9EXJA",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{dev}}"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"categories"
@@ -322,7 +317,7 @@
 						}
 					]
 				},
-				"url": "http://localhost:8000/api/files"
+				"url": "http://{{dev}}/api/files"
 			},
 			"response": []
 		},
@@ -332,12 +327,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/api/files?fileName=20241027140223_laptop.jpg",
+					"raw": "http://{{dev}}/api/files?fileName=20241027140223_laptop.jpg",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{dev}}"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"files"
@@ -364,15 +358,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://193.203.161.141:8000/api/assets?page=1&size=10&filter=name=ilike=laptop;category.id==0HPWKWJNAS114",
+					"raw": "http://{{prod}}/api/assets?page=1&size=10&filter=name=ilike=laptop;category.id==0HPWKWJNAS114",
 					"protocol": "http",
 					"host": [
-						"193",
-						"203",
-						"161",
-						"141"
+						"{{prod}}"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"assets"
@@ -406,7 +396,7 @@
 				},
 				"method": "GET",
 				"header": [],
-				"url": "http://193.203.161.141:8000/api/assets/0HPX8EEXAJ6V0"
+				"url": "http://{{prod}}/api/assets/0HPX8EEXAJ6V0"
 			},
 			"response": []
 		},
@@ -430,7 +420,7 @@
 						}
 					}
 				},
-				"url": "http://localhost:8000/api/assets"
+				"url": "http://{{dev}}/api/assets"
 			},
 			"response": []
 		},
@@ -445,7 +435,7 @@
 				},
 				"method": "DELETE",
 				"header": [],
-				"url": "http://localhost:8000/api/assets/0HPWTDPBENVHQ"
+				"url": "http://{{dev}}/api/assets/0HPWTDPBENVHQ"
 			},
 			"response": []
 		},
@@ -461,12 +451,11 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/api/assets?ids=0HPX3MHKYDZ6R",
+					"raw": "http://{{dev}}/api/assets?ids=0HPX3MHKYDZ6R",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{dev}}"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"assets"
@@ -501,7 +490,7 @@
 						}
 					}
 				},
-				"url": "http://localhost:8000/api/assets/0HPX8EEXAJ6V0"
+				"url": "http://{{dev}}/api/assets/0HPX8EEXAJ6V0"
 			},
 			"response": []
 		},
@@ -517,12 +506,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/api/rule/useful-life?category=MOBILE_PHONE",
+					"raw": "http://{{dev}}/api/rule/useful-life?category=MOBILE_PHONE",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{dev}}"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"rule",
@@ -550,12 +538,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/api/brands?filter=sumsang&all=true",
+					"raw": "http://{{dev}}/api/brands?filter=sumsang&all=true",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{dev}}"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"brands"
@@ -604,7 +591,7 @@
 						}
 					}
 				},
-				"url": "http://localhost:8000/api/schedules"
+				"url": "http://{{dev}}/api/schedules"
 			},
 			"response": []
 		},
@@ -628,7 +615,7 @@
 						}
 					}
 				},
-				"url": "http://localhost:8000/api/schedules/0HSK8QKHZ3ZR5"
+				"url": "http://{{dev}}/api/schedules/0HSK8QKHZ3ZR5"
 			},
 			"response": []
 		},
@@ -644,12 +631,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/api/schedules?all=true&filter=type==MAINTENANCE",
+					"raw": "http://{{dev}}/api/schedules?all=true&filter=type==MAINTENANCE",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{dev}}"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"schedules"
@@ -679,7 +665,7 @@
 				},
 				"method": "DELETE",
 				"header": [],
-				"url": "http://localhost:8000/api/schedules/0HSK8QKHZ3ZR5"
+				"url": "http://{{dev}}/api/schedules/0HSK8QKHZ3ZR5"
 			},
 			"response": []
 		},
@@ -731,9 +717,82 @@
 						}
 					]
 				},
-				"url": "http://localhost:8000/api/auth/token"
+				"url": "http://{{dev}}/api/auth/token"
 			},
 			"response": []
+		},
+		{
+			"name": "Get My Profile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRWDhOdDFvSGw4d2Y0dFNqXzF0d0pIdnlqOGZmVlBGVjJFQzhpYzRtOEk4In0.eyJleHAiOjE3MzQ0NTY1NTksImlhdCI6MTczNDQ1Mjk1OSwianRpIjoiNmYyOWI0NWQtYTZiMC00NzRhLWEyZDEtMmE0MmZiMjMzYTNiIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYWQ3YTc2YjktZWEyMy00YmEzLTllMWMtMTA3YjExZDJhODEyIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjhmYWVlOWFlLTdlNDQtNDJlOS04YTdjLWI4NjNkNGY4MzNhNiIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6ImxvY2FsIiwiZ2l2ZW5fbmFtZSI6IkR1b25nIiwiZmFtaWx5X25hbWUiOiJEaW5oIiwiZW1haWwiOiJxdWFuZ2R1b25nQGdtYWlsLmNvbSJ9.JUGTY3Bbdx0oPwyEZFLvupw4-LTQzpfe23JDl9MWeWBDEDEbkVG98YXuCfX2_RWZjwZkQNIx0m08WG22IDxEuEGQ2Y91fUgtysmRMc87rrxDa_P56jfdEtaNjHeknkFngjKn3cMx2rX9I3EXp__nGSUm5L3rEK40leyzXRsYUcSkHVCJ3ByZRo-04mtMm73RdcJ2KdP9dJFiiuoTdQU0z_BsE_qySDk349xO5W9zVoqO1AwOonlRypGET-oKWpdhgokNw846GT9dbhVQlaO1Ii9S0-s451MiwNUn6vpPn4FW6J2u011pAuClKpXvSq_J88ZO9MmpM045Dk5NRDWmYg"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://{{dev}}/api/users/my-profile"
+			},
+			"response": []
+		},
+		{
+			"name": "Check If Email Exists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{dev}}/api/users/check-email?email=21520953@gmail.com",
+					"protocol": "http",
+					"host": [
+						"{{dev}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"check-email"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "21520953@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "dev",
+			"value": "localhost:8000"
+		},
+		{
+			"key": "prod",
+			"value": "193.203.161.141:8000"
 		}
 	]
 }

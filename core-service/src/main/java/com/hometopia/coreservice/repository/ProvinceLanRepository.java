@@ -10,5 +10,6 @@ import java.util.Optional;
 
 public interface ProvinceLanRepository extends JpaRepository<ProvinceLan, ProvinceLanId> {
     Optional<ProvinceLan> findOneByIdProvinceIdAndIdCountryCode(Integer provinceId, CountryCode countryCode);
+    Optional<ProvinceLan> findOneByNameContainingIgnoreCaseAndIdCountryCode(String name, CountryCode countryCode);
     List<ProvinceLan> findAllByIdCountryCode(CountryCode code);
 }

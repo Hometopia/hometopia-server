@@ -44,9 +44,9 @@ spring:
     username: ${RABBITMQ_USERNAME}
     password: ${RABBITMQ_PASSWORD}
   elasticsearch:
-    username: elastic
-    password: hometopia
-    uris: http://localhost:9200
+    username: ${ES_USERNAME}
+    password: ${ES_PASSWORD}
+    uris: ${ES_URI}
 
 management:
   endpoints:

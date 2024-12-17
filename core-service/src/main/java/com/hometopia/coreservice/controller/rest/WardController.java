@@ -1,4 +1,4 @@
-package com.hometopia.coreservice.controller;
+package com.hometopia.coreservice.controller.rest;
 
 import com.hometopia.commons.response.ListResponse;
 import com.hometopia.coreservice.dto.response.WardResponse;
