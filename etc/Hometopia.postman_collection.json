@@ -64,7 +64,7 @@
 						}
 					]
 				},
-				"url": "http://{{dev}}/api/auth/sign-in"
+				"url": "http://{{prod}}/api/auth/sign-in"
 			},
 			"response": []
 		},
@@ -672,6 +672,12 @@
 		{
 			"name": "Get Predicted Asset Category",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJTdjhRVzVMV2dWX1k5d2VXUXdUMllEc0NDeVdOeWM2cUgwOUJ1bkVFMDBVIn0.eyJleHAiOjE3MzQ2NTgzNjIsImlhdCI6MTczNDY0MDM2MiwianRpIjoiMTQ0OWYxN2QtM2M4Zi00MWMxLWE2NjItMGMyZGY5Nzg5MDlhIiwiaXNzIjoiaHR0cDovLzE5My4yMDMuMTYxLjE0MTo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZGEzNjE0ZjItYzczZC00Mzc2LWE0YWUtY2I3N2M5YzMzYTU1IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjVlY2ViMjgzLTA4NzktNGFjZS1hOTAzLTM2ZjM5MWU1N2UxYyIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6InF1YW5nZHVvbmciLCJnaXZlbl9uYW1lIjoiRHVvbmciLCJmYW1pbHlfbmFtZSI6IkRpbmgiLCJlbWFpbCI6InF1YW5nZHVvbmdAZ21haWwuY29tIn0.oiz1pLXDU-I1VDjVXDPz8op0MC1CAuhNCMeKcjznU2Qb7TSokuWjADkcSq0IP_KKtkM_R4M7POANQqz_NWsyJ15948iLo2iOiiPIXg8L-LHQhmWDu_LM6GTUpb9vh-5898cIPqoQYPrsu1fTFmPV-u9DUKQ0CcwPsVSJCGIylKJfAF3wOW1Yq56wM1eYBSxyeAdg50nr3LLRzdpzuhmqQuZ2b5V_sa3Dfcv1DVPXSlJ3gFKPqKX0fSRZfDIiuwNh20Zb0O77U6XX2VDQ4sh1hlFde58lkjpCfw4PcLDlESidf27JbhxxEgcunySnRvStOSac7_36Qz9ido2g_nVKrQ"
+					}
+				},
 				"method": "POST",
 				"header": [],
 				"body": {

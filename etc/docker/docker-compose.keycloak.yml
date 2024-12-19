@@ -23,7 +23,8 @@ services:
     ports:
       - "8008:8080"
     environment:
-      KC_HOSTNAME: 193.203.161.141
+#      KC_HOSTNAME: 193.203.161.141
+      KC_HOSTNAME: localhost
       KC_HOSTNAME_PORT: 8008
       KC_HOSTNAME_STRICT_BACKCHANNEL: false
       KC_HTTP_ENABLED: true
@@ -35,10 +36,10 @@ services:
       KC_DB_URL: jdbc:postgresql://postgres/keycloak_db
       KC_DB_USERNAME: quangduong
       KC_DB_PASSWORD: 292003
-#    volumes:
-#      - ./keycloak:/opt/keycloak/data/import
-#    command: -v start-dev --import-realm
-    command: start-dev
+    volumes:
+      - ./keycloak:/opt/keycloak/data/import
+    command: -v start-dev --import-realm
+#    command: start-dev
     networks:
       - hometopia-network
 
