@@ -13,10 +13,11 @@ service DistrictGrpcService {
 
 message GetDistrictRequest {
   string name = 1;
-  string countryCode = 2;
+  int32 provinceCode = 2;
+  string countryCode = 3;
 }
 
 message GetDistrictResponse {
-  int64 code = 1;
+  int32 code = 1;
   string name = 2;
 }

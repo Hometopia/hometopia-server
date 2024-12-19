@@ -16,19 +16,19 @@ public class Address {
     private String line;
 
     @Field(type = FieldType.Text, name = "link")
-    private Long provinceCode;
+    private Integer provinceCode;
 
     @Field(type = FieldType.Text, name = "link")
     private String provinceName;
 
     @Field(type = FieldType.Text, name = "link")
-    private Long districtCode;
+    private Integer districtCode;
 
     @Field(type = FieldType.Text, name = "link")
     private String districtName;
 
     @Field(type = FieldType.Text, name = "link")
-    private Long wardCode;
+    private Integer wardCode;
 
     @Field(type = FieldType.Text, name = "link")
     private String wardName;

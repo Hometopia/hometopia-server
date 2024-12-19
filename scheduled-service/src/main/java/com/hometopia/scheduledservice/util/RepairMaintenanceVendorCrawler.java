@@ -19,9 +19,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Supplier;
 
 public class RepairMaintenanceVendorCrawler {
@@ -79,42 +77,52 @@ public class RepairMaintenanceVendorCrawler {
                     tryGet(() -> {
                         String line = info.get(0).getText().matches("^\\+\\d{1,3}\\s\\d{3}\\s\\d{3}\\s\\d{3}$")
                                 ? "" : info.get(0).getText();
-                        AtomicReference<Long> provinceCode = new AtomicReference<>();
-                        AtomicReference<String> provinceName = new AtomicReference<>();
-                        AtomicReference<Long> districtCode = new AtomicReference<>();
-                        AtomicReference<String> districtName = new AtomicReference<>();
-                        AtomicReference<Long> wardCode = new AtomicReference<>();
-                        AtomicReference<String> wardName = new AtomicReference<>();
-                        Arrays.stream(line.split(",")).toList().forEach(part -> {
-                            try {
-                                GetProvinceResponse getProvinceResponse = provinceGrpcServiceStub.getProvince(GetProvinceRequest.newBuilder()
-                                        .setName(part.replaceAll("[0-9]", "").trim()).setCountryCode("VN").build());
-                                provinceCode.set(getProvinceResponse.getCode());
-                                provinceName.set(getProvinceResponse.getName());
-                            } catch (Exception e) {
+                        Integer provinceCode = null;
+                        String provinceName = null;
+                        Integer districtCode = null;
+                        String districtName = null;
+                        Integer wardCode = null;
+                        String wardName = null;
 
+                        String[] parts = line.split(",");
+                        for (int i = parts.length - 1; i >= 0; i--) {
+                            String part = parts[i];
+                            if (provinceCode == null) {
+                                try {
+                                    GetProvinceResponse getProvinceResponse = provinceGrpcServiceStub.getProvince(GetProvinceRequest.newBuilder()
+                                            .setName(part.replaceAll("[0-9]", "").trim()).setCountryCode("VN").build());
+                                    provinceCode = getProvinceResponse.getCode();
+                                    provinceName = getProvinceResponse.getName();
+                                } catch (Exception e) {
+
+                                }
                             }
 
-                            try {
-                                GetDistrictResponse getDistrictResponse = districtGrpcServiceStub.getDistrict(GetDistrictRequest.newBuilder()
-                                        .setName(part.trim()).setCountryCode("VN").build());
-                                districtCode.set(getDistrictResponse.getCode());
-                                districtName.set(getDistrictResponse.getName());
-                            } catch (Exception e) {
+                            if (provinceCode != null && districtCode == null) {
+                                try {
+                                    GetDistrictResponse getDistrictResponse = districtGrpcServiceStub.getDistrict(GetDistrictRequest.newBuilder()
+                                            .setName(part.trim()).setProvinceCode(provinceCode).setCountryCode("VN").build());
+                                    districtCode = getDistrictResponse.getCode();
+                                    districtName = getDistrictResponse.getName();
+                                } catch (Exception e) {
 
+                                }
                             }
 
-                            try {
-                                GetWardResponse getWardResponse = wardGrpcServiceStub.getWard(GetWardRequest.newBuilder()
-                                        .setName(part.trim()).setCountryCode("VN").build());
-                                wardCode.set(getWardResponse.getCode());
-                                wardName.set(getWardResponse.getName());
-                            } catch (Exception e) {
+                            if (districtCode != null && wardCode == null) {
+                                try {
+                                    GetWardResponse getWardResponse = wardGrpcServiceStub.getWard(GetWardRequest.newBuilder()
+                                            .setName(part.replaceAll("\\b([0-9])\\b", "0$1").trim()).setDistrictCode(districtCode).setCountryCode("VN").build());
+                                    wardCode = getWardResponse.getCode();
+                                    wardName = getWardResponse.getName();
+                                } catch (Exception e) {
 
+                                }
                             }
-                        });
-                        return new Vendor.Address(line, provinceCode.get(), provinceName.get(), districtCode.get(),
-                                districtName.get(), wardCode.get(), wardName.get());
+                        }
+
+                        return new Vendor.Address(line, provinceCode, provinceName, districtCode,
+                                districtName, wardCode, wardName);
                     }, null),
                     tryGet(() -> driver.findElement(By.cssSelector("a.CsEnBe")).getAttribute("href"), ""),
                     tryGet(() -> info.stream()

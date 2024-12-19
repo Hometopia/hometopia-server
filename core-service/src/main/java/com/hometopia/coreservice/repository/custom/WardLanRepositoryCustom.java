@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface WardLanRepositoryCustom {
     List<WardLan> findAllByDistrictIdAndCountryCode(Integer districtId, CountryCode code);
+    WardLan findByNameAndDistrictIdAndCountryCode(String name, Integer districtId, CountryCode countryCode);
 }

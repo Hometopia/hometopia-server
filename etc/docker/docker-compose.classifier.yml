@@ -1,0 +1,17 @@
+version: '3.8'
+
+name: 'asset-classifier'
+
+services:
+  consul:
+    image: quangduong2903/classification-service:latest
+    container_name: classification-service
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    networks:
+      - hometopia-network
+
+networks:
+  hometopia-network:
+    external: true

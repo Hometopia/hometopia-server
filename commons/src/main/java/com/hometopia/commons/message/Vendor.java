@@ -15,11 +15,11 @@ public record Vendor(
     @Builder
     public record Address(
             String line,
-            Long provinceCode,
+            Integer provinceCode,
             String provinceName,
-            Long districtCode,
+            Integer districtCode,
             String districtName,
-            Long wardCode,
+            Integer wardCode,
             String wardName
     ) {}
 

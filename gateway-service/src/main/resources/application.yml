@@ -126,6 +126,12 @@ spring:
           filters:
             - RewritePath=/api/asset-life-cycles, /core/asset-life-cycles
             - RewritePath=/api/asset-life-cycles/(?<segment>.*), /core/asset-life-cycles/$\{segment}
+        - id: asset-classifier-api
+          uri: http://classification-service:5000
+          predicates:
+            - Path=/api/classification/predict
+          filters:
+            - SetPath=/predict
 
 management:
   endpoints:

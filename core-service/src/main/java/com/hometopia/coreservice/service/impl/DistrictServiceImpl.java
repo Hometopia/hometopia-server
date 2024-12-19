@@ -55,7 +55,7 @@ public class DistrictServiceImpl implements DistrictService {
     @Override
     public GetDistrictResponse getGetDistrict(GetDistrictRequest request) {
         CountryCode countryCode = CountryCode.valueOf(request.getCountryCode());
-        return districtLanRepository.findOneByNameContainingIgnoreCaseAndIdCountryCode(request.getName(), countryCode)
+        return Optional.ofNullable(districtLanRepository.findByNameAndProvinceIdAndCountryCode(request.getName(), request.getProvinceCode(), countryCode))
                 .map(districtLan -> GetDistrictResponse.newBuilder()
                         .setCode(districtLan.getDistrict().getCode())
                         .setName(districtLan.getName())

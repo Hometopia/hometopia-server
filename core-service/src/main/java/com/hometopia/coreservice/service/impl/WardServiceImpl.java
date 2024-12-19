@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
@@ -40,7 +40,7 @@ public class WardServiceImpl implements WardService {
     @Override
     public GetWardResponse getWard(GetWardRequest request) {
         CountryCode countryCode = CountryCode.valueOf(request.getCountryCode());
-        return wardLanRepository.findOneByNameContainingIgnoreCaseAndIdCountryCode(request.getName(), countryCode)
+        return Optional.ofNullable(wardLanRepository.findByNameAndDistrictIdAndCountryCode(request.getName(), request.getDistrictCode(), countryCode))
                 .map(wardLan -> GetWardResponse.newBuilder()
                         .setCode(wardLan.getWard().getCode())
                         .setName(wardLan.getName())

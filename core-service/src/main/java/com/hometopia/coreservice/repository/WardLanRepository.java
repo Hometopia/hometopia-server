@@ -12,6 +12,5 @@ import java.util.Optional;
 
 public interface WardLanRepository extends JpaRepository<WardLan, WardLanId>, QuerydslPredicateExecutor<WardLan>, WardLanRepositoryCustom {
     Optional<WardLan> findOneByIdWardIdAndIdCountryCode(Integer wardId, CountryCode countryCode);
-    Optional<WardLan> findOneByNameContainingIgnoreCaseAndIdCountryCode(String name, CountryCode countryCode);
     List<WardLan> findAllByIdCountryCode(CountryCode code);
 }

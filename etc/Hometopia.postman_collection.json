@@ -683,7 +683,7 @@
 						}
 					}
 				},
-				"url": "http://localhost:5000/predict"
+				"url": "http://{{prod}}/api/classification/predict"
 			},
 			"response": []
 		},
@@ -742,10 +742,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{dev}}/api/users/check-email?email=21520953@gmail.com",
+					"raw": "http://{{prod}}/api/users/check-email?email=21520953@gmail.com",
 					"protocol": "http",
 					"host": [
-						"{{dev}}"
+						"{{prod}}"
 					],
 					"path": [
 						"api",
@@ -756,6 +756,37 @@
 						{
 							"key": "email",
 							"value": "21520953@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get List Asset Life Cycles",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJTdjhRVzVMV2dWX1k5d2VXUXdUMllEc0NDeVdOeWM2cUgwOUJ1bkVFMDBVIn0.eyJleHAiOjE3MzQ2NDc2NzMsImlhdCI6MTczNDYyOTY3MywianRpIjoiYzljYmJkZjQtY2RlNy00YTlhLTg4OGQtMjA5NDJjMmU4OWJlIiwiaXNzIjoiaHR0cDovLzE5My4yMDMuMTYxLjE0MTo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZGEzNjE0ZjItYzczZC00Mzc2LWE0YWUtY2I3N2M5YzMzYTU1IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjhlNGYwNzNiLTU2NDYtNDAyNS1hOWZhLTgyNGM4NjVhNDU3OCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6InF1YW5nZHVvbmciLCJnaXZlbl9uYW1lIjoiRHVvbmciLCJmYW1pbHlfbmFtZSI6IkRpbmgiLCJlbWFpbCI6InF1YW5nZHVvbmdAZ21haWwuY29tIn0.IOv8mYJgQg8QreMydlZjB181674ie-LxnZ6_Fp1JTpoBhkEB_T15ctadNk3qF4A1NOf1Swy-p94sG4AoQV1m8rBFFKex86WE1kXWxHtjbPD9U7lkCf7mgmNUwlxHEkt_Ixw7hBP5TQyTXUvZDpb9GmTTQUW9Z9lCsl2twKXs3ZZogALkYOs-Rh_4vQd_zQEnXtmy0xJ4ubmwz9SOhuCSsnH8-lAZ9Tv7g_p8XC56P9nFIVKezrtKONabtoxFm7pDDbC3nI2rr29qXfoyE2RoEm84NX0XoYAHWABGvlGETsCgphvylc6UE7TyUMhLRe5vCJFnczatV5w2hZ7h63Sw_w"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{prod}}/api/asset-life-cycles?filter=asset.id==0J7X3B0WRZFPD",
+					"protocol": "http",
+					"host": [
+						"{{prod}}"
+					],
+					"path": [
+						"api",
+						"asset-life-cycles"
+					],
+					"query": [
+						{
+							"key": "filter",
+							"value": "asset.id==0J7X3B0WRZFPD"
 						}
 					]
 				}

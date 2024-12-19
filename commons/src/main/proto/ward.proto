@@ -13,10 +13,11 @@ service WardGrpcService {
 
 message GetWardRequest {
   string name = 1;
-  string countryCode = 2;
+  int32 districtCode = 2;
+  string countryCode = 3;
 }
 
 message GetWardResponse {
-  int64 code = 1;
+  int32 code = 1;
   string name = 2;
 }
