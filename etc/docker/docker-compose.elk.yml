@@ -31,7 +31,7 @@ services:
     image: docker.elastic.co/kibana/kibana:8.10.4
     restart: unless-stopped
     volumes:
-      - ./docker/kibana/kibana.yml:/usr/share/kibana/config/kibana.yml
+      - ./kibana/kibana.yml:/usr/share/kibana/config/kibana.yml
     ports:
       - "5601:5601"
     command: >
