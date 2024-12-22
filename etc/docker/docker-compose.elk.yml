@@ -35,7 +35,7 @@ services:
     ports:
       - "5601:5601"
     command: >
-      bash -c "curl --write-out 'HTTP %{http_code}' --fail --silent --output /dev/null --user elastic:genesis http://elasticsearch:9200/_security/user/kibana_system/_password -H 'Content-Type: application/json' -d '{\"password\": \"hometopia\"}' && /usr/local/bin/kibana-docker"
+      bash -c "curl --write-out 'HTTP %{http_code}' --fail --silent --output /dev/null --user elastic:hometopia http://elasticsearch:9200/_security/user/kibana_system/_password -H 'Content-Type: application/json' -d '{\"password\": \"hometopia\"}' && /usr/local/bin/kibana-docker"
     depends_on:
       elasticsearch:
         condition: service_healthy
