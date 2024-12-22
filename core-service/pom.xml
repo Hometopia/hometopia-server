@@ -183,6 +183,12 @@
 						<arg>
 							-Amapstruct.disableBuilders=true
 						</arg>
+						<arg>
+							-Amapstruct.nullValueIterableMappingStrategy=RETURN_DEFAULT
+						</arg>
+						<arg>
+							-Amapstruct.defaultInjectionStrategy=constructor
+						</arg>
 					</compilerArgs>
 				</configuration>
 			</plugin>

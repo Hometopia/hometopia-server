@@ -2,7 +2,7 @@ package com.hometopia.coreservice.repository;
 
 import com.hometopia.coreservice.entity.WardLan;
 import com.hometopia.coreservice.entity.embedded.WardLanId;
-import com.hometopia.coreservice.entity.enumeration.CountryCode;
+import com.hometopia.commons.enumeration.CountryCode;
 import com.hometopia.coreservice.repository.custom.WardLanRepositoryCustom;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;

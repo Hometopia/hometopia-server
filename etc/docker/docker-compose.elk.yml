@@ -26,6 +26,22 @@ services:
     volumes:
       - elasticsearch:/usr/share/elasticsearch/data
 
+  kibana:
+    container_name: kibana
+    image: docker.elastic.co/kibana/kibana:8.10.4
+    restart: unless-stopped
+    volumes:
+      - ./docker/kibana/kibana.yml:/usr/share/kibana/config/kibana.yml
+    ports:
+      - "5601:5601"
+    command: >
+      bash -c "curl --write-out 'HTTP %{http_code}' --fail --silent --output /dev/null --user elastic:genesis http://elasticsearch:9200/_security/user/kibana_system/_password -H 'Content-Type: application/json' -d '{\"password\": \"hometopia\"}' && /usr/local/bin/kibana-docker"
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    networks:
+      - hometopia-network
+
 volumes:
   elasticsearch:
     driver: local

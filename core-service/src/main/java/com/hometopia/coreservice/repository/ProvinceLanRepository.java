@@ -2,7 +2,7 @@ package com.hometopia.coreservice.repository;
 
 import com.hometopia.coreservice.entity.ProvinceLan;
 import com.hometopia.coreservice.entity.embedded.ProvinceLanId;
-import com.hometopia.coreservice.entity.enumeration.CountryCode;
+import com.hometopia.commons.enumeration.CountryCode;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

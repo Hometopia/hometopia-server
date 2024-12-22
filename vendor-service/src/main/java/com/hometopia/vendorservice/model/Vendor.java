@@ -10,6 +10,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
+import org.springframework.data.elasticsearch.annotations.GeoPointField;
+import org.springframework.data.elasticsearch.core.geo.GeoPoint;
 
 @Document(indexName = "vendor")
 @Getter
@@ -38,4 +40,7 @@ public class Vendor {
 
     @Field(type = FieldType.Text, name = "asset_category")
     private AssetCategory assetCategory;
+
+    @GeoPointField
+    private GeoPoint location;
 }

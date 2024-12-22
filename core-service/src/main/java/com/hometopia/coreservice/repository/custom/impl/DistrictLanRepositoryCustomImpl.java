@@ -4,7 +4,7 @@ import com.hometopia.coreservice.entity.DistrictLan;
 import com.hometopia.coreservice.entity.QDistrict;
 import com.hometopia.coreservice.entity.QDistrictLan;
 import com.hometopia.coreservice.entity.QProvince;
-import com.hometopia.coreservice.entity.enumeration.CountryCode;
+import com.hometopia.commons.enumeration.CountryCode;
 import com.hometopia.coreservice.repository.custom.DistrictLanRepositoryCustom;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;

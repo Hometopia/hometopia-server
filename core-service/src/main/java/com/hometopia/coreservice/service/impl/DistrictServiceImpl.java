@@ -7,7 +7,7 @@ import com.hometopia.coreservice.entity.District;
 import com.hometopia.coreservice.entity.DistrictLan;
 import com.hometopia.coreservice.entity.Province;
 import com.hometopia.coreservice.entity.embedded.DistrictLanId;
-import com.hometopia.coreservice.entity.enumeration.CountryCode;
+import com.hometopia.commons.enumeration.CountryCode;
 import com.hometopia.coreservice.mapper.DistrictMapper;
 import com.hometopia.coreservice.repository.DistrictLanRepository;
 import com.hometopia.coreservice.service.DistrictService;

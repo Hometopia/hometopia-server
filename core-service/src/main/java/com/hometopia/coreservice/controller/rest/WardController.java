@@ -2,7 +2,7 @@ package com.hometopia.coreservice.controller.rest;
 
 import com.hometopia.commons.response.ListResponse;
 import com.hometopia.coreservice.dto.response.WardResponse;
-import com.hometopia.coreservice.entity.enumeration.CountryCode;
+import com.hometopia.commons.enumeration.CountryCode;
 import com.hometopia.coreservice.service.WardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;

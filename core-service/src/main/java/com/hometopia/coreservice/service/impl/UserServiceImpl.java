@@ -5,7 +5,7 @@ import com.hometopia.commons.response.RestResponse;
 import com.hometopia.coreservice.dto.request.CreateUserRequest;
 import com.hometopia.coreservice.dto.response.UserResponse;
 import com.hometopia.coreservice.entity.User;
-import com.hometopia.coreservice.entity.enumeration.CountryCode;
+import com.hometopia.commons.enumeration.CountryCode;
 import com.hometopia.coreservice.mapper.UserMapper;
 import com.hometopia.coreservice.repository.DistrictLanRepository;
 import com.hometopia.coreservice.repository.ProvinceLanRepository;

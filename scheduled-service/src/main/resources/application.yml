@@ -45,7 +45,8 @@ spring:
     password: ${RABBITMQ_PASSWORD}
 
 scheduling:
-  computer-maintenance-vendor: 0 9 3 * * ?
+  computer-maintenance-vendor: 0 52 13 * * ?
+  mobile-phone-maintenance-vendor: 0 0 14 * * ?
 
 management:
   endpoints:

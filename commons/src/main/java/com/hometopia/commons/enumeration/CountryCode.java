@@ -1,4 +1,4 @@
-package com.hometopia.coreservice.entity.enumeration;
+package com.hometopia.commons.enumeration;
 
 public enum CountryCode {
     AF("Afghanistan"),

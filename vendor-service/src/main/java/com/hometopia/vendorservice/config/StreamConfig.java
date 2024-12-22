@@ -1,6 +1,7 @@
 package com.hometopia.vendorservice.config;
 
 import com.hometopia.commons.message.Vendor;
+import com.hometopia.vendorservice.service.VendorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,11 +14,10 @@ import java.util.function.Consumer;
 @RequiredArgsConstructor
 public class StreamConfig {
 
+    private final VendorService vendorService;
+
     @Bean
     public Consumer<Message<List<Vendor>>> handleSaveListVendor() {
-        return message -> {
-            List<Vendor> vendors = message.getPayload();
-            System.out.println(vendors.size());
-        };
+        return message -> vendorService.saveListVendors(message.getPayload());
     }
 }

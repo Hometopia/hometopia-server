@@ -1,12 +1,10 @@
 package com.hometopia.coreservice.repository.custom.impl;
 
 import com.hometopia.coreservice.entity.QDistrict;
-import com.hometopia.coreservice.entity.QDistrictLan;
-import com.hometopia.coreservice.entity.QProvince;
 import com.hometopia.coreservice.entity.QWard;
 import com.hometopia.coreservice.entity.QWardLan;
 import com.hometopia.coreservice.entity.WardLan;
-import com.hometopia.coreservice.entity.enumeration.CountryCode;
+import com.hometopia.commons.enumeration.CountryCode;
 import com.hometopia.coreservice.repository.custom.WardLanRepositoryCustom;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;

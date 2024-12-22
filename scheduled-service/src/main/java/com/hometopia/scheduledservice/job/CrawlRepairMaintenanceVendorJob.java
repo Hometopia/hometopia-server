@@ -38,4 +38,12 @@ public class CrawlRepairMaintenanceVendorJob {
                 provinceGrpcServiceBlockingStub, districtGrpcServiceBlockingStub, wardGrpcServiceBlockingStub);
         streamBridge.send(HometopiaBinding.VENDOR, MessageBuilder.withPayload(vendors).build());
     }
+
+    @Scheduled(cron = "${scheduling.mobile-phone-maintenance-vendor}")
+    @Async
+    public void crawlMobilePhoneRepairMaintenanceVendor() throws InterruptedException {
+        List<Vendor> vendors = RepairMaintenanceVendorCrawler.getListVendors("Sửa điện thoại TP HCM",
+                provinceGrpcServiceBlockingStub, districtGrpcServiceBlockingStub, wardGrpcServiceBlockingStub);
+        streamBridge.send(HometopiaBinding.VENDOR, MessageBuilder.withPayload(vendors).build());
+    }
 }

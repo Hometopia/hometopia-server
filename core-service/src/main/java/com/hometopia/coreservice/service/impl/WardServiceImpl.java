@@ -3,7 +3,7 @@ package com.hometopia.coreservice.service.impl;
 import com.hometopia.commons.exception.ResourceNotFoundException;
 import com.hometopia.commons.response.ListResponse;
 import com.hometopia.coreservice.dto.response.WardResponse;
-import com.hometopia.coreservice.entity.enumeration.CountryCode;
+import com.hometopia.commons.enumeration.CountryCode;
 import com.hometopia.coreservice.mapper.WardMapper;
 import com.hometopia.coreservice.repository.WardLanRepository;
 import com.hometopia.coreservice.service.WardService;

@@ -3,7 +3,7 @@ package com.hometopia.coreservice.service.impl;
 import com.hometopia.commons.exception.ResourceNotFoundException;
 import com.hometopia.commons.response.ListResponse;
 import com.hometopia.coreservice.dto.response.ProvinceResponse;
-import com.hometopia.coreservice.entity.enumeration.CountryCode;
+import com.hometopia.commons.enumeration.CountryCode;
 import com.hometopia.coreservice.mapper.ProvinceMapper;
 import com.hometopia.coreservice.repository.ProvinceLanRepository;
 import com.hometopia.coreservice.service.ProvinceService;

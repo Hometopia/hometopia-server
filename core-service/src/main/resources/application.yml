@@ -49,8 +49,6 @@ spring:
 
 logging:
   level:
-#    web: trace
-    org.hibernate.orm.jdbc.bind: trace
     net.ttddyy.dsproxy.listener: debug
 
 decorator:

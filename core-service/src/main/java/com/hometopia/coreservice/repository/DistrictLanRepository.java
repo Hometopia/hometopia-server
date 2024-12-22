@@ -1,9 +1,8 @@
 package com.hometopia.coreservice.repository;
 
 import com.hometopia.coreservice.entity.DistrictLan;
-import com.hometopia.coreservice.entity.ProvinceLan;
 import com.hometopia.coreservice.entity.embedded.DistrictLanId;
-import com.hometopia.coreservice.entity.enumeration.CountryCode;
+import com.hometopia.commons.enumeration.CountryCode;
 import com.hometopia.coreservice.repository.custom.DistrictLanRepositoryCustom;
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -9,7 +9,8 @@ public record Vendor(
         Address address,
         String website,
         String phoneNumber,
-        AssetCategory assetCategory
+        AssetCategory assetCategory,
+        GeoPoint location
 ) {
 
     @Builder
@@ -21,6 +22,11 @@ public record Vendor(
             String districtName,
             Integer wardCode,
             String wardName
+    ) {}
+
+    public record GeoPoint(
+            Double lat,
+            Double lon
     ) {}
 
 }

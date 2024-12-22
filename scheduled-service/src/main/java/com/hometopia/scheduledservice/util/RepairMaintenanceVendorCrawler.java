@@ -2,6 +2,7 @@ package com.hometopia.scheduledservice.util;
 
 import com.hometopia.commons.enumeration.AssetCategory;
 import com.hometopia.commons.message.Vendor;
+import com.hometopia.commons.utils.AppConstants;
 import com.hometopia.proto.district.DistrictGrpcServiceGrpc;
 import com.hometopia.proto.district.GetDistrictRequest;
 import com.hometopia.proto.district.GetDistrictResponse;
@@ -11,6 +12,7 @@ import com.hometopia.proto.province.ProvinceGrpcServiceGrpc;
 import com.hometopia.proto.ward.GetWardRequest;
 import com.hometopia.proto.ward.GetWardResponse;
 import com.hometopia.proto.ward.WardGrpcServiceGrpc;
+import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -21,7 +23,9 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
+import java.util.regex.Matcher;
 
+@Slf4j
 public class RepairMaintenanceVendorCrawler {
 
     public static List<Vendor> getListVendors(String query,
@@ -72,11 +76,11 @@ public class RepairMaintenanceVendorCrawler {
             List<WebElement> info = driver.findElements(By.cssSelector(".Io6YTe.fontBodyMedium"));
 
             vendors.add(new Vendor(
-                    tryGet(() -> ele.findElement(By.tagName("a")).getAttribute("href"), ""),
-                    tryGet(() -> driver.findElement(By.cssSelector(".DUwDvf")).getText(), ""),
+                    tryGet(() -> ele.findElement(By.tagName("a")).getAttribute("href"), AppConstants.EMPTY_STRING),
+                    tryGet(() -> driver.findElement(By.cssSelector(".DUwDvf")).getText(), AppConstants.EMPTY_STRING),
                     tryGet(() -> {
                         String line = info.get(0).getText().matches("^\\+\\d{1,3}\\s\\d{3}\\s\\d{3}\\s\\d{3}$")
-                                ? "" : info.get(0).getText();
+                                ? AppConstants.EMPTY_STRING : info.get(0).getText();
                         Integer provinceCode = null;
                         String provinceName = null;
                         Integer districtCode = null;
@@ -90,11 +94,11 @@ public class RepairMaintenanceVendorCrawler {
                             if (provinceCode == null) {
                                 try {
                                     GetProvinceResponse getProvinceResponse = provinceGrpcServiceStub.getProvince(GetProvinceRequest.newBuilder()
-                                            .setName(part.replaceAll("[0-9]", "").trim()).setCountryCode("VN").build());
+                                            .setName(part.replaceAll("[0-9]", AppConstants.EMPTY_STRING).trim()).setCountryCode("VN").build());
                                     provinceCode = getProvinceResponse.getCode();
                                     provinceName = getProvinceResponse.getName();
                                 } catch (Exception e) {
-
+                                    log.error("Error when getting province with name: {}", part.replaceAll("[0-9]", AppConstants.EMPTY_STRING).trim(), e);
                                 }
                             }
 
@@ -105,7 +109,7 @@ public class RepairMaintenanceVendorCrawler {
                                     districtCode = getDistrictResponse.getCode();
                                     districtName = getDistrictResponse.getName();
                                 } catch (Exception e) {
-
+                                    log.error("Error when getting district with name: {}", part.trim(), e);
                                 }
                             }
 
@@ -116,7 +120,7 @@ public class RepairMaintenanceVendorCrawler {
                                     wardCode = getWardResponse.getCode();
                                     wardName = getWardResponse.getName();
                                 } catch (Exception e) {
-
+                                    log.error("Error when getting ward with name: {}", part.trim(), e);
                                 }
                             }
                         }
@@ -124,11 +128,21 @@ public class RepairMaintenanceVendorCrawler {
                         return new Vendor.Address(line, provinceCode, provinceName, districtCode,
                                 districtName, wardCode, wardName);
                     }, null),
-                    tryGet(() -> driver.findElement(By.cssSelector("a.CsEnBe")).getAttribute("href"), ""),
+                    tryGet(() -> driver.findElement(By.cssSelector("a.CsEnBe")).getAttribute("href"), AppConstants.EMPTY_STRING),
                     tryGet(() -> info.stream()
                             .filter(c -> c.getText().matches("^\\+\\d{1,3}\\s\\d{3}\\s\\d{3}\\s\\d{3}$"))
-                            .findFirst().map(WebElement::getText).orElse(""), ""),
-                    AssetCategory.LAPTOP
+                            .findFirst().map(WebElement::getText).orElse(AppConstants.EMPTY_STRING), AppConstants.EMPTY_STRING),
+                    AssetCategory.LAPTOP,
+                    tryGet(() -> {
+                        Matcher matcher = AppConstants.GEO_LOCATION_PATTERN.matcher(driver.getCurrentUrl());
+
+                        if (matcher.find()) {
+                            String latitude = matcher.group(1);
+                            String longitude = matcher.group(2);
+                            return new Vendor.GeoPoint(Double.valueOf(latitude), Double.valueOf(longitude));
+                        }
+                        throw new RuntimeException("Cannot find geo location for uri: " + driver.getCurrentUrl());
+                    }, null)
             ));
         }
 

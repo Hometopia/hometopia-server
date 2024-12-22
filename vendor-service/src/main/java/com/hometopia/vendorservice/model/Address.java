@@ -12,24 +12,24 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Address {
-    @Field(type = FieldType.Text, name = "link")
+    @Field(type = FieldType.Text, name = "line")
     private String line;
 
-    @Field(type = FieldType.Text, name = "link")
+    @Field(type = FieldType.Text, name = "provinceCode")
     private Integer provinceCode;
 
-    @Field(type = FieldType.Text, name = "link")
+    @Field(type = FieldType.Text, name = "provinceName")
     private String provinceName;
 
-    @Field(type = FieldType.Text, name = "link")
+    @Field(type = FieldType.Text, name = "districtCode")
     private Integer districtCode;
 
-    @Field(type = FieldType.Text, name = "link")
+    @Field(type = FieldType.Text, name = "districtName")
     private String districtName;
 
-    @Field(type = FieldType.Text, name = "link")
+    @Field(type = FieldType.Text, name = "wardCode")
     private Integer wardCode;
 
-    @Field(type = FieldType.Text, name = "link")
+    @Field(type = FieldType.Text, name = "wardCode")
     private String wardName;
 }

@@ -1,7 +1,7 @@
 package com.hometopia.coreservice.repository.custom;
 
 import com.hometopia.coreservice.entity.WardLan;
-import com.hometopia.coreservice.entity.enumeration.CountryCode;
+import com.hometopia.commons.enumeration.CountryCode;
 
 import java.util.List;
 
