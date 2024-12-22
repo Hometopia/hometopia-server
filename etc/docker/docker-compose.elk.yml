@@ -25,6 +25,8 @@ services:
       test: [ "CMD-SHELL", "curl --write-out 'HTTP %{http_code}' --fail --silent --output /dev/null --user elastic:hometopia http://localhost:9200" ]
     volumes:
       - elasticsearch:/usr/share/elasticsearch/data
+    networks:
+      - hometopia-network
 
   kibana:
     container_name: kibana
