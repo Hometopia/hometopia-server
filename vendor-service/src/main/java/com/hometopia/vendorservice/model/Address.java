@@ -15,21 +15,21 @@ public class Address {
     @Field(type = FieldType.Text, name = "line")
     private String line;
 
-    @Field(type = FieldType.Text, name = "provinceCode")
+    @Field(type = FieldType.Text, name = "province_code")
     private Integer provinceCode;
 
-    @Field(type = FieldType.Text, name = "provinceName")
+    @Field(type = FieldType.Text, name = "province_name")
     private String provinceName;
 
-    @Field(type = FieldType.Text, name = "districtCode")
+    @Field(type = FieldType.Text, name = "district_code")
     private Integer districtCode;
 
-    @Field(type = FieldType.Text, name = "districtName")
+    @Field(type = FieldType.Text, name = "district_name")
     private String districtName;
 
-    @Field(type = FieldType.Text, name = "wardCode")
+    @Field(type = FieldType.Text, name = "ward_code")
     private Integer wardCode;
 
-    @Field(type = FieldType.Text, name = "wardCode")
+    @Field(type = FieldType.Text, name = "ward_name")
     private String wardName;
 }

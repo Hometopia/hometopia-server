@@ -7,12 +7,15 @@ import com.hometopia.vendorservice.mapper.BrandMapper;
 import com.hometopia.vendorservice.model.Brand;
 import com.hometopia.vendorservice.service.BrandService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.client.elc.NativeQuery;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.SearchHit;
+import org.springframework.data.elasticsearch.core.SearchHitSupport;
 import org.springframework.data.elasticsearch.core.SearchHits;
+import org.springframework.data.elasticsearch.core.SearchPage;
 import org.springframework.data.elasticsearch.core.query.Query;
 import org.springframework.stereotype.Service;
 
@@ -32,9 +35,9 @@ public class BrandServiceImpl implements BrandService {
 
         SearchHits<Brand> searchHits = elasticsearchOperations.search(fuzzyQuery, Brand.class);
 
-        return RestResponse.ok(ListResponse.of(searchHits.getSearchHits().stream()
-                .map(SearchHit::getContent)
-                .map(brandMapper::toGetListBrandResponse)
-                .toList()));
+        Page<GetListBrandResponse> brands = SearchHitSupport.searchPageFor(searchHits, fuzzyQuery.getPageable())
+                .map(SearchHit::getContent).map(brandMapper::toGetListBrandResponse);
+
+        return RestResponse.ok(ListResponse.of(brands));
     }
 }

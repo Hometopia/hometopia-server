@@ -1,5 +1,6 @@
 package com.hometopia.scheduledservice.job;
 
+import com.hometopia.commons.enumeration.AssetCategory;
 import com.hometopia.commons.message.Vendor;
 import com.hometopia.proto.district.DistrictGrpcServiceGrpc;
 import com.hometopia.proto.province.ProvinceGrpcServiceGrpc;
@@ -34,16 +35,16 @@ public class CrawlRepairMaintenanceVendorJob {
     @Scheduled(cron = "${scheduling.computer-maintenance-vendor}")
     @Async
     public void crawlComputerRepairMaintenanceVendor() throws InterruptedException {
-        List<Vendor> vendors = RepairMaintenanceVendorCrawler.getListVendors("Sửa máy tính TP HCM",
-                provinceGrpcServiceBlockingStub, districtGrpcServiceBlockingStub, wardGrpcServiceBlockingStub);
+        List<Vendor> vendors = RepairMaintenanceVendorCrawler.getListVendors("Sửa máy tính Bình Thạnh",
+                AssetCategory.LAPTOP, provinceGrpcServiceBlockingStub, districtGrpcServiceBlockingStub, wardGrpcServiceBlockingStub);
         streamBridge.send(HometopiaBinding.VENDOR, MessageBuilder.withPayload(vendors).build());
     }
 
     @Scheduled(cron = "${scheduling.mobile-phone-maintenance-vendor}")
     @Async
     public void crawlMobilePhoneRepairMaintenanceVendor() throws InterruptedException {
-        List<Vendor> vendors = RepairMaintenanceVendorCrawler.getListVendors("Sửa điện thoại TP HCM",
-                provinceGrpcServiceBlockingStub, districtGrpcServiceBlockingStub, wardGrpcServiceBlockingStub);
+        List<Vendor> vendors = RepairMaintenanceVendorCrawler.getListVendors("Sửa điện thoại Thủ Đức",
+                AssetCategory.MOBILE_PHONE, provinceGrpcServiceBlockingStub, districtGrpcServiceBlockingStub, wardGrpcServiceBlockingStub);
         streamBridge.send(HometopiaBinding.VENDOR, MessageBuilder.withPayload(vendors).build());
     }
 }

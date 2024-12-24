@@ -126,6 +126,13 @@ spring:
           filters:
             - RewritePath=/api/asset-life-cycles, /core/asset-life-cycles
             - RewritePath=/api/asset-life-cycles/(?<segment>.*), /core/asset-life-cycles/$\{segment}
+        - id: vendor-api
+          uri: lb://vendor-service
+          predicates:
+            - Path=/api/vendors/**
+          filters:
+            - RewritePath=/api/vendors, /vendor/vendors
+            - RewritePath=/api/vendors/(?<segment>.*), /vendor/vendors/$\{segment}
         - id: asset-classifier-api
           uri: http://classification-service:5000
           predicates:

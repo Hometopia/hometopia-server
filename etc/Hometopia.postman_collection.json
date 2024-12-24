@@ -798,6 +798,53 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Get List Vendor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRWDhOdDFvSGw4d2Y0dFNqXzF0d0pIdnlqOGZmVlBGVjJFQzhpYzRtOEk4In0.eyJleHAiOjE3MzUwMjEzMjMsImlhdCI6MTczNTAxNzcyMywianRpIjoiZjZlNjk5NGYtMDNiNC00NTg2LWE4OTAtMTQyNjY3YjU5ODY3IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYWQ3YTc2YjktZWEyMy00YmEzLTllMWMtMTA3YjExZDJhODEyIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjViZjZmZjAzLTg3NmEtNDliMi1iMmNlLWQ2NmZlOGVjOWI5ZSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6ImxvY2FsIiwiZ2l2ZW5fbmFtZSI6IkR1b25nIiwiZmFtaWx5X25hbWUiOiJEaW5oIiwiZW1haWwiOiJxdWFuZ2R1b25nQGdtYWlsLmNvbSJ9.UiRZUZOdqqxE1j_KWGyY9DJAyaRk_8T53cBVrNdRaZQXfesiKgbUrbYRFKljLDFXqm1nEF3PMJ24HyRPyWmvuBAP_IztpBLfWfSahuYIqdaC5rUXfvjOxKp43sc5imz26y8W3p5bnXyYNAcp9y-P2hp6NLZlKF_PpDCE_Tdx8nQOlhDsumwAHRJAspuhxFY_IYevMOtlgo7KEFE1X4YqjCKpPQ_0j_hzRGblUsmPCPhfPmdhX425CYwkIoRQE8ueqzb6pWVu5dJKfQdYAvPP4A65OfnuGzJmPGOPNtBbbaqOqH51UK8QYZVGr4nwfxfnQU26sWqxsFb2a8hQm4cxbA"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{prod}}/api/vendors?page=1&size=10&category=LAPTOP&lat=10.881357&lon=106.780258",
+					"protocol": "http",
+					"host": [
+						"{{prod}}"
+					],
+					"path": [
+						"api",
+						"vendors"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "category",
+							"value": "LAPTOP"
+						},
+						{
+							"key": "lat",
+							"value": "10.881357"
+						},
+						{
+							"key": "lon",
+							"value": "106.780258"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [

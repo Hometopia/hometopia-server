@@ -29,6 +29,7 @@ import java.util.regex.Matcher;
 public class RepairMaintenanceVendorCrawler {
 
     public static List<Vendor> getListVendors(String query,
+                                              AssetCategory category,
                                               ProvinceGrpcServiceGrpc.ProvinceGrpcServiceBlockingStub provinceGrpcServiceStub,
                                               DistrictGrpcServiceGrpc.DistrictGrpcServiceBlockingStub districtGrpcServiceStub,
                                               WardGrpcServiceGrpc.WardGrpcServiceBlockingStub wardGrpcServiceStub) throws InterruptedException {
@@ -132,7 +133,7 @@ public class RepairMaintenanceVendorCrawler {
                     tryGet(() -> info.stream()
                             .filter(c -> c.getText().matches("^\\+\\d{1,3}\\s\\d{3}\\s\\d{3}\\s\\d{3}$"))
                             .findFirst().map(WebElement::getText).orElse(AppConstants.EMPTY_STRING), AppConstants.EMPTY_STRING),
-                    AssetCategory.LAPTOP,
+                    category,
                     tryGet(() -> {
                         Matcher matcher = AppConstants.GEO_LOCATION_PATTERN.matcher(driver.getCurrentUrl());
 
