@@ -13,6 +13,7 @@ services:
       SPRING_PROFILES_ACTIVE: prod
     ports:
       - "8010:8010"
+      - "8020:8020"
     networks:
       - hometopia-network
 
@@ -53,6 +54,19 @@ services:
     ports:
       - "8030:8030"
       - "8040:8040"
+    networks:
+      - hometopia-network
+
+  vendor-service:
+    container_name: vendor-service
+    image: vendor-service
+    env_file:
+      - /root/.env
+    restart: unless-stopped
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+    ports:
+      - "8090:8090"
     networks:
       - hometopia-network
 
