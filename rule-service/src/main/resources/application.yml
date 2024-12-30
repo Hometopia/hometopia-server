@@ -37,6 +37,10 @@ spring:
       host: ${VAULT_HOST}
       port: ${VAULT_PORT}
 
+rule:
+  category: ${CATEGORY_RULES_PATH:rule_table/category_rules.drl.xlsx}
+  useful-life: ${USEFUL_LIFE_RULES_PATH:rule_table/useful_life_rules.drl.xlsx}
+
 management:
   endpoints:
     web:

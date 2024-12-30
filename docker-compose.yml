@@ -51,9 +51,13 @@ services:
     restart: unless-stopped
     environment:
       SPRING_PROFILES_ACTIVE: prod
+      CATEGORY_RULES_PATH: /service/rules/category_rules.drl.xlsx
+      USEFUL_LIFE_RULES_PATH: /service/rules/useful_life_rules.drl.xlsx
     ports:
       - "8030:8030"
       - "8040:8040"
+    volumes:
+      - ./etc/rules:/service/rules
     networks:
       - hometopia-network
 
