@@ -1,6 +1,7 @@
 package com.hometopia.coreservice.dto.response;
 
 import com.hometopia.coreservice.entity.embedded.File;
+import com.hometopia.coreservice.entity.embedded.Vendor;
 import com.hometopia.coreservice.entity.enumeration.ScheduleType;
 
 import java.math.BigDecimal;
@@ -12,7 +13,7 @@ public record CreateScheduleResponse(
         String title,
         LocalDateTime start,
         LocalDateTime end,
-        String vendor,
+        Vendor vendor,
         BigDecimal cost,
         ArrayList<File> documents,
         ScheduleType type,

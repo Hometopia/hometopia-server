@@ -216,7 +216,7 @@ CREATE TABLE schedule
     title      VARCHAR(255)                NOT NULL,
     start      TIMESTAMP WITHOUT TIME ZONE NOT NULL,
     "end"      TIMESTAMP WITHOUT TIME ZONE NOT NULL,
-    vendor     VARCHAR(255)                NOT NULL,
+    vendor     JSONB                       NOT NULL,
     cost       DECIMAL,
     documents  JSONB,
     type       VARCHAR(255)                NOT NULL,

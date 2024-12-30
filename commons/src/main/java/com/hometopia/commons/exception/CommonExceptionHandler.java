@@ -48,7 +48,7 @@ public interface CommonExceptionHandler {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     default ProblemDetail resourceNotFoundExceptionHandler(ResourceNotFoundException e) {
-        return ProblemDetailsBuilder.statusAndDetail(HttpStatus.UNAUTHORIZED, e.getMessage())
+        return ProblemDetailsBuilder.statusAndDetail(HttpStatus.NOT_FOUND, e.getMessage())
                 .type(URI.create("https://problems.hometopia.com/resource-not-found"))
                 .title("Resource Not Found")
                 .build();

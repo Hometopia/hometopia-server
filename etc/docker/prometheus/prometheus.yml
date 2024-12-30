@@ -30,3 +30,10 @@ scrape_configs:
       - targets: ['193.203.161.141:8050']
         labels:
           application: 'Media Service Application'
+
+  - job_name: 'vendor-service'
+    metrics_path: /vendor/actuator/prometheus
+    static_configs:
+      - targets: [ '193.203.161.141:8090' ]
+        labels:
+          application: 'Vendor Service Application'

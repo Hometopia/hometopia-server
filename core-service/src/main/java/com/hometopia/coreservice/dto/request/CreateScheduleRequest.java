@@ -1,8 +1,10 @@
 package com.hometopia.coreservice.dto.request;
 
 import com.hometopia.coreservice.entity.embedded.File;
+import com.hometopia.coreservice.entity.embedded.Vendor;
 import com.hometopia.coreservice.entity.enumeration.ScheduleType;
 import jakarta.validation.constraints.FutureOrPresent;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -12,7 +14,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public record CreateScheduleRequest(
-        @NotEmpty
+        @NotBlank
         String title,
         @NotNull
         @FutureOrPresent
@@ -20,8 +22,8 @@ public record CreateScheduleRequest(
         @NotNull
         @FutureOrPresent
         LocalDateTime end,
-        @NotEmpty
-        String vendor,
+        @NotNull
+        Vendor vendor,
         @Positive
         BigDecimal cost,
         @NotNull

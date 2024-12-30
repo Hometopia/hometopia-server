@@ -313,11 +313,11 @@
 						{
 							"key": "files",
 							"type": "file",
-							"src": "/C:/Users/HP/Downloads/laptop.jpg"
+							"src": "/E:/Quang Duong/Projects UIT/Thesis/hometopia/etc/Hometopia.postman_collection.json"
 						}
 					]
 				},
-				"url": "http://{{dev}}/api/files"
+				"url": "http://{{prod}}/api/files"
 			},
 			"response": []
 		},
@@ -577,21 +577,21 @@
 				"auth": {
 					"type": "bearer",
 					"bearer": {
-						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYVFNEU1hpU1M3Zm5vcHlObEMyMzBzWEdweFhTcThVQTZtZk5QWXJiVEh3In0.eyJleHAiOjE3MzA3NDA1OTAsImlhdCI6MTczMDczNjk5MCwianRpIjoiNTdhYzNjYTctN2E1OS00N2U0LWJlZWUtYmMxN2M3MDk5ZWZkIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNTY1ODQ0N2MtNzg2Zi00MTk2LTg5NjYtOGU0ZDdjNWYxMzhhIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjhkYTg2YmEwLWU2NDgtNGMzNS1iNjIwLTc2MDg4ODQ2NTFiMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6InF1YW5nZHVvbmciLCJnaXZlbl9uYW1lIjoiRHVvbmciLCJmYW1pbHlfbmFtZSI6IkRpbmgiLCJlbWFpbCI6InF1YW5nZHVvbmdAZ21haWwuY29tIn0.WqiIP3czUGRwm12xQrbFr6tTe4ZoMNAVjoGK8ybM0yXd1Ojaulnboo60WdvNAhI-Xk70l9e4MWN_TNJ89-ZExE3oWhXiomoZo0bw8OdUArY8V8cK8UwuLKl1gO13cWuLUX_qYf_ZEWaxH3bV7HXfOHrd9NcB948Mbgrg7DygUxD5YPWh-1OkcDDod7O-KkT0CAc1Zp22vXp7zj8YgziLujGCSDudJuwyqvr30E521LhmHB9kT5INiBtfTeZcR9ySu0OBaSrxXn7mmpfY7-l05nw51njjDCOYc2nTh96yxSHOhA1f0GHO4r1XV0LBNWQXCOOJhJ3_kDhSllC8wAUvIw"
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRWDhOdDFvSGw4d2Y0dFNqXzF0d0pIdnlqOGZmVlBGVjJFQzhpYzRtOEk4In0.eyJleHAiOjE3MzU1Nzg3MjgsImlhdCI6MTczNTU3NTEyOCwianRpIjoiM2JjYmFkNTktM2M4MS00OGZhLWEzMDktM2NhNmZlNjRjZThmIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZDNhNmEyYjctNGYxNy00ZTAxLWJkODItYzNhZDUxMzJkYjE3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjVjNGJiZWI2LWU3NmQtNGE2ZS1hMTA1LWE3Y2Y0OTRlMDU3NSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiUXVhbmcgRHVvbmciLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJxdWFuZ2R1b25nIiwiZ2l2ZW5fbmFtZSI6IlF1YW5nIiwiZmFtaWx5X25hbWUiOiJEdW9uZyIsImVtYWlsIjoiMjE1MjA3NTFAZ20udWl0LmVkdS52biJ9.bZErRFQUzwy9D6o85WTY2na8pECujVYcFt3tVoR_4jNWQ6F5EWYq8iK966eUumFuYOUwPC4IwEXbgY3dDAkwN-B3BOkUQsQNphlgpcWEBGvq4L-KFLB0LJ6b0JKFK-EAbAjlN07DLalBHRpnk_NsS1pHJDm5gy4iraHJfmGEpJpaW1kfXy_Bc9-NFvNYj0VbjtuFceq4YIarBwxtlYvB6BTCY5cC7biqH6Jh4BAeqmIATdwjblvXE1jxTtIcjlc0tlLqyYOU2FvtSZuJdqSIEbYuxKnDhq1z4rwqwcua7h3x0CO5e7tNSF6euHrD4q8ZV4vVYNwvDsXa8DBEseI4aA"
 					}
 				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"Monthly Maintenance\",\r\n    \"start\": \"2024-11-10T09:00:00\",\r\n    \"end\": \"2024-11-10T17:00:00\",\r\n    \"vendor\": \"ABC Maintenance Services\",\r\n    // \"cost\": 1500.00,\r\n    \"documents\": [],\r\n    \"type\": \"MAINTENANCE\",\r\n    \"assetId\": \"0HPX8EEXAJ6V0\"\r\n}\r\n",
+					"raw": "{\r\n    \"title\": \"Monthly Maintenance\",\r\n    \"start\": \"2024-12-31T09:00:00\",\r\n    \"end\": \"2024-12-31T17:00:00\",\r\n    \"vendor\": {\r\n        \"link\": \"https://www.google.com/maps/place/LAPTOP+MINH+THU%E1%BA%ACN/data=!4m7!3m6!1s0x3174d9e4b9a3dc33:0x933be157006764bd!8m2!3d10.8743871!4d106.7994066!16s%2Fg%2F11gs6l0z0m!19sChIJM9yjueTZdDERvWRnAFfhO5M?authuser=0&hl=vi&rclk=1\",\r\n        \"name\": \"LAPTOP MINH THUẬN\",\r\n        \"address\": \"VQFX+QQ3, Unnamed, Road, Thủ Đức, Hồ Chí Minh, Việt Nam\",\r\n        \"website\": \"http://chamsoclaptop.vn/\",\r\n        \"phoneNumber\": \"\"\r\n    },\r\n    // \"cost\": 1500.00,\r\n    \"documents\": [],\r\n    \"type\": \"MAINTENANCE\",\r\n    \"assetId\": \"0J7MTHX6PC4FY\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": "http://{{dev}}/api/schedules"
+				"url": "http://{{prod}}/api/schedules"
 			},
 			"response": []
 		},
@@ -601,21 +601,21 @@
 				"auth": {
 					"type": "bearer",
 					"bearer": {
-						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYVFNEU1hpU1M3Zm5vcHlObEMyMzBzWEdweFhTcThVQTZtZk5QWXJiVEh3In0.eyJleHAiOjE3MzA3NDA1OTAsImlhdCI6MTczMDczNjk5MCwianRpIjoiNTdhYzNjYTctN2E1OS00N2U0LWJlZWUtYmMxN2M3MDk5ZWZkIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNTY1ODQ0N2MtNzg2Zi00MTk2LTg5NjYtOGU0ZDdjNWYxMzhhIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjhkYTg2YmEwLWU2NDgtNGMzNS1iNjIwLTc2MDg4ODQ2NTFiMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6InF1YW5nZHVvbmciLCJnaXZlbl9uYW1lIjoiRHVvbmciLCJmYW1pbHlfbmFtZSI6IkRpbmgiLCJlbWFpbCI6InF1YW5nZHVvbmdAZ21haWwuY29tIn0.WqiIP3czUGRwm12xQrbFr6tTe4ZoMNAVjoGK8ybM0yXd1Ojaulnboo60WdvNAhI-Xk70l9e4MWN_TNJ89-ZExE3oWhXiomoZo0bw8OdUArY8V8cK8UwuLKl1gO13cWuLUX_qYf_ZEWaxH3bV7HXfOHrd9NcB948Mbgrg7DygUxD5YPWh-1OkcDDod7O-KkT0CAc1Zp22vXp7zj8YgziLujGCSDudJuwyqvr30E521LhmHB9kT5INiBtfTeZcR9ySu0OBaSrxXn7mmpfY7-l05nw51njjDCOYc2nTh96yxSHOhA1f0GHO4r1XV0LBNWQXCOOJhJ3_kDhSllC8wAUvIw"
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRWDhOdDFvSGw4d2Y0dFNqXzF0d0pIdnlqOGZmVlBGVjJFQzhpYzRtOEk4In0.eyJleHAiOjE3MzU1Nzg3MjgsImlhdCI6MTczNTU3NTEyOCwianRpIjoiM2JjYmFkNTktM2M4MS00OGZhLWEzMDktM2NhNmZlNjRjZThmIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZDNhNmEyYjctNGYxNy00ZTAxLWJkODItYzNhZDUxMzJkYjE3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjVjNGJiZWI2LWU3NmQtNGE2ZS1hMTA1LWE3Y2Y0OTRlMDU3NSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiUXVhbmcgRHVvbmciLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJxdWFuZ2R1b25nIiwiZ2l2ZW5fbmFtZSI6IlF1YW5nIiwiZmFtaWx5X25hbWUiOiJEdW9uZyIsImVtYWlsIjoiMjE1MjA3NTFAZ20udWl0LmVkdS52biJ9.bZErRFQUzwy9D6o85WTY2na8pECujVYcFt3tVoR_4jNWQ6F5EWYq8iK966eUumFuYOUwPC4IwEXbgY3dDAkwN-B3BOkUQsQNphlgpcWEBGvq4L-KFLB0LJ6b0JKFK-EAbAjlN07DLalBHRpnk_NsS1pHJDm5gy4iraHJfmGEpJpaW1kfXy_Bc9-NFvNYj0VbjtuFceq4YIarBwxtlYvB6BTCY5cC7biqH6Jh4BAeqmIATdwjblvXE1jxTtIcjlc0tlLqyYOU2FvtSZuJdqSIEbYuxKnDhq1z4rwqwcua7h3x0CO5e7tNSF6euHrD4q8ZV4vVYNwvDsXa8DBEseI4aA"
 					}
 				},
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"Monthly Maintenance\",\r\n    \"start\": \"2024-11-10T09:00:00\",\r\n    \"end\": \"2024-11-10T17:00:00\",\r\n    \"vendor\": \"ABC Maintenance Services\",\r\n    \"cost\": 1500.00,\r\n    \"documents\": [],\r\n    \"type\": \"MAINTENANCE\",\r\n    \"assetId\": \"0HPX8EEXAJ6V0\"\r\n}\r\n",
+					"raw": "{\r\n    \"title\": \"Monthly Maintenance\",\r\n    \"start\": \"2024-12-31T09:00:00\",\r\n    \"end\": \"2024-12-31T17:00:00\",\r\n    \"vendor\": {\r\n        \"link\": \"https://www.google.com/maps/place/LAPTOP+MINH+THU%E1%BA%ACN/data=!4m7!3m6!1s0x3174d9e4b9a3dc33:0x933be157006764bd!8m2!3d10.8743871!4d106.7994066!16s%2Fg%2F11gs6l0z0m!19sChIJM9yjueTZdDERvWRnAFfhO5M?authuser=0&hl=vi&rclk=1\",\r\n        \"name\": \"LAPTOP MINH THUẬN\",\r\n        \"address\": \"VQFX+QQ3, Unnamed, Road, Thủ Đức, Hồ Chí Minh, Việt Nam\",\r\n        \"website\": \"http://chamsoclaptop.vn/\",\r\n        \"phoneNumber\": \"\"\r\n    },\r\n    \"cost\": 1500.00,\r\n    \"documents\": [],\r\n    \"type\": \"MAINTENANCE\",\r\n    \"assetId\": \"0HPX8EEXAJ6V0\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": "http://{{dev}}/api/schedules/0HSK8QKHZ3ZR5"
+				"url": "http://{{prod}}/api/schedules/0JBKX670PS321"
 			},
 			"response": []
 		},
@@ -805,7 +805,7 @@
 				"auth": {
 					"type": "bearer",
 					"bearer": {
-						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRWDhOdDFvSGw4d2Y0dFNqXzF0d0pIdnlqOGZmVlBGVjJFQzhpYzRtOEk4In0.eyJleHAiOjE3MzUwMjEzMjMsImlhdCI6MTczNTAxNzcyMywianRpIjoiZjZlNjk5NGYtMDNiNC00NTg2LWE4OTAtMTQyNjY3YjU5ODY3IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYWQ3YTc2YjktZWEyMy00YmEzLTllMWMtMTA3YjExZDJhODEyIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjViZjZmZjAzLTg3NmEtNDliMi1iMmNlLWQ2NmZlOGVjOWI5ZSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6ImxvY2FsIiwiZ2l2ZW5fbmFtZSI6IkR1b25nIiwiZmFtaWx5X25hbWUiOiJEaW5oIiwiZW1haWwiOiJxdWFuZ2R1b25nQGdtYWlsLmNvbSJ9.UiRZUZOdqqxE1j_KWGyY9DJAyaRk_8T53cBVrNdRaZQXfesiKgbUrbYRFKljLDFXqm1nEF3PMJ24HyRPyWmvuBAP_IztpBLfWfSahuYIqdaC5rUXfvjOxKp43sc5imz26y8W3p5bnXyYNAcp9y-P2hp6NLZlKF_PpDCE_Tdx8nQOlhDsumwAHRJAspuhxFY_IYevMOtlgo7KEFE1X4YqjCKpPQ_0j_hzRGblUsmPCPhfPmdhX425CYwkIoRQE8ueqzb6pWVu5dJKfQdYAvPP4A65OfnuGzJmPGOPNtBbbaqOqH51UK8QYZVGr4nwfxfnQU26sWqxsFb2a8hQm4cxbA"
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRWDhOdDFvSGw4d2Y0dFNqXzF0d0pIdnlqOGZmVlBGVjJFQzhpYzRtOEk4In0.eyJleHAiOjE3MzU1Nzg3MjgsImlhdCI6MTczNTU3NTEyOCwianRpIjoiM2JjYmFkNTktM2M4MS00OGZhLWEzMDktM2NhNmZlNjRjZThmIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZDNhNmEyYjctNGYxNy00ZTAxLWJkODItYzNhZDUxMzJkYjE3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjVjNGJiZWI2LWU3NmQtNGE2ZS1hMTA1LWE3Y2Y0OTRlMDU3NSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiUXVhbmcgRHVvbmciLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJxdWFuZ2R1b25nIiwiZ2l2ZW5fbmFtZSI6IlF1YW5nIiwiZmFtaWx5X25hbWUiOiJEdW9uZyIsImVtYWlsIjoiMjE1MjA3NTFAZ20udWl0LmVkdS52biJ9.bZErRFQUzwy9D6o85WTY2na8pECujVYcFt3tVoR_4jNWQ6F5EWYq8iK966eUumFuYOUwPC4IwEXbgY3dDAkwN-B3BOkUQsQNphlgpcWEBGvq4L-KFLB0LJ6b0JKFK-EAbAjlN07DLalBHRpnk_NsS1pHJDm5gy4iraHJfmGEpJpaW1kfXy_Bc9-NFvNYj0VbjtuFceq4YIarBwxtlYvB6BTCY5cC7biqH6Jh4BAeqmIATdwjblvXE1jxTtIcjlc0tlLqyYOU2FvtSZuJdqSIEbYuxKnDhq1z4rwqwcua7h3x0CO5e7tNSF6euHrD4q8ZV4vVYNwvDsXa8DBEseI4aA"
 					}
 				},
 				"method": "GET",

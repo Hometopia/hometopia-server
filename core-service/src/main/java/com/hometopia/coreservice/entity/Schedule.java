@@ -2,6 +2,7 @@ package com.hometopia.coreservice.entity;
 
 import com.hometopia.commons.persistence.BaseEntity;
 import com.hometopia.coreservice.entity.embedded.File;
+import com.hometopia.coreservice.entity.embedded.Vendor;
 import com.hometopia.coreservice.entity.enumeration.ScheduleType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -40,8 +41,9 @@ public class Schedule extends BaseEntity {
     @Column(name = "\"end\"", nullable = false)
     private LocalDateTime end;
 
-    @Column(name = "vendor", nullable = false)
-    private String vendor;
+    @Column(name = "vendor", columnDefinition = "JSONB", nullable = false)
+    @JdbcTypeCode(SqlTypes.JSON)
+    private Vendor vendor;
 
     @Column(name = "cost")
     private BigDecimal cost;
