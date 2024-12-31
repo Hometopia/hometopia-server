@@ -16,6 +16,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Stop container and delete image
         run: | 
+          docker compose down
           docker rm -f core-service || true && docker rmi -f core-service || true
           docker rm -f gateway-service || true && docker rmi -f gateway-service || true
           docker rm -f media-service || true && docker rmi -f media-service || true

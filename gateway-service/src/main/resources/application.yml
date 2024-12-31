@@ -133,6 +133,13 @@ spring:
           filters:
             - RewritePath=/api/vendors, /vendor/vendors
             - RewritePath=/api/vendors/(?<segment>.*), /vendor/vendors/$\{segment}
+        - id: notification-api
+          uri: lb://core-service
+          predicates:
+            - Path=/api/notifications/**
+          filters:
+            - RewritePath=/api/notifications, /core/notifications
+            - RewritePath=/api/notifications/(?<segment>.*), /vendor/core/$\{segment}
         - id: asset-classifier-api
           uri: http://classification-service:5000
           predicates:

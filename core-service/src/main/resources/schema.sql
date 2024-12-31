@@ -226,3 +226,22 @@ CREATE TABLE schedule
 
 ALTER TABLE schedule
     ADD CONSTRAINT FK_SCHEDULE_ON_ASSET FOREIGN KEY (asset_id) REFERENCES asset (id);
+
+CREATE TABLE notification
+(
+    id         VARCHAR(255)                NOT NULL,
+    version    SMALLINT                    NOT NULL,
+    created_at TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+    updated_at TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+    created_by VARCHAR(255)                NOT NULL,
+    updated_by VARCHAR(255)                NOT NULL,
+    title      VARCHAR(255)                NOT NULL,
+    message    VARCHAR(255)                NOT NULL,
+    is_read    BOOLEAN                     NOT NULL,
+    hyper_link JSONB                       NOT NULL,
+    user_id    VARCHAR(255)                NOT NULL,
+    CONSTRAINT pk_notification PRIMARY KEY (id)
+);
+
+ALTER TABLE notification
+    ADD CONSTRAINT FK_NOTIFICATION_ON_USER FOREIGN KEY (user_id) REFERENCES "user" (id);

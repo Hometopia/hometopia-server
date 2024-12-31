@@ -43,6 +43,10 @@ spring:
     port: ${RABBITMQ_PORT}
     username: ${RABBITMQ_USERNAME}
     password: ${RABBITMQ_PASSWORD}
+  task:
+    scheduling:
+      pool:
+        size: 5
 
 scheduling:
   computer-maintenance-vendor: 0 52 13 * * ?
