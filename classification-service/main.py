@@ -19,8 +19,8 @@ validation_transform = transforms.Compose([
     transforms.ToTensor()
 ])
 
-train_dir = "./data/train"  # path to the train folder
-validation_dir = "./data/validation"  # path to the validation folder
+train_dir = "data/train"  # path to the train folder
+validation_dir = "data/validation"  # path to the validation folder
 
 train_data = datasets.ImageFolder(root=train_dir,
                                   transform=train_transform)
@@ -29,14 +29,14 @@ validation_data = datasets.ImageFolder(root=validation_dir,
                                        transform=validation_transform)
 
 train_set = DataLoader(dataset=train_data,
-                       batch_size=16,  # how many samples per batch?
-                       num_workers=1,  # how many subprocesses to use for data loading? (higher = more)
-                       shuffle=True)  # shuffle the data?
+                       batch_size=32,
+                       num_workers=8,
+                       shuffle=True)
 
 validation_set = DataLoader(dataset=validation_data,
-                            batch_size=16,
-                            num_workers=1,
-                            shuffle=False)  # dont usually need to shuffle testing data
+                            batch_size=32,
+                            num_workers=8,
+                            shuffle=False)
 
 # I create train_data above , and I will use it here
 label_dict = {y: x for x, y in train_data.class_to_idx.items()}
@@ -152,7 +152,7 @@ if __name__ == "__main__":
 
     # if GPU is available , use it while training
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    model = SimpleCNN()
+    model = SimpleCNN(num_classes=6)
     model.to(device)
 
     # Loss funciton and optimizer
@@ -160,7 +160,7 @@ if __name__ == "__main__":
     optimizer = torch.optim.SGD(model.parameters(), lr=1e-3)
 
     # epoch number
-    epochs = 32
+    epochs = 100
 
     # loop for training model
     for t in range(epochs):
@@ -172,4 +172,4 @@ if __name__ == "__main__":
 
     torch.save(model.state_dict(), 'model.pth')
 
-    visualize(train_accuracies, validation_accuracies)
+    # visualize(train_accuracies, validation_accuracies)

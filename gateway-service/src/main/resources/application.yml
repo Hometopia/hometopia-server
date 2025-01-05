@@ -141,7 +141,7 @@ spring:
             - RewritePath=/api/notifications, /core/notifications
             - RewritePath=/api/notifications/(?<segment>.*), /vendor/core/$\{segment}
         - id: asset-classifier-api
-          uri: http://classification-service:5000
+          uri: lb://classification-service
           predicates:
             - Path=/api/classification/predict
           filters:

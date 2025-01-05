@@ -1,6 +1,0 @@
-matplotlib~=3.7.5
-torch~=2.4.1
-torchvision~=0.19.1
-pillow~=10.4.0
-requests~=2.32.3
-flask~=3.0.3

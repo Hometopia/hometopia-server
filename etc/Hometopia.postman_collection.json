@@ -675,21 +675,21 @@
 				"auth": {
 					"type": "bearer",
 					"bearer": {
-						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJTdjhRVzVMV2dWX1k5d2VXUXdUMllEc0NDeVdOeWM2cUgwOUJ1bkVFMDBVIn0.eyJleHAiOjE3MzQ2NTgzNjIsImlhdCI6MTczNDY0MDM2MiwianRpIjoiMTQ0OWYxN2QtM2M4Zi00MWMxLWE2NjItMGMyZGY5Nzg5MDlhIiwiaXNzIjoiaHR0cDovLzE5My4yMDMuMTYxLjE0MTo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZGEzNjE0ZjItYzczZC00Mzc2LWE0YWUtY2I3N2M5YzMzYTU1IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjVlY2ViMjgzLTA4NzktNGFjZS1hOTAzLTM2ZjM5MWU1N2UxYyIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6InF1YW5nZHVvbmciLCJnaXZlbl9uYW1lIjoiRHVvbmciLCJmYW1pbHlfbmFtZSI6IkRpbmgiLCJlbWFpbCI6InF1YW5nZHVvbmdAZ21haWwuY29tIn0.oiz1pLXDU-I1VDjVXDPz8op0MC1CAuhNCMeKcjznU2Qb7TSokuWjADkcSq0IP_KKtkM_R4M7POANQqz_NWsyJ15948iLo2iOiiPIXg8L-LHQhmWDu_LM6GTUpb9vh-5898cIPqoQYPrsu1fTFmPV-u9DUKQ0CcwPsVSJCGIylKJfAF3wOW1Yq56wM1eYBSxyeAdg50nr3LLRzdpzuhmqQuZ2b5V_sa3Dfcv1DVPXSlJ3gFKPqKX0fSRZfDIiuwNh20Zb0O77U6XX2VDQ4sh1hlFde58lkjpCfw4PcLDlESidf27JbhxxEgcunySnRvStOSac7_36Qz9ido2g_nVKrQ"
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRWDhOdDFvSGw4d2Y0dFNqXzF0d0pIdnlqOGZmVlBGVjJFQzhpYzRtOEk4In0.eyJleHAiOjE3MzU3MDc2MzksImlhdCI6MTczNTcwNDAzOSwianRpIjoiYjU4YjlmZmItYmY1Mi00NWU4LWFjN2YtMzAyNmMxMzZjYTY5IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZDNhNmEyYjctNGYxNy00ZTAxLWJkODItYzNhZDUxMzJkYjE3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6Ijc5Mzc3OGVhLTJhYTEtNGExYy1iZTdlLWU2NmI0MDc4MWUyNSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiUXVhbmcgRHVvbmciLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJxdWFuZ2R1b25nIiwiZ2l2ZW5fbmFtZSI6IlF1YW5nIiwiZmFtaWx5X25hbWUiOiJEdW9uZyIsImVtYWlsIjoiMjE1MjA3NTFAZ20udWl0LmVkdS52biJ9.v7lolnHrFKrqzS7hID-wyp-dnfrlnCUHFZ6TgJinEl1bAicdo5tV7Mt0_yGDwdE9kN3UdXw19N1MB3G3rz4dDAlyGLxcR7Izq5Sa8Giy82lb0V3S3keRdbdrdxm3SeRnUnZPloeUX3mNZqZu34cGHTQr8zhYgjreQRghpwsxJ-Rp-BCLtVoIgZ_OBgu6U3HRtgSIQv5zGIM9pxIea2xv70fmmNTlsh5AyrZxnkXhbDkOANrpqnkxykpXwFyUgTJoBV8LIdUt5h_2hC0437u5A9Ka7BHjq2NxrYWSkxWKj4EG7z3WcreLvizY31KK_dszmZ1Oc-_b5GSvd1nZ6SSlTw"
 					}
 				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"url\": \"http://193.203.161.141:8000/api/files?fileName=20241208163958_laptop.jpg\"\r\n}",
+					"raw": "{\r\n    \"url\": \"http://193.203.161.141:8000/api/files?fileName=20250101040118_phone.png\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": "http://{{prod}}/api/classification/predict"
+				"url": "http://{{dev}}/api/classification/predict"
 			},
 			"response": []
 		},
@@ -912,6 +912,38 @@
 						{
 							"key": "ids",
 							"value": "0JBT0HKGS1WF6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Asset Maintenance Cycle",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRWDhOdDFvSGw4d2Y0dFNqXzF0d0pIdnlqOGZmVlBGVjJFQzhpYzRtOEk4In0.eyJleHAiOjE3MzU3MDM3ODEsImlhdCI6MTczNTcwMDE4MSwianRpIjoiZWU3YWJkMjYtMTkyYS00MjM5LTg3ZmUtZjA1NjIzMzQwYzhhIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZDNhNmEyYjctNGYxNy00ZTAxLWJkODItYzNhZDUxMzJkYjE3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjM3ZDVhZmZjLTY0NmItNGQwMy1iNjE4LTYyMzUwZmI4ZTA5YSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiUXVhbmcgRHVvbmciLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJxdWFuZ2R1b25nIiwiZ2l2ZW5fbmFtZSI6IlF1YW5nIiwiZmFtaWx5X25hbWUiOiJEdW9uZyIsImVtYWlsIjoiMjE1MjA3NTFAZ20udWl0LmVkdS52biJ9.eaSW5rSM8zQ4NGFrL5enY9ks2gdSME3wuPlf988xxVmraSQdLfSRol3QyvX6jW1tru30d67o9x3lJ0exMptFSjlqM2ahJGheutMKzOEo3ITmsBf_dPuozZV76KydbNM8jkOEkEpQFUL4iPB88iN7MdNnff5inujgDrxCmdF8_TCfZLqn58q4cGGCaD4y9kM-VCk2WLWGGb2_laMRihWGcXy6sagvLxgt9iKLEInCRPYdu0ArHpDCbb8AIJ8haBoenjurGdCOsu7SpgBaBLrTbhW5Pe_iTh8BKt_-PQJAaV2z8PMtXnOzCS-o6cfQeySUrO6-s_Y_agdqDu1AMusORA"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{prod}}/api/rule/maintenance-cycle?category=MOBILE_PHONE",
+					"protocol": "http",
+					"host": [
+						"{{prod}}"
+					],
+					"path": [
+						"api",
+						"rule",
+						"maintenance-cycle"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "MOBILE_PHONE"
 						}
 					]
 				}

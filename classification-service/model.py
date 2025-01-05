@@ -30,12 +30,12 @@ class SimpleCNN(nn.Module):
         # dropout drops randomly neurons , here %20 of neurons are dropped randomly . It helps to prevent overfitting
         self.dropout = nn.Dropout(p=0.2)
 
-        # The nn.Linear layer with input size 256 and output size 9 represents the output layer of our neural network.
+        # The nn.Linear layer with input size 256 and output size = num_classes represents the output layer of our neural network.
         # Since we have 9 classes, the output of this layer will be passed through a softmax activation function.
         # (error function  internally applies softmax activation ,you dont need to add it to here)
         # This converts the raw outputs into probabilities, representing the likelihood of each class.
         # These probabilities are then used to calculate the error during trainin
-        self.fc2 = nn.Linear(256, 9)
+        self.fc2 = nn.Linear(256, num_classes)
 
     def forward(self, x):
         # add outputs on top of each layer and return out in the end

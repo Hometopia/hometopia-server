@@ -22,6 +22,9 @@ public class DroolsConfig {
     @Value("${rule.useful-life}")
     private String usefulLifeRulesDrl;
 
+    @Value("${rule.maintenance-cycle}")
+    private String maintenanceRulesDrl;
+
     @Bean("categoryRuleContainer")
     @Profile(AppConstants.DEV_PROFILE)
     public KieContainer devCategoryRuleContainer() {
@@ -44,6 +47,17 @@ public class DroolsConfig {
         return kieServices.newKieContainer(kieModule.getReleaseId());
     }
 
+    @Bean("assetMaintenanceCycleRuleContainer")
+    @Profile(AppConstants.DEV_PROFILE)
+    public KieContainer devAssetMaintenanceCycleRuleContainer() {
+        KieFileSystem kieFileSystem = kieServices.newKieFileSystem();
+        kieFileSystem.write(ResourceFactory.newClassPathResource(maintenanceRulesDrl));
+        KieBuilder kb = kieServices.newKieBuilder(kieFileSystem);
+        kb.buildAll();
+        KieModule kieModule = kb.getKieModule();
+        return kieServices.newKieContainer(kieModule.getReleaseId());
+    }
+
     @Bean("categoryRuleContainer")
     @Profile(AppConstants.PROD_PROFILE)
     public KieContainer prodCategoryRuleContainer() {
@@ -60,6 +74,17 @@ public class DroolsConfig {
     public KieContainer prodAssetUsefulLifeRuleContainer() {
         KieFileSystem kieFileSystem = kieServices.newKieFileSystem();
         kieFileSystem.write(ResourceFactory.newFileResource(usefulLifeRulesDrl));
+        KieBuilder kb = kieServices.newKieBuilder(kieFileSystem);
+        kb.buildAll();
+        KieModule kieModule = kb.getKieModule();
+        return kieServices.newKieContainer(kieModule.getReleaseId());
+    }
+
+    @Bean("assetMaintenanceCycleRuleContainer")
+    @Profile(AppConstants.PROD_PROFILE)
+    public KieContainer prodAssetMaintenanceCycleRuleContainer() {
+        KieFileSystem kieFileSystem = kieServices.newKieFileSystem();
+        kieFileSystem.write(ResourceFactory.newClassPathResource(maintenanceRulesDrl));
         KieBuilder kb = kieServices.newKieBuilder(kieFileSystem);
         kb.buildAll();
         KieModule kieModule = kb.getKieModule();

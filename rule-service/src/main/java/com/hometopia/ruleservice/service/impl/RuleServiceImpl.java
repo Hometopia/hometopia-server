@@ -2,6 +2,7 @@ package com.hometopia.ruleservice.service.impl;
 
 import com.hometopia.commons.enumeration.AssetCategory;
 import com.hometopia.commons.response.RestResponse;
+import com.hometopia.ruleservice.dto.rule.AssetMaintenanceCycle;
 import com.hometopia.ruleservice.dto.rule.AssetUsefulLife;
 import com.hometopia.ruleservice.service.RuleService;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 public class RuleServiceImpl implements RuleService {
 
     private final KieContainer assetUsefulLifeRuleContainer;
+    private final KieContainer assetMaintenanceCycleRuleContainer;
 
     @Override
     public RestResponse<AssetUsefulLife> getAssetUsefulLife(AssetCategory category) {
@@ -24,5 +26,16 @@ public class RuleServiceImpl implements RuleService {
         kieSession.fireAllRules();
         kieSession.dispose();
         return RestResponse.ok(assetUsefulLife);
+    }
+
+    @Override
+    public RestResponse<AssetMaintenanceCycle> getAssetMaintenanceCycle(AssetCategory category) {
+        AssetMaintenanceCycle assetMaintenanceCycle = new AssetMaintenanceCycle();
+        assetMaintenanceCycle.setCategory(category);
+        KieSession kieSession = assetMaintenanceCycleRuleContainer.newKieSession();
+        kieSession.insert(assetMaintenanceCycle);
+        kieSession.fireAllRules();
+        kieSession.dispose();
+        return RestResponse.ok(assetMaintenanceCycle);
     }
 }

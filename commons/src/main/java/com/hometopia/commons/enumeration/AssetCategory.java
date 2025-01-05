@@ -14,9 +14,10 @@ public enum AssetCategory {
     WATER_PURIFIER,
     RANGE_HOOD,
     BED,
+    CAR,
     WARDROBE,
     FAN,
-    NIGHT_LIGHT,
+    LAMP,
     SHOWER,
     BATHTUB,
     SINK,
@@ -26,6 +27,7 @@ public enum AssetCategory {
     DRYER,
     CLOTHES_RACK,
     IRON,
+    CHAIR,
     LAPTOP,
     MOBILE_PHONE
 }
