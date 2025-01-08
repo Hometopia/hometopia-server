@@ -18,4 +18,7 @@ public class AppConstants {
 
     public static final String SCHEDULE_REMINDER_NOTIFICATION_TITLE = "Bạn có một lịch hẹn vào {0}";
     public static final String SCHEDULE_REMINDER_NOTIFICATION_MESSAGE = "Bạn có một lịch hẹn vào {0} với {1}. Ấn vào đây để đi tới chi tiết lịch hẹn.";
+
+    public static final String MAINTENANCE_REMINDER_NOTIFICATION_TITLE = "{0} đã tới thời gian cần được bảo trì ";
+    public static final String MAINTENANCE_REMINDER_NOTIFICATION_MESSAGE = "{0} đã tới thời gian cần được bảo trì. Hãy đặt lịch hẹn bảo trì sớm.";
 }

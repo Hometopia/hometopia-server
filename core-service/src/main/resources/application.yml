@@ -87,7 +87,8 @@ keycloak:
     password: ${KC_ADMIN_PASSWORD}
 
 scheduling:
-  create-notification: 0 0/30 * * * ?
+  schedule-reminder: 0 0/30 * * * ?
+  maintenance-reminder: 0 0/30 * * * ?
 
 grpc:
   client:

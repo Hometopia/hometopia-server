@@ -1,9 +1,11 @@
 package com.hometopia.coreservice.scheduled;
 
 import com.hometopia.commons.utils.AppConstants;
+import com.hometopia.coreservice.entity.Asset;
 import com.hometopia.coreservice.entity.Notification;
 import com.hometopia.coreservice.entity.Schedule;
 import com.hometopia.coreservice.entity.embedded.HyperLink;
+import com.hometopia.coreservice.repository.AssetRepository;
 import com.hometopia.coreservice.repository.NotificationRepository;
 import com.hometopia.coreservice.repository.ScheduleRepository;
 import lombok.RequiredArgsConstructor;
@@ -27,24 +29,17 @@ import java.util.List;
 public class ScheduledJobService {
 
     private final ScheduleRepository scheduleRepository;
+    private final AssetRepository assetRepository;
     private final NotificationRepository notificationRepository;
 
-    @Scheduled(cron = "${scheduling.create-notification}")
+    @Scheduled(cron = "${scheduling.schedule-reminder}")
     @Async
-    public void createNotification() {
-        log.info("Starting create notification job");
+    public void createScheduleReminder() {
+        log.info("Starting create schedule reminder job");
 
         Authentication authentication = new UsernamePasswordAuthenticationToken("System", null, List.of());
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        createScheduleReminder();
-
-        SecurityContextHolder.clearContext();
-
-        log.info("End create notification job");
-    }
-
-    private void createScheduleReminder() {
         scheduleRepository.findByStartBetween(LocalDateTime.now(), LocalDateTime.now().plusWeeks(1)).stream()
                 .map(schedule -> Notification.builder()
                         .title(MessageFormat.format(AppConstants.SCHEDULE_REMINDER_NOTIFICATION_TITLE,
@@ -55,5 +50,31 @@ public class ScheduledJobService {
                         .user(schedule.getAsset().getUser())
                         .build())
                 .forEach(notificationRepository::save);
+
+        SecurityContextHolder.clearContext();
+
+        log.info("End create schedule reminder job");
+    }
+
+    @Scheduled(cron = "${scheduling.maintenance-reminder}")
+    @Async
+    public void createMaintenanceReminder() {
+        log.info("Starting create maintenance reminder job");
+
+        Authentication authentication = new UsernamePasswordAuthenticationToken("System", null, List.of());
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        assetRepository.findAllInMaintenanceInterval().stream()
+                .map(asset -> Notification.builder()
+                        .title(MessageFormat.format(AppConstants.MAINTENANCE_REMINDER_NOTIFICATION_TITLE, asset.getName()))
+                        .message(MessageFormat.format(AppConstants.MAINTENANCE_REMINDER_NOTIFICATION_MESSAGE, asset.getName()))
+                        .hyperLink(new HyperLink(asset.getId(), Asset.class.getSimpleName()))
+                        .user(asset.getUser())
+                        .build())
+                .forEach(notificationRepository::save);
+
+        SecurityContextHolder.clearContext();
+
+        log.info("End create maintenance reminder job");
     }
 }
