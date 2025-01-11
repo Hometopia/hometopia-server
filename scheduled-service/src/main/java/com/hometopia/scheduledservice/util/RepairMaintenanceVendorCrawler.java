@@ -22,8 +22,9 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Supplier;
 import java.util.regex.Matcher;
+
+import static com.hometopia.commons.utils.HometopiaUtils.tryGet;
 
 @Slf4j
 public class RepairMaintenanceVendorCrawler {
@@ -150,13 +151,5 @@ public class RepairMaintenanceVendorCrawler {
         driver.quit();
 
         return vendors;
-    }
-
-    private static <T> T tryGet(Supplier<T> supplier, T defaultValue) {
-        try {
-            return supplier.get();
-        } catch (Exception e) {
-            return defaultValue;
-        }
     }
 }

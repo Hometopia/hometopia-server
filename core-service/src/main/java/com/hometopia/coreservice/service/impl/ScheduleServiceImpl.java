@@ -44,7 +44,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         Page<GetListScheduleResponse> schedules = scheduleRepository.findAll(sortable.and(filterable)
                 .and((Specification<Schedule>) (root, query, cb) ->
                        root.get(QSchedule.schedule.asset.getMetadata().getName())
-                                .in(assetRepository.findAllIdsByUserId(SecurityUtils.getCurrentUserId()))
+                                .in(assetRepository.findAllByUserId(SecurityUtils.getCurrentUserId()))
                 ), pageable)
                 .map(scheduleMapper::toGetListScheduleResponse);
 

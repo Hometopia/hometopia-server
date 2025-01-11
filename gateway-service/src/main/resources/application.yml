@@ -139,7 +139,14 @@ spring:
             - Path=/api/notifications/**
           filters:
             - RewritePath=/api/notifications, /core/notifications
-            - RewritePath=/api/notifications/(?<segment>.*), /vendor/core/$\{segment}
+            - RewritePath=/api/notifications/(?<segment>.*), /core/notifications/$\{segment}
+        - id: statistics-api
+          uri: lb://core-service
+          predicates:
+            - Path=/api/statistics/**
+          filters:
+            - RewritePath=/api/statistics, /core/statistics
+            - RewritePath=/api/statistics/(?<segment>.*), /core/statistics/$\{segment}
         - id: asset-classifier-api
           uri: lb://classification-service
           predicates:

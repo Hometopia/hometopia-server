@@ -12,6 +12,7 @@ import com.hometopia.coreservice.dto.response.GetOneAssetResponse;
 import com.hometopia.coreservice.dto.response.UpdateAssetResponse;
 import com.hometopia.coreservice.entity.Asset;
 import com.hometopia.coreservice.entity.QAsset;
+import com.hometopia.coreservice.entity.enumeration.AssetStatus;
 import com.hometopia.coreservice.mapper.AssetMapper;
 import com.hometopia.coreservice.repository.AssetRepository;
 import com.hometopia.coreservice.repository.UserRepository;
@@ -72,15 +73,13 @@ public class AssetServiceImpl implements AssetService {
     @Override
     @Transactional
     public RestResponse<UpdateAssetResponse> updateAsset(String id, UpdateAssetRequest request) {
-        return assetRepository.findById(id)
-                .map(asset -> {
-                    assetMapper.updateAsset(asset, request);
-                    assetLifeCycleService.createAssetLifeCycle(asset);
-                    return asset;
-                })
-                .map(assetMapper::toUpdateAssetResponse)
-                .map(RestResponse::ok)
-                .orElseThrow(() -> new ResourceNotFoundException("Asset", "id", id));
+        Asset asset = assetRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Asset", "id", id));
+        AssetStatus previousStatus = asset.getStatus();
+        assetMapper.updateAsset(asset, request);
+        if (previousStatus != asset.getStatus()) {
+            assetLifeCycleService.createAssetLifeCycle(asset);
+        }
+        return RestResponse.ok(assetMapper.toUpdateAssetResponse(asset));
     }
 
     @Override

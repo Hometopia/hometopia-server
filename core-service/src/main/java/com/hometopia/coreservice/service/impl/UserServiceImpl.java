@@ -73,7 +73,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void isEmailExist(String email) {
-        if(keycloakService.isEmailExist(email)) {
+        if (keycloakService.isEmailExist(email)) {
             throw new RuntimeException("Email already exists");
         }
     }

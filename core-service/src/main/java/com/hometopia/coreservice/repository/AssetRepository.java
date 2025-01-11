@@ -8,8 +8,12 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface AssetRepository extends JpaRepository<Asset, String>, JpaSpecificationExecutor<Asset> {
+
+    @Query("select a from Asset a where a.user.id = :userId")
+    List<Asset> findAllByUserId(String userId);
+
     @Query("select a.id from Asset a where a.user.id = :userId")
-    List<Integer> findAllIdsByUserId(String userId);
+    List<String> findAllIdsByUserId(String userId);
 
     @Query(value = """
             SELECT *

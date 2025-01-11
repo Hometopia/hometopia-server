@@ -39,7 +39,7 @@
 					"urlencoded": [
 						{
 							"key": "username",
-							"value": "quangduong",
+							"value": "local",
 							"type": "text"
 						},
 						{
@@ -625,7 +625,7 @@
 				"auth": {
 					"type": "bearer",
 					"bearer": {
-						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYVFNEU1hpU1M3Zm5vcHlObEMyMzBzWEdweFhTcThVQTZtZk5QWXJiVEh3In0.eyJleHAiOjE3MzA3NDMwMTEsImlhdCI6MTczMDczOTQxMSwianRpIjoiNzQ1NzY4NWUtZGQ4Ni00NzU3LTljYTEtMzI5ZjZhMTkwZDUxIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNTY1ODQ0N2MtNzg2Zi00MTk2LTg5NjYtOGU0ZDdjNWYxMzhhIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjFmYmEwMzBlLTRiZGMtNGU3Ni1iZGQzLTQ0YWJiZGI5MTg2ZCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6InF1YW5nZHVvbmciLCJnaXZlbl9uYW1lIjoiRHVvbmciLCJmYW1pbHlfbmFtZSI6IkRpbmgiLCJlbWFpbCI6InF1YW5nZHVvbmdAZ21haWwuY29tIn0.WALXMR8pQaJFZnb-T2m0fob3WXYKki9j0M4a3HMpPJFpj0udGubyjXkGYmc8Vr1P6nyvwRgc_bhz04NLXwlZv1h8wb_kfHYCSXcb47dwaoMzOjfXoQY1wKzTz8mjRxV6Q2agtgk9rQnU88bvslWm29x-UH57cotKE29RJ1JdlXTpD10vRgymTtMVg-zKVjrNxc5dgTm5tXJYigP-aDa6B9XsaGkAIz_RUnSbAfruJF4xxhUfGHOJWxHIaLso9hO7qhpjA5nQcOpF1Fep-scVwTds4W7XdkmdBHjyaNjoaqUSDBMi0ajz3acuHOelo6hJP7P_x-S2mqmwIOeGc7ljYg"
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRWDhOdDFvSGw4d2Y0dFNqXzF0d0pIdnlqOGZmVlBGVjJFQzhpYzRtOEk4In0.eyJleHAiOjE3MzY1NjU1NzEsImlhdCI6MTczNjU2MTk3MSwianRpIjoiOTc2NjgzZWUtN2Y4OC00MDZlLTgzYjUtMGE3YTgyNmRiMjg5IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYWQ3YTc2YjktZWEyMy00YmEzLTllMWMtMTA3YjExZDJhODEyIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6ImI0MTA0Yzc2LWMyNjktNGZkMi05ZDFhLTc1NjJkNjU0ZmNiYyIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6ImxvY2FsIiwiZ2l2ZW5fbmFtZSI6IkR1b25nIiwiZmFtaWx5X25hbWUiOiJEaW5oIiwiZW1haWwiOiJxdWFuZ2R1b25nQGdtYWlsLmNvbSJ9.Zaoj-ULalYC26h4HR3TBi8gZ2v1JpVHSyqBXLd0eZ5sPRR8SJGUwsXZqeefbVuDW0oUwg4XFg1KxkEM74fqWcCDzVelCizsz8sR3mQrx98nrEftrt3HuQon6euHu8Dh1cb63KP5H-sBnNgVsjKlyZAnLpCxfsMUFrp6RxXPk5KCIsqOhuj4172qDhrfhzDGNPwbmdSHPGjSIiifwBy_PGFYOr-OGNOKw0oZ6r96RjmwMjkxgG0wcdXylPqPvdm9lH5HPS1w1GM2ad1BvMiPT7cVhx5VLmvGYDd1Nf-qsVR3YuZnOw6bcv8z_OqNEM_ke9xmPdKpkOsxP_IXzYXaXFw"
 					}
 				},
 				"method": "GET",
@@ -944,6 +944,70 @@
 						{
 							"key": "category",
 							"value": "MOBILE_PHONE"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cost Statistics By Month",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRWDhOdDFvSGw4d2Y0dFNqXzF0d0pIdnlqOGZmVlBGVjJFQzhpYzRtOEk4In0.eyJleHAiOjE3MzY1NjU1NzEsImlhdCI6MTczNjU2MTk3MSwianRpIjoiOTc2NjgzZWUtN2Y4OC00MDZlLTgzYjUtMGE3YTgyNmRiMjg5IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYWQ3YTc2YjktZWEyMy00YmEzLTllMWMtMTA3YjExZDJhODEyIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6ImI0MTA0Yzc2LWMyNjktNGZkMi05ZDFhLTc1NjJkNjU0ZmNiYyIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6ImxvY2FsIiwiZ2l2ZW5fbmFtZSI6IkR1b25nIiwiZmFtaWx5X25hbWUiOiJEaW5oIiwiZW1haWwiOiJxdWFuZ2R1b25nQGdtYWlsLmNvbSJ9.Zaoj-ULalYC26h4HR3TBi8gZ2v1JpVHSyqBXLd0eZ5sPRR8SJGUwsXZqeefbVuDW0oUwg4XFg1KxkEM74fqWcCDzVelCizsz8sR3mQrx98nrEftrt3HuQon6euHu8Dh1cb63KP5H-sBnNgVsjKlyZAnLpCxfsMUFrp6RxXPk5KCIsqOhuj4172qDhrfhzDGNPwbmdSHPGjSIiifwBy_PGFYOr-OGNOKw0oZ6r96RjmwMjkxgG0wcdXylPqPvdm9lH5HPS1w1GM2ad1BvMiPT7cVhx5VLmvGYDd1Nf-qsVR3YuZnOw6bcv8z_OqNEM_ke9xmPdKpkOsxP_IXzYXaXFw"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{dev}}/api/statistics/by-month?year=2025",
+					"protocol": "http",
+					"host": [
+						"{{dev}}"
+					],
+					"path": [
+						"api",
+						"statistics",
+						"by-month"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2025"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cost Statistics By Quarter",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRWDhOdDFvSGw4d2Y0dFNqXzF0d0pIdnlqOGZmVlBGVjJFQzhpYzRtOEk4In0.eyJleHAiOjE3MzY1NjU1NzEsImlhdCI6MTczNjU2MTk3MSwianRpIjoiOTc2NjgzZWUtN2Y4OC00MDZlLTgzYjUtMGE3YTgyNmRiMjg5IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYWQ3YTc2YjktZWEyMy00YmEzLTllMWMtMTA3YjExZDJhODEyIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6ImI0MTA0Yzc2LWMyNjktNGZkMi05ZDFhLTc1NjJkNjU0ZmNiYyIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6ImxvY2FsIiwiZ2l2ZW5fbmFtZSI6IkR1b25nIiwiZmFtaWx5X25hbWUiOiJEaW5oIiwiZW1haWwiOiJxdWFuZ2R1b25nQGdtYWlsLmNvbSJ9.Zaoj-ULalYC26h4HR3TBi8gZ2v1JpVHSyqBXLd0eZ5sPRR8SJGUwsXZqeefbVuDW0oUwg4XFg1KxkEM74fqWcCDzVelCizsz8sR3mQrx98nrEftrt3HuQon6euHu8Dh1cb63KP5H-sBnNgVsjKlyZAnLpCxfsMUFrp6RxXPk5KCIsqOhuj4172qDhrfhzDGNPwbmdSHPGjSIiifwBy_PGFYOr-OGNOKw0oZ6r96RjmwMjkxgG0wcdXylPqPvdm9lH5HPS1w1GM2ad1BvMiPT7cVhx5VLmvGYDd1Nf-qsVR3YuZnOw6bcv8z_OqNEM_ke9xmPdKpkOsxP_IXzYXaXFw"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{dev}}/api/statistics/by-quarter?year=2025",
+					"protocol": "http",
+					"host": [
+						"{{dev}}"
+					],
+					"path": [
+						"api",
+						"statistics",
+						"by-quarter"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2025"
 						}
 					]
 				}
