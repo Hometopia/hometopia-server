@@ -17,7 +17,6 @@ import com.hometopia.coreservice.repository.CategoryRepository;
 import com.hometopia.coreservice.repository.UserRepository;
 import com.hometopia.coreservice.service.CategoryService;
 import io.github.perplexhub.rsql.RSQLJPASupport;
-import jakarta.persistence.criteria.JoinType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -26,6 +25,9 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @Service
@@ -38,17 +40,15 @@ public class CategoryServiceImpl implements CategoryService {
     private final UserRepository userRepository;
 
     @Override
-    public RestResponse<ListResponse<GetListCategoryResponse>> getListCategories(int page, int size, String sort, String filter, boolean all) {
+    public RestResponse<ListResponse<GetListCategoryResponse>> getListCategories(int page, int size, String sort, String filter, boolean all) throws UnsupportedEncodingException {
         Specification<Category> sortable = RSQLJPASupport.toSort(sort);
-        Specification<Category> filterable = RSQLJPASupport.toSpecification(filter);
+        Specification<Category> filterable = RSQLJPASupport.toSpecification(URLDecoder.decode(filter, StandardCharsets.UTF_8));
         Pageable pageable = all ? Pageable.unpaged() : PageRequest.of(page - 1, size);
         Page<GetListCategoryResponse> responses = categoryRepository
-                .findAll(sortable.and(filterable).and((Specification<Category>) (root, query, cb) -> {
-                    root.fetch(QCategory.category.parent.getMetadata().getName(), JoinType.LEFT);
-                    root.fetch(QCategory.category.assets.getMetadata().getName(), JoinType.LEFT);
-                    return cb.equal(root.get(QCategory.category.user.getMetadata().getName()),
-                            userRepository.getReferenceById(SecurityUtils.getCurrentUserId()));
-                }), pageable)
+                .findAll(sortable.and(filterable).and((Specification<Category>) (root, query, cb) ->
+                    cb.equal(root.get(QCategory.category.user.getMetadata().getName()),
+                            userRepository.getReferenceById(SecurityUtils.getCurrentUserId()))
+                ), pageable)
                 .map(categoryMapper::toGetListCategoryResponse);
         return RestResponse.ok(ListResponse.of(responses));
     }

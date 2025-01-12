@@ -8,10 +8,11 @@ import com.hometopia.coreservice.dto.response.CreateCategoryResponse;
 import com.hometopia.coreservice.dto.response.GetListCategoryResponse;
 import com.hometopia.coreservice.dto.response.UpdateCategoryResponse;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 public interface CategoryService {
-    RestResponse<ListResponse<GetListCategoryResponse>> getListCategories(int page, int size, String sort, String filter, boolean all);
+    RestResponse<ListResponse<GetListCategoryResponse>> getListCategories(int page, int size, String sort, String filter, boolean all) throws UnsupportedEncodingException;
     RestResponse<List<CreateCategoryResponse>> createListCategories(CreateListCategoriesRequest request);
     RestResponse<UpdateCategoryResponse> updateCategory(String id, UpdateCategoryRequest request);
     void deleteCategory(String id);
