@@ -29,6 +29,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
@@ -42,7 +43,11 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public RestResponse<ListResponse<GetListCategoryResponse>> getListCategories(int page, int size, String sort, String filter, boolean all) throws UnsupportedEncodingException {
         Specification<Category> sortable = RSQLJPASupport.toSort(sort);
-        Specification<Category> filterable = RSQLJPASupport.toSpecification(URLDecoder.decode(filter, StandardCharsets.UTF_8));
+        Specification<Category> filterable = RSQLJPASupport.toSpecification(
+                Optional.ofNullable(filter)
+                        .map(f -> URLDecoder.decode(f, StandardCharsets.UTF_8))
+                        .orElse(null)
+        );
         Pageable pageable = all ? Pageable.unpaged() : PageRequest.of(page - 1, size);
         Page<GetListCategoryResponse> responses = categoryRepository
                 .findAll(sortable.and(filterable).and((Specification<Category>) (root, query, cb) ->

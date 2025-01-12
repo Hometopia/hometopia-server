@@ -30,6 +30,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
@@ -44,7 +45,11 @@ public class AssetServiceImpl implements AssetService {
     @Override
     public RestResponse<ListResponse<GetListAssetResponse>> getListAssets(int page, int size, String sort, String filter, boolean all) {
         Specification<Asset> sortable = RSQLJPASupport.toSort(sort);
-        Specification<Asset> filterable = RSQLJPASupport.toSpecification(URLDecoder.decode(filter, StandardCharsets.UTF_8));
+        Specification<Asset> filterable = RSQLJPASupport.toSpecification(
+                Optional.ofNullable(filter)
+                        .map(f -> URLDecoder.decode(f, StandardCharsets.UTF_8))
+                        .orElse(null)
+        );
         Pageable pageable = all ? Pageable.unpaged() : PageRequest.of(page - 1, size);
         Page<GetListAssetResponse> responses = assetRepository
                 .findAll(sortable.and(filterable).and((Specification<Asset>) (root, query, cb) ->

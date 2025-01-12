@@ -28,6 +28,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
@@ -41,7 +42,11 @@ public class ScheduleServiceImpl implements ScheduleService {
     @Override
     public RestResponse<ListResponse<GetListScheduleResponse>> getListSchedules(int page, int size, String sort, String filter, boolean all) {
         Specification<Schedule> sortable = RSQLJPASupport.toSort(sort);
-        Specification<Schedule> filterable = RSQLJPASupport.toSpecification(URLDecoder.decode(filter, StandardCharsets.UTF_8));
+        Specification<Schedule> filterable = RSQLJPASupport.toSpecification(
+                Optional.ofNullable(filter)
+                        .map(f -> URLDecoder.decode(f, StandardCharsets.UTF_8))
+                        .orElse(null)
+        );
         Pageable pageable = all ? Pageable.unpaged() : PageRequest.of(page - 1, size);
         Page<GetListScheduleResponse> schedules = scheduleRepository.findAll(sortable.and(filterable)
                 .and((Specification<Schedule>) (root, query, cb) ->
