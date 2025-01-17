@@ -63,7 +63,8 @@ public class CategoryServiceImpl implements CategoryService {
     public RestResponse<List<CreateCategoryResponse>> createListCategories(CreateListCategoriesRequest request) {
         User currentUser = userRepository.getReferenceById(SecurityUtils.getCurrentUserId());
         return RestResponse.created(categoryRepository.saveAll(request.categories().stream()
-                .map(category -> categoryMapper.toCategory(category, null, currentUser)).toList())
+                .map(category -> categoryMapper.toCategory(category, category.parentId() != null
+                        ? categoryRepository.getReferenceById(category.parentId()) : null, currentUser)).toList())
                 .stream().map(categoryMapper::toCategoryResponse).toList());
     }
 

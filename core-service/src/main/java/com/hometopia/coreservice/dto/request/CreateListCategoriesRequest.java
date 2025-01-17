@@ -14,6 +14,7 @@ public record CreateListCategoriesRequest(
             String name,
             @NotBlank
             String description,
+            String parentId,
             @NotNull
             List<Category> subCategories
     ) {}
