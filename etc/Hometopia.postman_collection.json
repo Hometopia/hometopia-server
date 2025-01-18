@@ -224,7 +224,7 @@
 						},
 						{
 							"key": "filter",
-							"value": "parent=isnotnull=notnull;name=ilike=thanh",
+							"value": "parent=isnotnull=notnull;name=ilike='thanh'",
 							"disabled": true
 						}
 					]
@@ -358,7 +358,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{prod}}/api/assets?page=1&size=10&filter=name=ilike=laptop;category.id==0HPWKWJNAS114",
+					"raw": "http://{{prod}}/api/assets?page=1&size=10&filter=name=ilike='laptop';category.id==0HPWKWJNAS114",
 					"protocol": "http",
 					"host": [
 						"{{prod}}"
@@ -378,7 +378,7 @@
 						},
 						{
 							"key": "filter",
-							"value": "name=ilike=laptop;category.id==0HPWKWJNAS114"
+							"value": "name=ilike='laptop';category.id==0HPWKWJNAS114"
 						}
 					]
 				}
@@ -413,7 +413,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Office Laptop\",\r\n    \"description\": \"High-end laptop for development work\",\r\n    \"images\": [\r\n        {\r\n            \"originalFileName\": \"laptop.jpg\",\r\n            \"fileName\": \"20241027140223_laptop.jpg\",\r\n            \"fileExtension\": \"jpg\",\r\n            \"mimeType\": \"image/jpeg\",\r\n            \"bucket\": \"hometopia\",\r\n            \"path\": \"/hometopia/20241027140223_laptop.jpg\"\r\n        }\r\n    ],\r\n    \"purchaseDate\": \"2023-08-15\",\r\n    \"purchasePlace\": \"TechStore Ltd.\",\r\n    \"purchasePrice\": 1500.99,\r\n    \"vendor\": \"Dell Inc.\",\r\n    \"serialNumber\": \"SN123456789\",\r\n    \"location\": \"Hanoi Office\",\r\n    \"warrantyExpiryDate\": \"2026-08-15\",\r\n    \"documents\": [],\r\n    \"status\": \"IN_USE\",\r\n    \"maintenanceCycle\": null,\r\n    \"categoryId\": \"0HPWKWJNAS114\"\r\n}",
+					"raw": "{\r\n    \"name\": \"Office Laptop\",\r\n    \"description\": \"High-end laptop for development work\",\r\n    \"images\": [\r\n        {\r\n            \"originalFileName\": \"laptop.jpg\",\r\n            \"fileName\": \"20241027140223_laptop.jpg\",\r\n            \"fileExtension\": \"jpg\",\r\n            \"mimeType\": \"image/jpeg\",\r\n            \"bucket\": \"hometopia\",\r\n            \"path\": \"/hometopia/20241027140223_laptop.jpg\"\r\n        }\r\n    ],\r\n    \"purchaseDate\": \"2023-08-15\",\r\n    \"purchasePlace\": \"TechStore Ltd.\",\r\n    \"purchasePrice\": 1500.99,\r\n    \"brand\": \"Dell Inc.\",\r\n    \"serialNumber\": \"SN123456789\",\r\n    \"location\": \"Hanoi Office\",\r\n    \"warrantyExpiryDate\": \"2026-08-15\",\r\n    \"documents\": [],\r\n    \"status\": \"IN_USE\",\r\n    \"maintenanceCycle\": null,\r\n    \"categoryId\": \"0HPWKWJNAS114\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -483,7 +483,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"QD Laptop\",\r\n    \"description\": \"High-end laptop for development work\",\r\n    \"images\": [\r\n        {\r\n            \"originalFileName\": \"laptop.jpg\",\r\n            \"fileName\": \"20241027140223_laptop.jpg\",\r\n            \"fileExtension\": \"jpg\",\r\n            \"mimeType\": \"image/jpeg\",\r\n            \"bucket\": \"hometopia\",\r\n            \"path\": \"/hometopia/20241027140223_laptop.jpg\"\r\n        }\r\n    ],\r\n    \"purchaseDate\": \"2023-08-15\",\r\n    \"purchasePlace\": \"TechStore Ltd.\",\r\n    \"purchasePrice\": 1500.99,\r\n    \"vendor\": \"Dell Inc.\",\r\n    \"serialNumber\": \"SN123456789\",\r\n    \"location\": \"Hanoi Office\",\r\n    \"warrantyExpiryDate\": \"2026-08-15\",\r\n    \"documents\": [\r\n        {\r\n            \"originalFileName\": \"laptop.jpg\",\r\n            \"fileName\": \"20241027140223_laptop.jpg\",\r\n            \"fileExtension\": \"jpg\",\r\n            \"mimeType\": \"image/jpeg\",\r\n            \"bucket\": \"hometopia\",\r\n            \"path\": \"/hometopia/20241027140223_laptop.jpg\"\r\n        }\r\n    ],\r\n    \"status\": \"MAINTENANCE\",\r\n    \"maintenanceCycle\": 10,\r\n    \"categoryId\": \"0HPWKWJNAS114\"\r\n}",
+					"raw": "{\r\n    \"name\": \"QD Laptop\",\r\n    \"description\": \"High-end laptop for development work\",\r\n    \"images\": [\r\n        {\r\n            \"originalFileName\": \"laptop.jpg\",\r\n            \"fileName\": \"20241027140223_laptop.jpg\",\r\n            \"fileExtension\": \"jpg\",\r\n            \"mimeType\": \"image/jpeg\",\r\n            \"bucket\": \"hometopia\",\r\n            \"path\": \"/hometopia/20241027140223_laptop.jpg\"\r\n        }\r\n    ],\r\n    \"purchaseDate\": \"2023-08-15\",\r\n    \"purchasePlace\": \"TechStore Ltd.\",\r\n    \"purchasePrice\": 1500.99,\r\n    \"brand\": \"Dell Inc.\",\r\n    \"serialNumber\": \"SN123456789\",\r\n    \"location\": \"Hanoi Office\",\r\n    \"warrantyExpiryDate\": \"2026-08-15\",\r\n    \"documents\": [\r\n        {\r\n            \"originalFileName\": \"laptop.jpg\",\r\n            \"fileName\": \"20241027140223_laptop.jpg\",\r\n            \"fileExtension\": \"jpg\",\r\n            \"mimeType\": \"image/jpeg\",\r\n            \"bucket\": \"hometopia\",\r\n            \"path\": \"/hometopia/20241027140223_laptop.jpg\"\r\n        }\r\n    ],\r\n    \"status\": \"MAINTENANCE\",\r\n    \"maintenanceCycle\": 10,\r\n    \"categoryId\": \"0HPWKWJNAS114\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -956,13 +956,13 @@
 				"auth": {
 					"type": "bearer",
 					"bearer": {
-						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRWDhOdDFvSGw4d2Y0dFNqXzF0d0pIdnlqOGZmVlBGVjJFQzhpYzRtOEk4In0.eyJleHAiOjE3MzY1NjU1NzEsImlhdCI6MTczNjU2MTk3MSwianRpIjoiOTc2NjgzZWUtN2Y4OC00MDZlLTgzYjUtMGE3YTgyNmRiMjg5IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYWQ3YTc2YjktZWEyMy00YmEzLTllMWMtMTA3YjExZDJhODEyIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6ImI0MTA0Yzc2LWMyNjktNGZkMi05ZDFhLTc1NjJkNjU0ZmNiYyIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6ImxvY2FsIiwiZ2l2ZW5fbmFtZSI6IkR1b25nIiwiZmFtaWx5X25hbWUiOiJEaW5oIiwiZW1haWwiOiJxdWFuZ2R1b25nQGdtYWlsLmNvbSJ9.Zaoj-ULalYC26h4HR3TBi8gZ2v1JpVHSyqBXLd0eZ5sPRR8SJGUwsXZqeefbVuDW0oUwg4XFg1KxkEM74fqWcCDzVelCizsz8sR3mQrx98nrEftrt3HuQon6euHu8Dh1cb63KP5H-sBnNgVsjKlyZAnLpCxfsMUFrp6RxXPk5KCIsqOhuj4172qDhrfhzDGNPwbmdSHPGjSIiifwBy_PGFYOr-OGNOKw0oZ6r96RjmwMjkxgG0wcdXylPqPvdm9lH5HPS1w1GM2ad1BvMiPT7cVhx5VLmvGYDd1Nf-qsVR3YuZnOw6bcv8z_OqNEM_ke9xmPdKpkOsxP_IXzYXaXFw"
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRWDhOdDFvSGw4d2Y0dFNqXzF0d0pIdnlqOGZmVlBGVjJFQzhpYzRtOEk4In0.eyJleHAiOjE3MzcyMDMzNDAsImlhdCI6MTczNzE5OTczOSwianRpIjoiODhjOWQyOWQtODc5Yi00MjhlLWFlODMtOGQ4NWQ3YWRjNTljIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYWQ3YTc2YjktZWEyMy00YmEzLTllMWMtMTA3YjExZDJhODEyIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjhlYmU4NmY4LWJiNTctNGJlNC1iODk1LWU1MGZjMzdjOTE3NCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6ImxvY2FsIiwiZ2l2ZW5fbmFtZSI6IkR1b25nIiwiZmFtaWx5X25hbWUiOiJEaW5oIiwiZW1haWwiOiJxdWFuZ2R1b25nQGdtYWlsLmNvbSJ9.JaDcLCoykCTmcMuvTDqNvYRdzVVVU4iwzJZ8Orn-p49Wm4FX4EfcPMDNa6cXd7kte73H7W_xtDfC7onAtZBU-X0jMQHE9dw6kB5xwISzMeWBXpX-lsuWAf4BpMG4t9H8Z1Zd2JspHU96LV_ZK11dxokx5oykeK_ytjjJCizCKyzLbWXBXQQv9XDowieZlLfuCWfPR3Exg6WDxESapeGOnwdLn01VI78UW_JnP_TSIEe_uYG5DhHADd4s1M9t7e5YCfOJQi3p6Rh5nFqfO6YOSrZjMvH5BO6Zqnf_MUeKwbU1tFtJjGCy0hVP89R8mBmBj-fu1_GE3iT6rO95F0IVBg"
 					}
 				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{dev}}/api/statistics/by-month?year=2025",
+					"raw": "http://{{dev}}/api/statistics/by-month?year=2025&type=MAINTENANCE",
 					"protocol": "http",
 					"host": [
 						"{{dev}}"
@@ -976,6 +976,10 @@
 						{
 							"key": "year",
 							"value": "2025"
+						},
+						{
+							"key": "type",
+							"value": "MAINTENANCE"
 						}
 					]
 				}
@@ -988,13 +992,13 @@
 				"auth": {
 					"type": "bearer",
 					"bearer": {
-						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRWDhOdDFvSGw4d2Y0dFNqXzF0d0pIdnlqOGZmVlBGVjJFQzhpYzRtOEk4In0.eyJleHAiOjE3MzY1NjU1NzEsImlhdCI6MTczNjU2MTk3MSwianRpIjoiOTc2NjgzZWUtN2Y4OC00MDZlLTgzYjUtMGE3YTgyNmRiMjg5IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYWQ3YTc2YjktZWEyMy00YmEzLTllMWMtMTA3YjExZDJhODEyIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6ImI0MTA0Yzc2LWMyNjktNGZkMi05ZDFhLTc1NjJkNjU0ZmNiYyIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6ImxvY2FsIiwiZ2l2ZW5fbmFtZSI6IkR1b25nIiwiZmFtaWx5X25hbWUiOiJEaW5oIiwiZW1haWwiOiJxdWFuZ2R1b25nQGdtYWlsLmNvbSJ9.Zaoj-ULalYC26h4HR3TBi8gZ2v1JpVHSyqBXLd0eZ5sPRR8SJGUwsXZqeefbVuDW0oUwg4XFg1KxkEM74fqWcCDzVelCizsz8sR3mQrx98nrEftrt3HuQon6euHu8Dh1cb63KP5H-sBnNgVsjKlyZAnLpCxfsMUFrp6RxXPk5KCIsqOhuj4172qDhrfhzDGNPwbmdSHPGjSIiifwBy_PGFYOr-OGNOKw0oZ6r96RjmwMjkxgG0wcdXylPqPvdm9lH5HPS1w1GM2ad1BvMiPT7cVhx5VLmvGYDd1Nf-qsVR3YuZnOw6bcv8z_OqNEM_ke9xmPdKpkOsxP_IXzYXaXFw"
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRWDhOdDFvSGw4d2Y0dFNqXzF0d0pIdnlqOGZmVlBGVjJFQzhpYzRtOEk4In0.eyJleHAiOjE3MzcyMDMzNDAsImlhdCI6MTczNzE5OTczOSwianRpIjoiODhjOWQyOWQtODc5Yi00MjhlLWFlODMtOGQ4NWQ3YWRjNTljIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYWQ3YTc2YjktZWEyMy00YmEzLTllMWMtMTA3YjExZDJhODEyIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjhlYmU4NmY4LWJiNTctNGJlNC1iODk1LWU1MGZjMzdjOTE3NCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6ImxvY2FsIiwiZ2l2ZW5fbmFtZSI6IkR1b25nIiwiZmFtaWx5X25hbWUiOiJEaW5oIiwiZW1haWwiOiJxdWFuZ2R1b25nQGdtYWlsLmNvbSJ9.JaDcLCoykCTmcMuvTDqNvYRdzVVVU4iwzJZ8Orn-p49Wm4FX4EfcPMDNa6cXd7kte73H7W_xtDfC7onAtZBU-X0jMQHE9dw6kB5xwISzMeWBXpX-lsuWAf4BpMG4t9H8Z1Zd2JspHU96LV_ZK11dxokx5oykeK_ytjjJCizCKyzLbWXBXQQv9XDowieZlLfuCWfPR3Exg6WDxESapeGOnwdLn01VI78UW_JnP_TSIEe_uYG5DhHADd4s1M9t7e5YCfOJQi3p6Rh5nFqfO6YOSrZjMvH5BO6Zqnf_MUeKwbU1tFtJjGCy0hVP89R8mBmBj-fu1_GE3iT6rO95F0IVBg"
 					}
 				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{dev}}/api/statistics/by-quarter?year=2025",
+					"raw": "http://{{dev}}/api/statistics/by-quarter?year=2025&type=MAINTENANCE",
 					"protocol": "http",
 					"host": [
 						"{{dev}}"
@@ -1003,6 +1007,115 @@
 						"api",
 						"statistics",
 						"by-quarter"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2025"
+						},
+						{
+							"key": "type",
+							"value": "MAINTENANCE"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Suggested Maintenance Schedule",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRWDhOdDFvSGw4d2Y0dFNqXzF0d0pIdnlqOGZmVlBGVjJFQzhpYzRtOEk4In0.eyJleHAiOjE3MzcxODIyMzcsImlhdCI6MTczNzE3ODYzNywianRpIjoiYmJhODQ0YTMtYWYxNS00NGU3LTk2MGMtN2RkNTE4N2ZiMjE2IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYWQ3YTc2YjktZWEyMy00YmEzLTllMWMtMTA3YjExZDJhODEyIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6Ijc1N2VmOGJhLWFkMzQtNDIzNy05NzE5LWRhYzk2Mjc3MjhhYyIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6ImxvY2FsIiwiZ2l2ZW5fbmFtZSI6IkR1b25nIiwiZmFtaWx5X25hbWUiOiJEaW5oIiwiZW1haWwiOiJxdWFuZ2R1b25nQGdtYWlsLmNvbSJ9.RrFvcbHpBBYNBWq0RTnrHJnCMNutGzZ82oWl8_LHp080yEtMjpNjr5bv4Yz7Gu69BzuFebbRGs5ptRZNlT7pX2cVvUyTUPMef2dulBsBm5XdMY-stJr8Rq21aasmlG1Nz5RE5-S_kV_DvRFb9krpF-M1aoFKmSCZL3kkl8sMOZuG5WPsgPRlcm0QBKVFihq7UDaV5Mq7pWCF8kPvA-BGd442B37ygikKYL9qpRHXGKWHTbb3Wk7G6CUayOkPyMnAHyAp16Q7LSRUXMQQ1t9q8pDcxCbPFbZah5r9Y-RFnMI-UG4jbUQpYUYTR4fcRBQ3TPKZASgAiQ4OdplvqvzTkA"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{dev}}/api/schedules/suggested-maintenance-schedule/0JF9GWX3CT8KB?lat=10.881357&lon=106.780258",
+					"protocol": "http",
+					"host": [
+						"{{dev}}"
+					],
+					"path": [
+						"api",
+						"schedules",
+						"suggested-maintenance-schedule",
+						"0JF9GWX3CT8KB"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "10.881357"
+						},
+						{
+							"key": "lon",
+							"value": "106.780258"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cost Statistics By Year",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRWDhOdDFvSGw4d2Y0dFNqXzF0d0pIdnlqOGZmVlBGVjJFQzhpYzRtOEk4In0.eyJleHAiOjE3MzcyMDMzNDAsImlhdCI6MTczNzE5OTczOSwianRpIjoiODhjOWQyOWQtODc5Yi00MjhlLWFlODMtOGQ4NWQ3YWRjNTljIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYWQ3YTc2YjktZWEyMy00YmEzLTllMWMtMTA3YjExZDJhODEyIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjhlYmU4NmY4LWJiNTctNGJlNC1iODk1LWU1MGZjMzdjOTE3NCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6ImxvY2FsIiwiZ2l2ZW5fbmFtZSI6IkR1b25nIiwiZmFtaWx5X25hbWUiOiJEaW5oIiwiZW1haWwiOiJxdWFuZ2R1b25nQGdtYWlsLmNvbSJ9.JaDcLCoykCTmcMuvTDqNvYRdzVVVU4iwzJZ8Orn-p49Wm4FX4EfcPMDNa6cXd7kte73H7W_xtDfC7onAtZBU-X0jMQHE9dw6kB5xwISzMeWBXpX-lsuWAf4BpMG4t9H8Z1Zd2JspHU96LV_ZK11dxokx5oykeK_ytjjJCizCKyzLbWXBXQQv9XDowieZlLfuCWfPR3Exg6WDxESapeGOnwdLn01VI78UW_JnP_TSIEe_uYG5DhHADd4s1M9t7e5YCfOJQi3p6Rh5nFqfO6YOSrZjMvH5BO6Zqnf_MUeKwbU1tFtJjGCy0hVP89R8mBmBj-fu1_GE3iT6rO95F0IVBg"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{dev}}/api/statistics/by-year?years=2023,2024,2025&type=MAINTENANCE",
+					"protocol": "http",
+					"host": [
+						"{{dev}}"
+					],
+					"path": [
+						"api",
+						"statistics",
+						"by-year"
+					],
+					"query": [
+						{
+							"key": "years",
+							"value": "2023,2024,2025"
+						},
+						{
+							"key": "type",
+							"value": "MAINTENANCE"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Asset Statistics By Year",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRWDhOdDFvSGw4d2Y0dFNqXzF0d0pIdnlqOGZmVlBGVjJFQzhpYzRtOEk4In0.eyJleHAiOjE3MzcyMDMzNDAsImlhdCI6MTczNzE5OTczOSwianRpIjoiODhjOWQyOWQtODc5Yi00MjhlLWFlODMtOGQ4NWQ3YWRjNTljIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYWQ3YTc2YjktZWEyMy00YmEzLTllMWMtMTA3YjExZDJhODEyIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjhlYmU4NmY4LWJiNTctNGJlNC1iODk1LWU1MGZjMzdjOTE3NCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6ImxvY2FsIiwiZ2l2ZW5fbmFtZSI6IkR1b25nIiwiZmFtaWx5X25hbWUiOiJEaW5oIiwiZW1haWwiOiJxdWFuZ2R1b25nQGdtYWlsLmNvbSJ9.JaDcLCoykCTmcMuvTDqNvYRdzVVVU4iwzJZ8Orn-p49Wm4FX4EfcPMDNa6cXd7kte73H7W_xtDfC7onAtZBU-X0jMQHE9dw6kB5xwISzMeWBXpX-lsuWAf4BpMG4t9H8Z1Zd2JspHU96LV_ZK11dxokx5oykeK_ytjjJCizCKyzLbWXBXQQv9XDowieZlLfuCWfPR3Exg6WDxESapeGOnwdLn01VI78UW_JnP_TSIEe_uYG5DhHADd4s1M9t7e5YCfOJQi3p6Rh5nFqfO6YOSrZjMvH5BO6Zqnf_MUeKwbU1tFtJjGCy0hVP89R8mBmBj-fu1_GE3iT6rO95F0IVBg"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{dev}}/api/statistics/asset-statistics?year=2025",
+					"protocol": "http",
+					"host": [
+						"{{dev}}"
+					],
+					"path": [
+						"api",
+						"statistics",
+						"asset-statistics"
 					],
 					"query": [
 						{
