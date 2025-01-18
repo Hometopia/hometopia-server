@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 
 @Builder
 public record CostStatisticsByQuarterResponse(
+        BigDecimal total,
         BigDecimal firstQuarter,
         BigDecimal secondQuarter,
         BigDecimal thirdQuarter,

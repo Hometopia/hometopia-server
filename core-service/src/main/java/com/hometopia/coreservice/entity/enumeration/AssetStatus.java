@@ -5,5 +5,7 @@ public enum AssetStatus {
     BROKEN,
     UNDER_REPAIR,
     MAINTENANCE,
-    RESERVED
+    RESERVED,
+    FOR_LOAN,
+    SOLD
 }

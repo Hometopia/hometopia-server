@@ -30,7 +30,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 @RestController
@@ -63,7 +62,7 @@ public class CategoryController {
             @RequestParam(defaultValue = "id,desc") String sort,
             @RequestParam(required = false) String filter,
             @RequestParam(required = false) boolean all
-    ) throws UnsupportedEncodingException {
+    ) {
         return ResponseEntity.ok(categoryService.getListCategories(page, size, sort, filter, all));
     }
 

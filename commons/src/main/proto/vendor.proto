@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package com.hometopia.proto.vendor;
+
+option java_multiple_files = true;
+option java_package = "com.hometopia.proto.vendor";
+option java_outer_classname = "VendorProto";
+
+import "asset.proto";
+
+service VendorGrpcService {
+  rpc getListVendor(GetListVendorRequest) returns (GetListVendorResponse) {
+  }
+}
+
+message GetListVendorRequest {
+  asset.AssetCategory category = 1;
+  double lat = 2;
+  double lon = 3;
+}
+
+message GetListVendorResponse {
+  repeated VendorResponse vendors = 1;
+}
+
+message VendorResponse {
+  string link = 1;
+  string name = 2;
+  string address = 3;
+  string website = 4;
+  string phoneNumber = 5;
+}

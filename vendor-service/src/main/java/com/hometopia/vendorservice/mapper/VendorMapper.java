@@ -17,6 +17,9 @@ public interface VendorMapper {
     @Mapping(target = "address", source = "address.line")
     GetListVendorResponse toGetListVendorResponse(Vendor vendor);
 
+    @Mapping(target = "address", source = "address.line")
+    com.hometopia.proto.vendor.VendorResponse toVendorResponseProto(Vendor vendor);
+
     default GeoPoint togeoPoint(com.hometopia.commons.message.Vendor.GeoPoint geoPoint) {
         return new GeoPoint(geoPoint.lat(), geoPoint.lon());
     }

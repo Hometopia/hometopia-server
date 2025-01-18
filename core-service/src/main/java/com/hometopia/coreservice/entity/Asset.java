@@ -1,5 +1,6 @@
 package com.hometopia.coreservice.entity;
 
+import com.hometopia.commons.enumeration.AssetCategory;
 import com.hometopia.commons.persistence.BaseEntity;
 import com.hometopia.coreservice.entity.embedded.File;
 import com.hometopia.coreservice.entity.enumeration.AssetStatus;
@@ -18,7 +19,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.checkerframework.checker.units.qual.A;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
@@ -26,7 +26,6 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -51,22 +50,22 @@ public class Asset extends BaseEntity {
     @Column(name = "purchase_date", nullable = false)
     private LocalDate purchaseDate;
 
-    @Column(name = "purchase_place", nullable = false)
+    @Column(name = "purchase_place")
     private String purchasePlace;
 
     @Column(name = "purchase_price", nullable = false)
     private BigDecimal purchasePrice;
 
-    @Column(name = "vendor", nullable = false)
-    private String vendor;
+    @Column(name = "brand")
+    private String brand;
 
-    @Column(name = "serial_number", nullable = false)
+    @Column(name = "serial_number")
     private String serialNumber;
 
-    @Column(name = "location", nullable = false)
+    @Column(name = "location")
     private String location;
 
-    @Column(name = "warranty_expiry_date", nullable = false)
+    @Column(name = "warranty_expiry_date")
     private LocalDate warrantyExpiryDate;
 
     @Column(name = "documents", columnDefinition = "JSONB")
@@ -85,6 +84,13 @@ public class Asset extends BaseEntity {
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
+    @Column(name = "label")
+    @Enumerated(EnumType.STRING)
+    private AssetCategory label;
+
+    @Column(name = "useful_life")
+    private Integer usefulLife;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
@@ -92,4 +98,8 @@ public class Asset extends BaseEntity {
     @OneToMany(mappedBy = "asset", cascade = CascadeType.ALL)
     @Builder.Default
     private Set<AssetLifeCycle> assetLifeCycles = new HashSet<>();
+
+    @OneToMany(mappedBy = "asset", cascade = CascadeType.ALL)
+    @Builder.Default
+    private Set<Schedule> schedules = new HashSet<>();
 }

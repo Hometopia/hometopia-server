@@ -19,8 +19,6 @@ public record CreateScheduleRequest(
         @NotNull
         @FutureOrPresent
         LocalDateTime start,
-        @NotNull
-        @FutureOrPresent
         LocalDateTime end,
         @NotNull
         Vendor vendor,
@@ -30,5 +28,6 @@ public record CreateScheduleRequest(
         ArrayList<File> documents,
         @NotNull
         ScheduleType type,
+        @NotNull
         String assetId
 ) {}

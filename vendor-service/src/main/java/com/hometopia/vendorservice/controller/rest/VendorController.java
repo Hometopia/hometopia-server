@@ -1,9 +1,10 @@
-package com.hometopia.vendorservice.controller;
+package com.hometopia.vendorservice.controller.rest;
 
+import com.hometopia.commons.enumeration.AssetCategory;
 import com.hometopia.commons.response.ListResponse;
 import com.hometopia.commons.response.RestResponse;
-import com.hometopia.vendorservice.dto.response.GetListBrandResponse;
-import com.hometopia.vendorservice.service.BrandService;
+import com.hometopia.vendorservice.dto.response.GetListVendorResponse;
+import com.hometopia.vendorservice.service.VendorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -13,19 +14,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/brands")
+@RequestMapping("/vendors")
 @RequiredArgsConstructor
-public class BrandController {
+public class VendorController {
 
-    private final BrandService brandService;
+    private final VendorService vendorService;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<RestResponse<ListResponse<GetListBrandResponse>>> getListBrand(
+    public ResponseEntity<RestResponse<ListResponse<GetListVendorResponse>>> getListVendors(
+            @RequestParam AssetCategory category,
+            @RequestParam Double lat,
+            @RequestParam Double lon,
             @RequestParam(defaultValue = "1") int page,
             @RequestParam(defaultValue = "5") int size,
-            @RequestParam String filter,
             @RequestParam(required = false) boolean all
     ) {
-        return ResponseEntity.ok(brandService.getListBrand(page, size, filter, all));
+        return ResponseEntity.ok(vendorService.getListVendors(category, lat, lon, page, size, all));
     }
 }

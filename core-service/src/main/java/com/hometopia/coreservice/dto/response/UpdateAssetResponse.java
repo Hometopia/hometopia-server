@@ -18,13 +18,14 @@ public record UpdateAssetResponse(
         LocalDate purchaseDate,
         String purchasePlace,
         BigDecimal purchasePrice,
-        String vendor,
+        String brand,
         String serialNumber,
         String location,
         LocalDate warrantyExpiryDate,
         ArrayList<File> documents,
         AssetStatus status,
         Integer maintenanceCycle,
+        Integer usefulLife,
         Category category
 ) {
     public record Category(

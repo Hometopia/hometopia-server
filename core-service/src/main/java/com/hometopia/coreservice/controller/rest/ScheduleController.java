@@ -7,6 +7,7 @@ import com.hometopia.coreservice.dto.request.UpdateScheduleRequest;
 import com.hometopia.coreservice.dto.response.CreateScheduleResponse;
 import com.hometopia.coreservice.dto.response.GetListScheduleResponse;
 import com.hometopia.coreservice.dto.response.GetOneScheduleResponse;
+import com.hometopia.coreservice.dto.response.SuggestedMaintenanceScheduleResponse;
 import com.hometopia.coreservice.dto.response.UpdateScheduleResponse;
 import com.hometopia.coreservice.service.ScheduleService;
 import jakarta.validation.Valid;
@@ -48,6 +49,15 @@ public class ScheduleController {
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<RestResponse<GetOneScheduleResponse>> getOneSchedule(@PathVariable String id) {
         return ResponseEntity.ok(scheduleService.getOneSchedule(id));
+    }
+
+    @GetMapping(path = "/suggested-maintenance-schedule/{assetId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<RestResponse<ListResponse<SuggestedMaintenanceScheduleResponse>>> getListSuggestedMaintenanceSchedules(
+            @PathVariable String assetId,
+            @RequestParam Double lat,
+            @RequestParam Double lon
+    ) {
+        return ResponseEntity.ok(scheduleService.getListSuggestedMaintenanceSchedules(assetId, lat, lon));
     }
 
     @PostMapping(

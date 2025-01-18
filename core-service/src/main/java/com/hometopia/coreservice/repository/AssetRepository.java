@@ -24,4 +24,6 @@ public interface AssetRepository extends JpaRepository<Asset, String>, JpaSpecif
             ) % maintenance_cycle = 0;
     """, nativeQuery = true)
     List<Asset> findAllInMaintenanceInterval();
+
+    List<Asset> findAllByLabelIsNullOrMaintenanceCycleIsNullOrUsefulLifeIsNull();
 }

@@ -89,11 +89,17 @@ keycloak:
 scheduling:
   schedule-reminder: 0 0/30 * * * ?
   maintenance-reminder: 0 0/30 * * * ?
+  asset-label-maintenance-cycle: 0 0/5 * * * ?
 
 grpc:
   client:
     rule-service:
       address: rule-service
+      enable-keep-alive: true
+      keep-alive-without-calls: true
+      negotiation-type: plaintext
+    vendor-service:
+      address: vendor-service
       enable-keep-alive: true
       keep-alive-without-calls: true
       negotiation-type: plaintext

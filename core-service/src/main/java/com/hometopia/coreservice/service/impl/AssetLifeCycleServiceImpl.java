@@ -41,11 +41,15 @@ public class AssetLifeCycleServiceImpl implements AssetLifeCycleService {
         AssetLifeCycle assetLifeCycle = new AssetLifeCycle();
         assetLifeCycle.setAsset(asset);
         switch (asset.getStatus()) {
-            case IN_USE -> assetLifeCycle.setDescription("%s đuợc đưa vào sử dụng.".formatted(asset.getName()));
+            case IN_USE -> assetLifeCycle.setDescription(asset.getVersion() == 0
+                    ? "%s đuợc đưa vào sử dụng.".formatted(asset.getName())
+                    : "%s đuợc đưa quay lại sử dụng.".formatted(asset.getName()));
             case BROKEN -> assetLifeCycle.setDescription("%s bị hỏng.".formatted(asset.getName()));
             case UNDER_REPAIR -> assetLifeCycle.setDescription("%s được sửa chữa.".formatted(asset.getName()));
             case MAINTENANCE -> assetLifeCycle.setDescription("%s đuợc bảo trì.".formatted(asset.getName()));
             case RESERVED -> assetLifeCycle.setDescription("%s đuợc cất vào kho.".formatted(asset.getName()));
+            case FOR_LOAN -> assetLifeCycle.setDescription("%s đuợc mang cho mượn.".formatted(asset.getName()));
+            case SOLD ->  assetLifeCycle.setDescription("%s đuợc bán.".formatted(asset.getName()));
         }
         assetLifeCycleRepository.save(assetLifeCycle);
     }

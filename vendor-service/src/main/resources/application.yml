@@ -3,6 +3,10 @@ server:
   servlet:
     context-path: /vendor
 
+grpc:
+  server:
+    port: 8100
+
 spring:
   application:
     name: vendor-service

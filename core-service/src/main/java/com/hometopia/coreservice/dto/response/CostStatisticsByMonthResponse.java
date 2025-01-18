@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 
 @Builder
 public record CostStatisticsByMonthResponse(
+        BigDecimal total,
         BigDecimal january,
         BigDecimal february,
         BigDecimal march,

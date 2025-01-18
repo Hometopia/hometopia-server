@@ -38,7 +38,7 @@ public class Schedule extends BaseEntity {
     @Column(name = "start", nullable = false)
     private LocalDateTime start;
 
-    @Column(name = "\"end\"", nullable = false)
+    @Column(name = "\"end\"")
     private LocalDateTime end;
 
     @Column(name = "vendor", columnDefinition = "JSONB", nullable = false)

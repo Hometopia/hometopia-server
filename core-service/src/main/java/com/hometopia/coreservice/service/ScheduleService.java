@@ -7,6 +7,7 @@ import com.hometopia.coreservice.dto.request.UpdateScheduleRequest;
 import com.hometopia.coreservice.dto.response.CreateScheduleResponse;
 import com.hometopia.coreservice.dto.response.GetListScheduleResponse;
 import com.hometopia.coreservice.dto.response.GetOneScheduleResponse;
+import com.hometopia.coreservice.dto.response.SuggestedMaintenanceScheduleResponse;
 import com.hometopia.coreservice.dto.response.UpdateScheduleResponse;
 
 import java.util.List;
@@ -18,4 +19,5 @@ public interface ScheduleService {
     RestResponse<UpdateScheduleResponse> updateSchedule(String id, UpdateScheduleRequest request);
     void deleteSchedule(String id);
     void deleteListSchedules(List<String> ids);
+    RestResponse<ListResponse<SuggestedMaintenanceScheduleResponse>> getListSuggestedMaintenanceSchedules(String assetId, Double lat, Double lon);
 }

@@ -17,10 +17,7 @@ public record UpdateScheduleRequest(
         @NotBlank
         String title,
         @NotNull
-        @FutureOrPresent
         LocalDateTime start,
-        @NotNull
-        @FutureOrPresent
         LocalDateTime end,
         @NotNull
         Vendor vendor,
@@ -29,5 +26,7 @@ public record UpdateScheduleRequest(
         @NotNull
         ArrayList<File> documents,
         @NotNull
-        ScheduleType type
+        ScheduleType type,
+        @NotNull
+        String assetId
 ) {}

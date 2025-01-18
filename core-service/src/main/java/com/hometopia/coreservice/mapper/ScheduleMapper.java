@@ -22,6 +22,7 @@ public interface ScheduleMapper {
 
     GetOneScheduleResponse toGetOneScheduleResponse(Schedule schedule);
 
+    @Mapping(source = "assetId", target = "asset")
     Schedule updateSchedule(@MappingTarget Schedule schedule, UpdateScheduleRequest request);
 
     UpdateScheduleResponse toUpdateScheduleResponse(Schedule schedule);

@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package com.hometopia.proto.asset;
+
+option java_multiple_files = true;
+option java_package = "com.hometopia.proto.asset";
+option java_outer_classname = "AssetProto";
+
+service AssetGrpcService {
+  rpc getUsefulLife(GetAssetUsefulLifeRequest) returns (GetAssetUsefulLifeResponse) {
+  }
+
+  rpc getMaintenanceCycle(GetAssetMaintenanceCycleRequest) returns (GetAssetMaintenanceCycleResponse) {
+  }
+}
+
+enum AssetCategory {
+  BED = 0;
+  CAR = 1;
+  CHAIR = 2;
+  LAMP = 3;
+  LAPTOP = 4;
+  MOBILE_PHONE = 5;
+}
+
+message GetAssetUsefulLifeRequest {
+  AssetCategory category = 1;
+}
+message GetAssetUsefulLifeResponse {
+  int32 usefulLife = 1;
+}
+
+message GetAssetMaintenanceCycleRequest {
+  AssetCategory category = 1;
+}
+
+message GetAssetMaintenanceCycleResponse {
+  int32 maintenanceCycle = 1;
+}

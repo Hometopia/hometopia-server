@@ -1,15 +1,26 @@
 package com.hometopia.coreservice.scheduled;
 
+import com.hometopia.commons.enumeration.AssetCategory;
 import com.hometopia.commons.utils.AppConstants;
+import com.hometopia.coreservice.client.ClassificationServiceClient;
+import com.hometopia.coreservice.client.dto.request.PredictAssetCategoryRequest;
+import com.hometopia.coreservice.client.dto.response.PredictAssetCategoryResponse;
 import com.hometopia.coreservice.entity.Asset;
 import com.hometopia.coreservice.entity.Notification;
 import com.hometopia.coreservice.entity.Schedule;
+import com.hometopia.coreservice.entity.embedded.File;
 import com.hometopia.coreservice.entity.embedded.HyperLink;
+import com.hometopia.coreservice.mapper.AssetCategoryMapper;
 import com.hometopia.coreservice.repository.AssetRepository;
 import com.hometopia.coreservice.repository.NotificationRepository;
 import com.hometopia.coreservice.repository.ScheduleRepository;
+import com.hometopia.proto.asset.AssetGrpcServiceGrpc;
+import com.hometopia.proto.asset.GetAssetMaintenanceCycleRequest;
+import com.hometopia.proto.asset.GetAssetUsefulLifeRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import net.devh.boot.grpc.client.inject.GrpcClient;
+import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -28,9 +39,14 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ScheduledJobService {
 
+    private final AssetCategoryMapper assetCategoryMapper;
     private final ScheduleRepository scheduleRepository;
     private final AssetRepository assetRepository;
     private final NotificationRepository notificationRepository;
+    private final ClassificationServiceClient classificationServiceClient;
+
+    @GrpcClient("rule-service")
+    private AssetGrpcServiceGrpc.AssetGrpcServiceBlockingStub assetGrpcServiceBlockingStub;
 
     @Scheduled(cron = "${scheduling.schedule-reminder}")
     @Async
@@ -76,5 +92,55 @@ public class ScheduledJobService {
         SecurityContextHolder.clearContext();
 
         log.info("End create maintenance reminder job");
+    }
+
+    @Scheduled(cron = "${scheduling.asset-label-maintenance-cycle}")
+    @Async
+    public void updateAssetLabelAndMaintenanceCycle() {
+        log.info("Starting update asset label and maintenance cycle job");
+
+        Authentication authentication = new UsernamePasswordAuthenticationToken("System", null, List.of());
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        assetRepository.findAllByLabelIsNullOrMaintenanceCycleIsNullOrUsefulLifeIsNull().stream()
+                .filter(asset -> !asset.getImages().isEmpty())
+                .forEach(asset -> {
+                    try {
+                        if (asset.getLabel() == null) {
+                            ResponseEntity<PredictAssetCategoryResponse> response = classificationServiceClient
+                                    .predictAssetCategory(buildPredictAssetCategoryRequest(asset.getImages().get(0)));
+                            if (response.getStatusCode().is2xxSuccessful() && response.getBody() != null) {
+                                AssetCategory label = response.getBody().prediction();
+                                asset.setLabel(label);
+                            }
+                        }
+
+                        if (asset.getMaintenanceCycle() == null) {
+                            asset.setMaintenanceCycle(assetGrpcServiceBlockingStub
+                                    .getMaintenanceCycle(GetAssetMaintenanceCycleRequest.newBuilder()
+                                            .setCategory(assetCategoryMapper.toAssetCategoryProto(asset.getLabel()))
+                                            .build())
+                                    .getMaintenanceCycle());
+                        }
+
+                        if (asset.getUsefulLife() == null) {
+                            asset.setUsefulLife(assetGrpcServiceBlockingStub
+                                    .getUsefulLife(GetAssetUsefulLifeRequest.newBuilder()
+                                            .setCategory(assetCategoryMapper.toAssetCategoryProto(asset.getLabel()))
+                                            .build())
+                                    .getUsefulLife());
+                        }
+                    } catch (Exception e) {
+                        log.error("Error when processing updateAssetLabelAndMaintenanceCycle for asset {}", asset.getId());
+                    }
+                });
+
+        SecurityContextHolder.clearContext();
+
+        log.info("End update asset label and maintenance cycle job");
+    }
+
+    private PredictAssetCategoryRequest buildPredictAssetCategoryRequest(File file) {
+        return new PredictAssetCategoryRequest("http://193.203.161.141:8000/api/files?fileName=%s".formatted(file.fileName()));
     }
 }

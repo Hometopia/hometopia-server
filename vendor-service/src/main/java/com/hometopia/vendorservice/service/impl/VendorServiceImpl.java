@@ -3,7 +3,9 @@ package com.hometopia.vendorservice.service.impl;
 import com.hometopia.commons.enumeration.AssetCategory;
 import com.hometopia.commons.response.ListResponse;
 import com.hometopia.commons.response.RestResponse;
+import com.hometopia.proto.vendor.GetListVendorRequest;
 import com.hometopia.vendorservice.dto.response.GetListVendorResponse;
+import com.hometopia.vendorservice.mapper.AssetCategoryMapper;
 import com.hometopia.vendorservice.mapper.VendorMapper;
 import com.hometopia.vendorservice.model.Vendor;
 import com.hometopia.vendorservice.repository.VendorRepository;
@@ -29,6 +31,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class VendorServiceImpl implements VendorService {
 
+    private final AssetCategoryMapper assetCategoryMapper;
     private final VendorMapper vendorMapper;
     private final VendorRepository vendorRepository;
     private final ElasticsearchOperations elasticsearchOperations;
@@ -53,5 +56,26 @@ public class VendorServiceImpl implements VendorService {
     @Override
     public void saveListVendors(List<com.hometopia.commons.message.Vendor> vendors) {
         vendorRepository.saveAll(vendorMapper.toListVendors(vendors));
+    }
+
+    @Override
+    public com.hometopia.proto.vendor.GetListVendorResponse getListVendor(GetListVendorRequest request) {
+        AssetCategory category = assetCategoryMapper.toAssetCategory(request.getCategory());
+        double lat = request.getLat();
+        double lon = request.getLon();
+
+        Query geoPointQuery = NativeQuery.builder()
+                .withQuery(q -> q.match(match -> match.field("asset_category").query(category.name())))
+                .withSort(Sort.by(new GeoDistanceOrder("location", new GeoPoint(lat, lon))))
+                .build();
+
+        SearchHits<Vendor> searchHits = elasticsearchOperations.search(geoPointQuery, Vendor.class);
+
+        return com.hometopia.proto.vendor.GetListVendorResponse.newBuilder()
+                .addAllVendors(searchHits.stream()
+                        .map(SearchHit::getContent)
+                        .map(vendorMapper::toVendorResponseProto)
+                        .toList())
+                .build();
     }
 }
