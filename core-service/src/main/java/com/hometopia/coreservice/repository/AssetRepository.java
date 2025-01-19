@@ -1,6 +1,7 @@
 package com.hometopia.coreservice.repository;
 
 import com.hometopia.coreservice.entity.Asset;
+import com.hometopia.coreservice.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
@@ -26,4 +27,8 @@ public interface AssetRepository extends JpaRepository<Asset, String>, JpaSpecif
     List<Asset> findAllInMaintenanceInterval();
 
     List<Asset> findAllByLabelIsNullOrMaintenanceCycleIsNullOrUsefulLifeIsNull();
+
+    List<Asset> findAllByLabelIsNotNullAndMaintenanceCycleIsNotNullAndUsefulLifeIsNotNullAndUser(User user);
+
+    long countByUser(User user);
 }

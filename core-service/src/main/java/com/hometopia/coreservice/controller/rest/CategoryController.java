@@ -67,7 +67,7 @@ public class CategoryController {
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<RestResponse<List<CreateCategoryResponse>>> createListCategories(
+    public ResponseEntity<RestResponse<ListResponse<CreateCategoryResponse>>> createListCategories(
             @RequestBody @Valid CreateListCategoriesRequest request) {
         return ResponseEntity.created(ServletUriComponentsBuilder.fromCurrentRequest().build().toUri())
                 .body(categoryService.createListCategories(request));
@@ -90,7 +90,7 @@ public class CategoryController {
     }
 
     @DeleteMapping
-    public ResponseEntity<Void> deleteCategory(@RequestParam List<String> ids) {
+    public ResponseEntity<Void> deleteListCategories(@RequestParam List<String> ids) {
         categoryService.deleteListCategories(ids);
         return ResponseEntity.noContent().build();
     }

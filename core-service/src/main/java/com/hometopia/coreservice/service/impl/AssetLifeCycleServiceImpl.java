@@ -14,6 +14,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.Instant;
 import java.util.List;
 
 @Service
@@ -27,8 +28,9 @@ public class AssetLifeCycleServiceImpl implements AssetLifeCycleService {
     @Override
     @Transactional(readOnly = true)
     public RestResponse<ListResponse<GetListAssetLifeCycleResponse>> getListAssetLifeCycle(String filter) {
+        Specification<AssetLifeCycle> sortable = RSQLJPASupport.toSort("timestamp,asc");
         Specification<AssetLifeCycle> filterable = RSQLJPASupport.toSpecification(filter);
-        List<GetListAssetLifeCycleResponse> responses = assetLifeCycleRepository.findAll(filterable)
+        List<GetListAssetLifeCycleResponse> responses = assetLifeCycleRepository.findAll(filterable.and(sortable))
                 .stream()
                 .map(assetLifeCycleMapper::toGetListAssetLifeCycleResponse)
                 .toList();
@@ -39,6 +41,7 @@ public class AssetLifeCycleServiceImpl implements AssetLifeCycleService {
     @Override
     public void createAssetLifeCycle(Asset asset) {
         AssetLifeCycle assetLifeCycle = new AssetLifeCycle();
+        assetLifeCycle.setTimestamp(Instant.now());
         assetLifeCycle.setAsset(asset);
         switch (asset.getStatus()) {
             case IN_USE -> assetLifeCycle.setDescription(asset.getVersion() == 0

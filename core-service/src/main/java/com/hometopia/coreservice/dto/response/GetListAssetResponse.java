@@ -11,7 +11,8 @@ public record GetListAssetResponse(
         String description,
         ArrayList<File> images,
         AssetStatus status,
-        Category category
+        Category category,
+        Location location
 ) {
     public record Category(
             String id,
@@ -23,4 +24,9 @@ public record GetListAssetResponse(
                 String name
         ) {}
     }
+
+    public record Location(
+            String id,
+            String name
+    ) {}
 }

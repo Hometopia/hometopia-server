@@ -62,9 +62,6 @@ public class Asset extends BaseEntity {
     @Column(name = "serial_number")
     private String serialNumber;
 
-    @Column(name = "location")
-    private String location;
-
     @Column(name = "warranty_expiry_date")
     private LocalDate warrantyExpiryDate;
 
@@ -83,6 +80,10 @@ public class Asset extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "location_id")
+    private Location location;
 
     @Column(name = "label")
     @Enumerated(EnumType.STRING)

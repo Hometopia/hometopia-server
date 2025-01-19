@@ -7,6 +7,7 @@ import com.hometopia.commons.utils.SecurityUtils;
 import com.hometopia.coreservice.dto.request.CreateAssetRequest;
 import com.hometopia.coreservice.dto.request.UpdateAssetRequest;
 import com.hometopia.coreservice.dto.response.CreateAssetResponse;
+import com.hometopia.coreservice.dto.response.GetAssetDepreciationResponse;
 import com.hometopia.coreservice.dto.response.GetListAssetResponse;
 import com.hometopia.coreservice.dto.response.GetOneAssetResponse;
 import com.hometopia.coreservice.dto.response.UpdateAssetResponse;
@@ -27,10 +28,17 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional(readOnly = true)
@@ -99,5 +107,64 @@ public class AssetServiceImpl implements AssetService {
     @Transactional
     public void deleteListAssets(List<String> ids) {
         assetRepository.deleteAllById(ids);
+    }
+
+    @Override
+    public RestResponse<GetAssetDepreciationResponse> getAssetDepreciation(String id) {
+        Asset asset = assetRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Asset", "id", id));
+
+        if (asset.getUsefulLife() == null) {
+            throw new RuntimeException("Asset useful life is required");
+        }
+
+        List<GetAssetDepreciationResponse.Depreciation> straightLineDepreciation = new ArrayList<>();
+        List<GetAssetDepreciationResponse.Depreciation> decliningBalanceDepreciation = new ArrayList<>();
+        BigDecimal straightLineDepreciationValue = asset.getPurchasePrice().divide(BigDecimal.valueOf(asset.getUsefulLife()), RoundingMode.HALF_UP);
+        BigDecimal straightLineDepreciationRate = straightLineDepreciationValue.divide(asset.getPurchasePrice(), RoundingMode.HALF_UP);
+        BigDecimal decliningBalanceDepreciationRate = straightLineDepreciationRate.multiply(BigDecimal
+                .valueOf(asset.getUsefulLife() <= 4 ? 1.5 : 2));
+        BigDecimal residualValue = asset.getPurchasePrice();
+
+        straightLineDepreciation.add(new GetAssetDepreciationResponse.Depreciation(
+                asset.getPurchaseDate().getYear(), residualValue));
+        for (int i = 1; i <= asset.getUsefulLife() - 1; i++) {
+            residualValue = residualValue.subtract(straightLineDepreciationValue);
+            straightLineDepreciation.add(new GetAssetDepreciationResponse.Depreciation(
+                    asset.getPurchaseDate().getYear() + i, residualValue));
+        }
+
+        residualValue = asset.getPurchasePrice();
+        for (int i = 0; i < asset.getUsefulLife(); i++) {
+            decliningBalanceDepreciation.add(new GetAssetDepreciationResponse.Depreciation(
+                    asset.getPurchaseDate().getYear() + i, residualValue));
+            if (i != asset.getUsefulLife() - 1) {
+                residualValue = residualValue.multiply(BigDecimal.ONE.subtract(decliningBalanceDepreciationRate))
+                        .compareTo(residualValue.divide(BigDecimal.valueOf(asset.getUsefulLife() - i - 1), RoundingMode.HALF_UP)) >= 0
+                        ? residualValue.multiply(BigDecimal.ONE.subtract(decliningBalanceDepreciationRate))
+                        : residualValue.divide(BigDecimal.valueOf(asset.getUsefulLife() - i - 1), RoundingMode.HALF_UP);
+
+            }
+        }
+
+        return RestResponse.ok(new GetAssetDepreciationResponse(straightLineDepreciation, decliningBalanceDepreciation));
+    }
+
+    @Override
+    public Map<Asset, BigDecimal> getAssetsCurrentValue(String userId) {
+        return assetRepository.findAllByLabelIsNotNullAndMaintenanceCycleIsNotNullAndUsefulLifeIsNotNullAndUser(
+                        userRepository.getReferenceById(SecurityUtils.getCurrentUserId())).stream()
+                .collect(Collectors.toMap(
+                        Function.identity(),
+                        asset -> getAssetCurrentValue(asset.getId())
+                ));
+    }
+
+    private BigDecimal getAssetCurrentValue(String id) {
+        return getAssetDepreciation(id).data().decliningBalanceDepreciation().stream()
+                .filter(d -> d.year().equals(LocalDate.now().getYear()))
+                .findFirst()
+                .map(GetAssetDepreciationResponse.Depreciation::value)
+                .orElse(BigDecimal.ZERO);
     }
 }

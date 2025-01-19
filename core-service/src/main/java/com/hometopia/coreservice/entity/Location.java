@@ -13,23 +13,18 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.Instant;
-
 @Entity
-@Table(name = "asset_life_cycle")
+@Table(name = "location")
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AssetLifeCycle extends BaseEntity {
-    @Column(name = "timestamp")
-    private Instant timestamp;
-
-    @Column(name = "description", nullable = false)
-    private String description;
+public class Location extends BaseEntity {
+    @Column(name = "name", nullable = false)
+    private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "asset_id", nullable = false)
-    private Asset asset;
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 }

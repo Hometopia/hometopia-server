@@ -12,7 +12,7 @@ import java.util.List;
 
 public interface CategoryService {
     RestResponse<ListResponse<GetListCategoryResponse>> getListCategories(int page, int size, String sort, String filter, boolean all);
-    RestResponse<List<CreateCategoryResponse>> createListCategories(CreateListCategoriesRequest request);
+    RestResponse<ListResponse<CreateCategoryResponse>> createListCategories(CreateListCategoriesRequest request);
     RestResponse<UpdateCategoryResponse> updateCategory(String id, UpdateCategoryRequest request);
     void deleteCategory(String id);
     void deleteListCategories(List<String> ids);

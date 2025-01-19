@@ -5,6 +5,7 @@ import com.hometopia.coreservice.dto.response.AssetStatisticsResponse;
 import com.hometopia.coreservice.dto.response.CostStatisticsByMonthResponse;
 import com.hometopia.coreservice.dto.response.CostStatisticsByQuarterResponse;
 import com.hometopia.coreservice.dto.response.CostStatisticsByYearResponse;
+import com.hometopia.coreservice.dto.response.OverallStatisticsResponse;
 import com.hometopia.coreservice.entity.enumeration.ScheduleType;
 import com.hometopia.coreservice.service.StatisticsService;
 import lombok.RequiredArgsConstructor;
@@ -53,5 +54,10 @@ public class StatisticsController {
             @RequestParam Integer year
     ) {
         return ResponseEntity.ok(statisticsService.getAssetStatisticsByYear(year));
+    }
+
+    @GetMapping(value = "/overall-statistics", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<RestResponse<OverallStatisticsResponse>> getOverallStatistics() {
+        return ResponseEntity.ok(statisticsService.getOverallStatistics());
     }
 }

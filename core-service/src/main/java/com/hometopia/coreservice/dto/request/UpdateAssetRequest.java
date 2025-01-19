@@ -34,5 +34,7 @@ public record UpdateAssetRequest(
         @Positive
         Integer usefulLife,
         @NotBlank
-        String categoryId
+        String categoryId,
+        @NotBlank
+        String locationId
 ) {}

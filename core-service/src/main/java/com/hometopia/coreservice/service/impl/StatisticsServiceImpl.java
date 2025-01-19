@@ -1,12 +1,19 @@
 package com.hometopia.coreservice.service.impl;
 
 import com.hometopia.commons.response.RestResponse;
+import com.hometopia.commons.utils.SecurityUtils;
 import com.hometopia.coreservice.dto.response.AssetStatisticsResponse;
 import com.hometopia.coreservice.dto.response.CostStatisticsByMonthResponse;
 import com.hometopia.coreservice.dto.response.CostStatisticsByQuarterResponse;
 import com.hometopia.coreservice.dto.response.CostStatisticsByYearResponse;
+import com.hometopia.coreservice.dto.response.OverallStatisticsResponse;
+import com.hometopia.coreservice.entity.Asset;
 import com.hometopia.coreservice.entity.enumeration.ScheduleType;
+import com.hometopia.coreservice.repository.AssetRepository;
+import com.hometopia.coreservice.repository.CategoryRepository;
 import com.hometopia.coreservice.repository.ScheduleRepository;
+import com.hometopia.coreservice.repository.UserRepository;
+import com.hometopia.coreservice.service.AssetService;
 import com.hometopia.coreservice.service.StatisticsService;
 import com.querydsl.core.Tuple;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
 @Service
@@ -23,6 +31,10 @@ import java.util.concurrent.atomic.AtomicReference;
 public class StatisticsServiceImpl implements StatisticsService {
 
     private final ScheduleRepository scheduleRepository;
+    private final AssetRepository assetRepository;
+    private final CategoryRepository categoryRepository;
+    private final UserRepository userRepository;
+    private final AssetService assetService;
 
     @Override
     public RestResponse<CostStatisticsByMonthResponse> getCostStatisticsByMonth(Integer year, ScheduleType type) {
@@ -149,5 +161,19 @@ public class StatisticsServiceImpl implements StatisticsService {
         );
 
         return RestResponse.ok(builder.build());
+    }
+
+    @Override
+    public RestResponse<OverallStatisticsResponse> getOverallStatistics() {
+        Map<Asset, BigDecimal> assetValues = assetService.getAssetsCurrentValue(SecurityUtils.getCurrentUserId());
+
+        return RestResponse.ok(new OverallStatisticsResponse(
+                assetRepository.countByUser(userRepository.getReferenceById(SecurityUtils.getCurrentUserId())),
+                categoryRepository.countByUser(userRepository.getReferenceById(SecurityUtils.getCurrentUserId())),
+                assetValues.values().stream().reduce(BigDecimal.ZERO, BigDecimal::add),
+                assetValues.entrySet().stream()
+                        .map(e -> new OverallStatisticsResponse.AssetValue(e.getKey().getName(), e.getValue()))
+                        .toList()
+        ));
     }
 }

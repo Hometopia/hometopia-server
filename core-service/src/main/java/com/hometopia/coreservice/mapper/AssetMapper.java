@@ -15,12 +15,13 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
-@Mapper(uses = {ReferenceMapper.class, CategoryMapper.class})
+@Mapper(uses = {ReferenceMapper.class, CategoryMapper.class, LocationMapper.class})
 public interface AssetMapper {
 
     Asset toAsset(String assetId);
 
     @Mapping(source = "categoryId", target = "category")
+    @Mapping(source = "locationId", target = "location")
     Asset toAsset(CreateAssetRequest request, @Context User user);
 
     CreateAssetResponse toCreateAssetResponse(Asset asset);
@@ -30,6 +31,7 @@ public interface AssetMapper {
     GetOneAssetResponse toGetOneAssetResponse(Asset asset);
 
     @Mapping(source = "categoryId", target = "category")
+    @Mapping(source = "locationId", target = "location")
     Asset updateAsset(@MappingTarget Asset asset, UpdateAssetRequest request);
 
     UpdateAssetResponse toUpdateAssetResponse(Asset asset);

@@ -23,7 +23,7 @@ public record CreateAssetRequest(
         BigDecimal purchasePrice,
         String vendor,
         String serialNumber,
-        String location,
+        String locationId,
         LocalDate warrantyExpiryDate,
         @NotNull
         ArrayList<File> documents,

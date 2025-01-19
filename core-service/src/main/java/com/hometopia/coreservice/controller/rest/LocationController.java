@@ -2,14 +2,13 @@ package com.hometopia.coreservice.controller.rest;
 
 import com.hometopia.commons.response.ListResponse;
 import com.hometopia.commons.response.RestResponse;
-import com.hometopia.coreservice.dto.request.CreateAssetRequest;
-import com.hometopia.coreservice.dto.request.UpdateAssetRequest;
-import com.hometopia.coreservice.dto.response.CreateAssetResponse;
-import com.hometopia.coreservice.dto.response.GetAssetDepreciationResponse;
-import com.hometopia.coreservice.dto.response.GetListAssetResponse;
-import com.hometopia.coreservice.dto.response.GetOneAssetResponse;
-import com.hometopia.coreservice.dto.response.UpdateAssetResponse;
-import com.hometopia.coreservice.service.AssetService;
+import com.hometopia.coreservice.dto.request.CreateLocationRequest;
+import com.hometopia.coreservice.dto.request.UpdateLocationRequest;
+import com.hometopia.coreservice.dto.response.CreateLocationResponse;
+import com.hometopia.coreservice.dto.response.GetListLocationResponse;
+import com.hometopia.coreservice.dto.response.GetOneLocationResponse;
+import com.hometopia.coreservice.dto.response.UpdateLocationResponse;
+import com.hometopia.coreservice.service.LocationService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -29,34 +28,34 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/assets")
+@RequestMapping("/locations")
 @RequiredArgsConstructor
-public class AssetController {
+public class LocationController {
 
-    private final AssetService assetService;
+    private final LocationService locationService;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<RestResponse<ListResponse<GetListAssetResponse>>> getListAssets(
+    public ResponseEntity<RestResponse<ListResponse<GetListLocationResponse>>> getListLocations(
             @RequestParam(defaultValue = "1") int page,
             @RequestParam(defaultValue = "5") int size,
             @RequestParam(defaultValue = "id,desc") String sort,
             @RequestParam(required = false) String filter,
             @RequestParam(required = false) boolean all
     ) {
-        return ResponseEntity.ok(assetService.getListAssets(page, size, sort, filter, all));
+        return ResponseEntity.ok(locationService.getListLocations(page, size, sort, filter, all));
     }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<RestResponse<GetOneAssetResponse>> getOneAsset(@PathVariable String id) {
-        return ResponseEntity.ok(assetService.getOneAsset(id));
+    public ResponseEntity<RestResponse<GetOneLocationResponse>> getOneLocation(@PathVariable String id) {
+        return ResponseEntity.ok(locationService.getOneLocation(id));
     }
 
     @PostMapping(
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<RestResponse<CreateAssetResponse>> createAsset(@RequestBody @Valid CreateAssetRequest request) {
-        RestResponse<CreateAssetResponse> response = assetService.createAsset(request);
+    public ResponseEntity<RestResponse<CreateLocationResponse>> createLocation(@RequestBody @Valid CreateLocationRequest request) {
+        RestResponse<CreateLocationResponse> response = locationService.createLocation(request);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(response.data().id()).toUri();
         return ResponseEntity.created(location).body(response);
@@ -67,25 +66,20 @@ public class AssetController {
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<RestResponse<UpdateAssetResponse>> updateAsset(@PathVariable String id,
-                                                                         @RequestBody @Valid UpdateAssetRequest request) {
-        return ResponseEntity.ok(assetService.updateAsset(id, request));
+    public ResponseEntity<RestResponse<UpdateLocationResponse>> updateLocation(@PathVariable String id,
+                                                                            @RequestBody @Valid UpdateLocationRequest request) {
+        return ResponseEntity.ok(locationService.updateLocation(id, request));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteAsset(@PathVariable String id) {
-        assetService.deleteAsset(id);
+    public ResponseEntity<Void> deleteLocation(@PathVariable String id) {
+        locationService.deleteLocation(id);
         return ResponseEntity.noContent().build();
     }
 
     @DeleteMapping
-    public ResponseEntity<Void> deleteListAssets(@RequestParam List<String> ids) {
-        assetService.deleteListAssets(ids);
+    public ResponseEntity<Void> deleteListLocations(@RequestParam List<String> ids) {
+        locationService.deleteListLocations(ids);
         return ResponseEntity.noContent().build();
-    }
-
-    @GetMapping(value = "/depreciation/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<RestResponse<GetAssetDepreciationResponse>> getAssetDepreciation(@PathVariable String id) {
-        return ResponseEntity.ok(assetService.getAssetDepreciation(id));
     }
 }

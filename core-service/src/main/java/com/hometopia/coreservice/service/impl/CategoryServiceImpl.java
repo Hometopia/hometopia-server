@@ -59,12 +59,13 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     @Transactional
-    public RestResponse<List<CreateCategoryResponse>> createListCategories(CreateListCategoriesRequest request) {
+    public RestResponse<ListResponse<CreateCategoryResponse>> createListCategories(CreateListCategoriesRequest request) {
         User currentUser = userRepository.getReferenceById(SecurityUtils.getCurrentUserId());
-        return RestResponse.created(categoryRepository.saveAll(request.categories().stream()
+        return RestResponse.created(ListResponse.of(categoryRepository.saveAll(request.categories().stream()
                 .map(category -> categoryMapper.toCategory(category, category.parentId() != null
-                        ? categoryRepository.getReferenceById(category.parentId()) : null, currentUser)).toList())
-                .stream().map(categoryMapper::toCategoryResponse).toList());
+                        ? categoryRepository.getReferenceById(category.parentId()) : null, currentUser)).toList()).stream()
+                .map(categoryMapper::toCategoryResponse)
+                .toList()));
     }
 
     @Override

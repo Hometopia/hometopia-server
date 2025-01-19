@@ -157,6 +157,22 @@ ALTER TABLE category
 ALTER TABLE category
     ADD CONSTRAINT FK_CATEGORY_ON_USER FOREIGN KEY (user_id) REFERENCES "user" (id);
 
+CREATE TABLE location
+(
+    id         VARCHAR(255)                NOT NULL,
+    version    SMALLINT                    NOT NULL,
+    created_at TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+    updated_at TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+    created_by VARCHAR(255)                NOT NULL,
+    updated_by VARCHAR(255)                NOT NULL,
+    name       VARCHAR(255)                NOT NULL,
+    user_id    VARCHAR(255)                NOT NULL,
+    CONSTRAINT pk_location PRIMARY KEY (id)
+);
+
+ALTER TABLE location
+    ADD CONSTRAINT FK_LOCATION_ON_USER FOREIGN KEY (user_id) REFERENCES "user" (id);
+
 CREATE TABLE asset
 (
     id                   VARCHAR(255)                NOT NULL,
@@ -173,12 +189,12 @@ CREATE TABLE asset
     purchase_price       DECIMAL                     NOT NULL,
     brand                VARCHAR(255),
     serial_number        VARCHAR(255),
-    location             VARCHAR(255),
     warranty_expiry_date date,
     documents            JSONB,
     status               VARCHAR(255)                NOT NULL,
     maintenance_cycle    INTEGER,
     category_id          VARCHAR(255)                NOT NULL,
+    location_id          VARCHAR(255),
     label                VARCHAR(255),
     useful_life          INTEGER,
     user_id              VARCHAR(255)                NOT NULL,
@@ -187,6 +203,9 @@ CREATE TABLE asset
 
 ALTER TABLE asset
     ADD CONSTRAINT FK_ASSET_ON_CATEGORY FOREIGN KEY (category_id) REFERENCES category (id);
+
+ALTER TABLE asset
+    ADD CONSTRAINT FK_ASSET_ON_LOCATION FOREIGN KEY (location_id) REFERENCES location (id);
 
 ALTER TABLE asset
     ADD CONSTRAINT FK_ASSET_ON_USER FOREIGN KEY (user_id) REFERENCES "user" (id);
@@ -199,6 +218,7 @@ CREATE TABLE asset_life_cycle
     updated_at  TIMESTAMP WITHOUT TIME ZONE NOT NULL,
     created_by  VARCHAR(255)                NOT NULL,
     updated_by  VARCHAR(255)                NOT NULL,
+    timestamp   TIMESTAMP WITHOUT TIME ZONE,
     description VARCHAR(255)                NOT NULL,
     asset_id    VARCHAR(255)                NOT NULL,
     CONSTRAINT pk_asset_life_cycle PRIMARY KEY (id)

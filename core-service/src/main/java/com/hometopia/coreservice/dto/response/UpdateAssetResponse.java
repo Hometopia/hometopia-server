@@ -20,7 +20,7 @@ public record UpdateAssetResponse(
         BigDecimal purchasePrice,
         String brand,
         String serialNumber,
-        String location,
+        Location location,
         LocalDate warrantyExpiryDate,
         ArrayList<File> documents,
         AssetStatus status,
@@ -38,4 +38,9 @@ public record UpdateAssetResponse(
                 String name
         ) {}
     }
+
+    public record Location(
+            String id,
+            String name
+    ) {}
 }

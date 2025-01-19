@@ -147,6 +147,13 @@ spring:
           filters:
             - RewritePath=/api/statistics, /core/statistics
             - RewritePath=/api/statistics/(?<segment>.*), /core/statistics/$\{segment}
+        - id: locations-api
+          uri: lb://core-service
+          predicates:
+            - Path=/api/locations/**
+          filters:
+            - RewritePath=/api/locations, /core/locations
+            - RewritePath=/api/locations/(?<segment>.*), /core/locations/$\{segment}
         - id: asset-classifier-api
           uri: lb://classification-service
           predicates:
