@@ -23,7 +23,7 @@ import java.time.Instant;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AssetLifeCycle extends BaseEntity {
-    @Column(name = "timestamp")
+    @Column(name = "timestamp", nullable = false)
     private Instant timestamp;
 
     @Column(name = "description", nullable = false)
@@ -32,4 +32,8 @@ public class AssetLifeCycle extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "asset_id", nullable = false)
     private Asset asset;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "schedule_id")
+    private Schedule schedule;
 }

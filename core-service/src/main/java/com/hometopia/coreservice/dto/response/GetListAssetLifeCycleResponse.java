@@ -4,6 +4,6 @@ import java.time.Instant;
 
 public record GetListAssetLifeCycleResponse(
         String id,
-        Instant createdAt,
+        Instant timestamp,
         String description
 ) {}

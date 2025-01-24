@@ -12,6 +12,7 @@ import com.hometopia.coreservice.dto.response.GetListAssetResponse;
 import com.hometopia.coreservice.dto.response.GetOneAssetResponse;
 import com.hometopia.coreservice.dto.response.UpdateAssetResponse;
 import com.hometopia.coreservice.entity.Asset;
+import com.hometopia.coreservice.entity.Location;
 import com.hometopia.coreservice.entity.QAsset;
 import com.hometopia.coreservice.entity.enumeration.AssetStatus;
 import com.hometopia.coreservice.mapper.AssetMapper;
@@ -36,6 +37,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -81,18 +83,24 @@ public class AssetServiceImpl implements AssetService {
     public RestResponse<CreateAssetResponse> createAsset(CreateAssetRequest request) {
         Asset asset = assetMapper.toAsset(request, userRepository.getReferenceById(SecurityUtils.getCurrentUserId()));
         assetRepository.save(asset);
-        assetLifeCycleService.createAssetLifeCycle(asset);
+        assetLifeCycleService.createAssetLifeCycleByStatus(asset);
+        assetLifeCycleService.createAssetLifeCycleByLocation(asset, null);
         return RestResponse.ok(assetMapper.toCreateAssetResponse(asset));
     }
 
     @Override
     @Transactional
     public RestResponse<UpdateAssetResponse> updateAsset(String id, UpdateAssetRequest request) {
-        Asset asset = assetRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Asset", "id", id));
+        Asset asset = assetRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Asset", "id", id));
         AssetStatus previousStatus = asset.getStatus();
+        Location previousLocation = asset.getLocation();
         assetMapper.updateAsset(asset, request);
         if (previousStatus != asset.getStatus()) {
-            assetLifeCycleService.createAssetLifeCycle(asset);
+            assetLifeCycleService.createAssetLifeCycleByStatus(asset);
+        }
+        if (!Objects.equals(previousLocation, asset.getLocation())) {
+            assetLifeCycleService.createAssetLifeCycleByLocation(asset, previousLocation);
         }
         return RestResponse.ok(assetMapper.toUpdateAssetResponse(asset));
     }

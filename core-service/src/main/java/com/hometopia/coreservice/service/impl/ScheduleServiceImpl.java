@@ -22,6 +22,7 @@ import com.hometopia.coreservice.mapper.ScheduleMapper;
 import com.hometopia.coreservice.mapper.VendorMapper;
 import com.hometopia.coreservice.repository.AssetRepository;
 import com.hometopia.coreservice.repository.ScheduleRepository;
+import com.hometopia.coreservice.service.AssetLifeCycleService;
 import com.hometopia.coreservice.service.ScheduleService;
 import com.hometopia.proto.vendor.GetListVendorRequest;
 import com.hometopia.proto.vendor.GetListVendorResponse;
@@ -56,6 +57,7 @@ public class ScheduleServiceImpl implements ScheduleService {
     private final VendorMapper vendorMapper;
     private final AssetRepository assetRepository;
     private final ScheduleRepository scheduleRepository;
+    private final AssetLifeCycleService assetLifeCycleService;
 
     @GrpcClient("vendor-service")
     private VendorGrpcServiceGrpc.VendorGrpcServiceBlockingStub vendorGrpcServiceBlockingStub;
@@ -92,6 +94,7 @@ public class ScheduleServiceImpl implements ScheduleService {
     public RestResponse<CreateScheduleResponse> createSchedule(CreateScheduleRequest request) {
         Schedule schedule = scheduleMapper.toSchedule(request);
         scheduleRepository.save(schedule);
+        assetLifeCycleService.createAssetLifeCycleBySchedule(schedule);
         return RestResponse.ok(scheduleMapper.toCreateScheduleResponse(schedule));
     }
 
@@ -101,6 +104,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         Schedule schedule = scheduleRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Schedule", "id", id));
         scheduleMapper.updateSchedule(schedule, request);
+        assetLifeCycleService.createAssetLifeCycleBySchedule(schedule);
         return RestResponse.ok(scheduleMapper.toUpdateScheduleResponse(schedule));
     }
 

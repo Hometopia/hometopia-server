@@ -218,14 +218,18 @@ CREATE TABLE asset_life_cycle
     updated_at  TIMESTAMP WITHOUT TIME ZONE NOT NULL,
     created_by  VARCHAR(255)                NOT NULL,
     updated_by  VARCHAR(255)                NOT NULL,
-    timestamp   TIMESTAMP WITHOUT TIME ZONE,
+    timestamp   TIMESTAMP WITHOUT TIME ZONE NOT NULL,
     description VARCHAR(255)                NOT NULL,
     asset_id    VARCHAR(255)                NOT NULL,
+    schedule_id VARCHAR(255),
     CONSTRAINT pk_asset_life_cycle PRIMARY KEY (id)
 );
 
 ALTER TABLE asset_life_cycle
     ADD CONSTRAINT FK_ASSET_LIFE_CYCLE_ON_ASSET FOREIGN KEY (asset_id) REFERENCES asset (id);
+
+ALTER TABLE asset_life_cycle
+    ADD CONSTRAINT FK_ASSET_LIFE_CYCLE_ON_SCHEDULE FOREIGN KEY (schedule_id) REFERENCES schedule (id);
 
 CREATE TABLE schedule
 (
@@ -238,7 +242,7 @@ CREATE TABLE schedule
     title      VARCHAR(255)                NOT NULL,
     start      TIMESTAMP WITHOUT TIME ZONE NOT NULL,
     "end"      TIMESTAMP WITHOUT TIME ZONE NOT NULL,
-    vendor     JSONB                       NOT NULL,
+    vendor     JSONB                               ,
     cost       DECIMAL,
     documents  JSONB,
     type       VARCHAR(255)                NOT NULL,
