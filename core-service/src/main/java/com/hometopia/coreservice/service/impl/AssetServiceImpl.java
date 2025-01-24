@@ -1,31 +1,43 @@
 package com.hometopia.coreservice.service.impl;
 
+import com.hometopia.commons.enumeration.AssetCategory;
 import com.hometopia.commons.exception.ResourceNotFoundException;
 import com.hometopia.commons.response.ListResponse;
 import com.hometopia.commons.response.RestResponse;
 import com.hometopia.commons.utils.SecurityUtils;
+import com.hometopia.coreservice.client.ClassificationServiceClient;
+import com.hometopia.coreservice.client.dto.request.PredictAssetCategoryRequest;
+import com.hometopia.coreservice.client.dto.response.PredictAssetCategoryResponse;
 import com.hometopia.coreservice.dto.request.CreateAssetRequest;
+import com.hometopia.coreservice.dto.request.SuggestedAssetInformationRequest;
 import com.hometopia.coreservice.dto.request.UpdateAssetRequest;
 import com.hometopia.coreservice.dto.response.CreateAssetResponse;
 import com.hometopia.coreservice.dto.response.GetAssetDepreciationResponse;
 import com.hometopia.coreservice.dto.response.GetListAssetResponse;
 import com.hometopia.coreservice.dto.response.GetOneAssetResponse;
+import com.hometopia.coreservice.dto.response.SuggestedAssetInformationResponse;
 import com.hometopia.coreservice.dto.response.UpdateAssetResponse;
 import com.hometopia.coreservice.entity.Asset;
 import com.hometopia.coreservice.entity.Location;
 import com.hometopia.coreservice.entity.QAsset;
 import com.hometopia.coreservice.entity.enumeration.AssetStatus;
+import com.hometopia.coreservice.mapper.AssetCategoryMapper;
 import com.hometopia.coreservice.mapper.AssetMapper;
 import com.hometopia.coreservice.repository.AssetRepository;
 import com.hometopia.coreservice.repository.UserRepository;
 import com.hometopia.coreservice.service.AssetLifeCycleService;
 import com.hometopia.coreservice.service.AssetService;
+import com.hometopia.proto.asset.AssetGrpcServiceGrpc;
+import com.hometopia.proto.asset.GetAssetMaintenanceCycleRequest;
+import com.hometopia.proto.asset.GetAssetUsefulLifeRequest;
 import io.github.perplexhub.rsql.RSQLJPASupport;
 import lombok.RequiredArgsConstructor;
+import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -48,9 +60,14 @@ import java.util.stream.Collectors;
 public class AssetServiceImpl implements AssetService {
 
     private final AssetMapper assetMapper;
+    private final AssetCategoryMapper assetCategoryMapper;
     private final AssetRepository assetRepository;
     private final UserRepository userRepository;
     private final AssetLifeCycleService assetLifeCycleService;
+    private final ClassificationServiceClient classificationServiceClient;
+
+    @GrpcClient("rule-service")
+    private AssetGrpcServiceGrpc.AssetGrpcServiceBlockingStub assetGrpcServiceBlockingStub;
 
     @Override
     public RestResponse<ListResponse<GetListAssetResponse>> getListAssets(int page, int size, String sort, String filter, boolean all) {
@@ -156,6 +173,29 @@ public class AssetServiceImpl implements AssetService {
         }
 
         return RestResponse.ok(new GetAssetDepreciationResponse(straightLineDepreciation, decliningBalanceDepreciation));
+    }
+
+    @Override
+    public RestResponse<SuggestedAssetInformationResponse> getSuggestedAssetInformation(SuggestedAssetInformationRequest request) {
+        ResponseEntity<PredictAssetCategoryResponse> response = classificationServiceClient
+                .predictAssetCategory(new PredictAssetCategoryRequest(request.url()));
+
+        if (response.getStatusCode().is2xxSuccessful() && response.getBody() != null) {
+            AssetCategory category = response.getBody().prediction();
+            return RestResponse.ok(new SuggestedAssetInformationResponse(
+                    category,
+                    assetGrpcServiceBlockingStub.getUsefulLife(GetAssetUsefulLifeRequest.newBuilder()
+                                    .setCategory(assetCategoryMapper.toAssetCategoryProto(category))
+                                    .build())
+                            .getUsefulLife(),
+                    assetGrpcServiceBlockingStub.getMaintenanceCycle(GetAssetMaintenanceCycleRequest.newBuilder()
+                                    .setCategory(assetCategoryMapper.toAssetCategoryProto(category))
+                                    .build())
+                            .getMaintenanceCycle()
+            ));
+        }
+
+        throw new RuntimeException("Cannot get predicted asset category");
     }
 
     @Override

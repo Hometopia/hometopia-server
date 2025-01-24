@@ -3,11 +3,13 @@ package com.hometopia.coreservice.controller.rest;
 import com.hometopia.commons.response.ListResponse;
 import com.hometopia.commons.response.RestResponse;
 import com.hometopia.coreservice.dto.request.CreateAssetRequest;
+import com.hometopia.coreservice.dto.request.SuggestedAssetInformationRequest;
 import com.hometopia.coreservice.dto.request.UpdateAssetRequest;
 import com.hometopia.coreservice.dto.response.CreateAssetResponse;
 import com.hometopia.coreservice.dto.response.GetAssetDepreciationResponse;
 import com.hometopia.coreservice.dto.response.GetListAssetResponse;
 import com.hometopia.coreservice.dto.response.GetOneAssetResponse;
+import com.hometopia.coreservice.dto.response.SuggestedAssetInformationResponse;
 import com.hometopia.coreservice.dto.response.UpdateAssetResponse;
 import com.hometopia.coreservice.service.AssetService;
 import jakarta.validation.Valid;
@@ -87,5 +89,15 @@ public class AssetController {
     @GetMapping(value = "/depreciation/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<RestResponse<GetAssetDepreciationResponse>> getAssetDepreciation(@PathVariable String id) {
         return ResponseEntity.ok(assetService.getAssetDepreciation(id));
+    }
+
+    @GetMapping(
+            value = "/suggested-information",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<RestResponse<SuggestedAssetInformationResponse>> getSuggestedAssetInformation(
+            @RequestBody SuggestedAssetInformationRequest request) {
+        return ResponseEntity.ok(assetService.getSuggestedAssetInformation(request));
     }
 }

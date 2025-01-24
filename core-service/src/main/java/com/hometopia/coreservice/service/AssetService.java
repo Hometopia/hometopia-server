@@ -3,11 +3,13 @@ package com.hometopia.coreservice.service;
 import com.hometopia.commons.response.ListResponse;
 import com.hometopia.commons.response.RestResponse;
 import com.hometopia.coreservice.dto.request.CreateAssetRequest;
+import com.hometopia.coreservice.dto.request.SuggestedAssetInformationRequest;
 import com.hometopia.coreservice.dto.request.UpdateAssetRequest;
 import com.hometopia.coreservice.dto.response.CreateAssetResponse;
 import com.hometopia.coreservice.dto.response.GetAssetDepreciationResponse;
 import com.hometopia.coreservice.dto.response.GetListAssetResponse;
 import com.hometopia.coreservice.dto.response.GetOneAssetResponse;
+import com.hometopia.coreservice.dto.response.SuggestedAssetInformationResponse;
 import com.hometopia.coreservice.dto.response.UpdateAssetResponse;
 import com.hometopia.coreservice.entity.Asset;
 
@@ -23,5 +25,6 @@ public interface AssetService {
     void deleteAsset(String id);
     void deleteListAssets(List<String> ids);
     RestResponse<GetAssetDepreciationResponse> getAssetDepreciation(String id);
+    RestResponse<SuggestedAssetInformationResponse> getSuggestedAssetInformation(SuggestedAssetInformationRequest request);
     Map<Asset, BigDecimal> getAssetsCurrentValue(String userId);
 }

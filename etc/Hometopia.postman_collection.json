@@ -1160,6 +1160,12 @@
 		{
 			"name": "Get List Location",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRWDhOdDFvSGw4d2Y0dFNqXzF0d0pIdnlqOGZmVlBGVjJFQzhpYzRtOEk4In0.eyJleHAiOjE3MzczMDIzMzUsImlhdCI6MTczNzI5ODczNCwianRpIjoiMmYwYmIyYWMtYTYzMy00ZGMwLTg5NzctMTZkMDIyZTBjZDFjIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYWQ3YTc2YjktZWEyMy00YmEzLTllMWMtMTA3YjExZDJhODEyIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjZmZDQwM2U4LTgzYTMtNGY2NC1hYmE4LWViMzM0ZWFiMjBlYSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6ImxvY2FsIiwiZ2l2ZW5fbmFtZSI6IkR1b25nIiwiZmFtaWx5X25hbWUiOiJEaW5oIiwiZW1haWwiOiJxdWFuZ2R1b25nQGdtYWlsLmNvbSJ9.jHWX-iVEYk1Jtn8BmOuyLN34YIutb8Um0TRwQRDFmWZ0YqdEFWpYLL9YG2QRCMQtGSGnErG4b_6ZgHq4c3R5seFX4HaUchuy3WQUDAllTEFTQahVayqVCT08VZzdgyWsZecR6md39NJPXVDteWe9BELlpO1Upf4n2gmr9q8TlwkxehlRdxD63-RUH9JvU3L4SbTjvRvwpOeDvwzfJdPbTgZ42KPx5P2XrXiHFN5AaH7XRjQV0KKqLpYC_TNz4PoOtCKmUshuMhL_coHd5aES0CJavb9ehoofNrxLagD7zz0ETeEW8QpWV9---nBMTM440avr9k1P-bMfE14CJo4Ptw"
+					}
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -1194,6 +1200,12 @@
 		{
 			"name": "Get One Location",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRWDhOdDFvSGw4d2Y0dFNqXzF0d0pIdnlqOGZmVlBGVjJFQzhpYzRtOEk4In0.eyJleHAiOjE3MzczMDIzMzUsImlhdCI6MTczNzI5ODczNCwianRpIjoiMmYwYmIyYWMtYTYzMy00ZGMwLTg5NzctMTZkMDIyZTBjZDFjIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYWQ3YTc2YjktZWEyMy00YmEzLTllMWMtMTA3YjExZDJhODEyIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjZmZDQwM2U4LTgzYTMtNGY2NC1hYmE4LWViMzM0ZWFiMjBlYSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6ImxvY2FsIiwiZ2l2ZW5fbmFtZSI6IkR1b25nIiwiZmFtaWx5X25hbWUiOiJEaW5oIiwiZW1haWwiOiJxdWFuZ2R1b25nQGdtYWlsLmNvbSJ9.jHWX-iVEYk1Jtn8BmOuyLN34YIutb8Um0TRwQRDFmWZ0YqdEFWpYLL9YG2QRCMQtGSGnErG4b_6ZgHq4c3R5seFX4HaUchuy3WQUDAllTEFTQahVayqVCT08VZzdgyWsZecR6md39NJPXVDteWe9BELlpO1Upf4n2gmr9q8TlwkxehlRdxD63-RUH9JvU3L4SbTjvRvwpOeDvwzfJdPbTgZ42KPx5P2XrXiHFN5AaH7XRjQV0KKqLpYC_TNz4PoOtCKmUshuMhL_coHd5aES0CJavb9ehoofNrxLagD7zz0ETeEW8QpWV9---nBMTM440avr9k1P-bMfE14CJo4Ptw"
+					}
+				},
 				"method": "GET",
 				"header": [],
 				"url": "http://{{dev}}/api/locations/ABCXYZ"
@@ -1203,11 +1215,17 @@
 		{
 			"name": "Create Location",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRWDhOdDFvSGw4d2Y0dFNqXzF0d0pIdnlqOGZmVlBGVjJFQzhpYzRtOEk4In0.eyJleHAiOjE3MzczMDIzMzUsImlhdCI6MTczNzI5ODczNCwianRpIjoiMmYwYmIyYWMtYTYzMy00ZGMwLTg5NzctMTZkMDIyZTBjZDFjIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYWQ3YTc2YjktZWEyMy00YmEzLTllMWMtMTA3YjExZDJhODEyIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjZmZDQwM2U4LTgzYTMtNGY2NC1hYmE4LWViMzM0ZWFiMjBlYSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6ImxvY2FsIiwiZ2l2ZW5fbmFtZSI6IkR1b25nIiwiZmFtaWx5X25hbWUiOiJEaW5oIiwiZW1haWwiOiJxdWFuZ2R1b25nQGdtYWlsLmNvbSJ9.jHWX-iVEYk1Jtn8BmOuyLN34YIutb8Um0TRwQRDFmWZ0YqdEFWpYLL9YG2QRCMQtGSGnErG4b_6ZgHq4c3R5seFX4HaUchuy3WQUDAllTEFTQahVayqVCT08VZzdgyWsZecR6md39NJPXVDteWe9BELlpO1Upf4n2gmr9q8TlwkxehlRdxD63-RUH9JvU3L4SbTjvRvwpOeDvwzfJdPbTgZ42KPx5P2XrXiHFN5AaH7XRjQV0KKqLpYC_TNz4PoOtCKmUshuMhL_coHd5aES0CJavb9ehoofNrxLagD7zz0ETeEW8QpWV9---nBMTM440avr9k1P-bMfE14CJo4Ptw"
+					}
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Phong khach\"\r\n}",
+					"raw": "{\r\n    \"name\": \"Phong khach\",\r\n    \"images\": [\r\n        {\r\n            \"originalFileName\": \"laptop.jpg\",\r\n            \"fileName\": \"20241027140223_laptop.jpg\",\r\n            \"fileExtension\": \"jpg\",\r\n            \"mimeType\": \"image/jpeg\",\r\n            \"bucket\": \"hometopia\",\r\n            \"path\": \"/hometopia/20241027140223_laptop.jpg\"\r\n        }\r\n    ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1221,11 +1239,17 @@
 		{
 			"name": "Update Location",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRWDhOdDFvSGw4d2Y0dFNqXzF0d0pIdnlqOGZmVlBGVjJFQzhpYzRtOEk4In0.eyJleHAiOjE3MzczMDIzMzUsImlhdCI6MTczNzI5ODczNCwianRpIjoiMmYwYmIyYWMtYTYzMy00ZGMwLTg5NzctMTZkMDIyZTBjZDFjIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYWQ3YTc2YjktZWEyMy00YmEzLTllMWMtMTA3YjExZDJhODEyIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjZmZDQwM2U4LTgzYTMtNGY2NC1hYmE4LWViMzM0ZWFiMjBlYSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6ImxvY2FsIiwiZ2l2ZW5fbmFtZSI6IkR1b25nIiwiZmFtaWx5X25hbWUiOiJEaW5oIiwiZW1haWwiOiJxdWFuZ2R1b25nQGdtYWlsLmNvbSJ9.jHWX-iVEYk1Jtn8BmOuyLN34YIutb8Um0TRwQRDFmWZ0YqdEFWpYLL9YG2QRCMQtGSGnErG4b_6ZgHq4c3R5seFX4HaUchuy3WQUDAllTEFTQahVayqVCT08VZzdgyWsZecR6md39NJPXVDteWe9BELlpO1Upf4n2gmr9q8TlwkxehlRdxD63-RUH9JvU3L4SbTjvRvwpOeDvwzfJdPbTgZ42KPx5P2XrXiHFN5AaH7XRjQV0KKqLpYC_TNz4PoOtCKmUshuMhL_coHd5aES0CJavb9ehoofNrxLagD7zz0ETeEW8QpWV9---nBMTM440avr9k1P-bMfE14CJo4Ptw"
+					}
+				},
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Phong tam\"\r\n}",
+					"raw": "{\r\n    \"name\": \"Phong tam\",\r\n    \"images\": [\r\n        {\r\n            \"originalFileName\": \"laptop.jpg\",\r\n            \"fileName\": \"20241027140223_laptop.jpg\",\r\n            \"fileExtension\": \"jpg\",\r\n            \"mimeType\": \"image/jpeg\",\r\n            \"bucket\": \"hometopia\",\r\n            \"path\": \"/hometopia/20241027140223_laptop.jpg\"\r\n        }\r\n    ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1239,6 +1263,12 @@
 		{
 			"name": "Delete Location",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRWDhOdDFvSGw4d2Y0dFNqXzF0d0pIdnlqOGZmVlBGVjJFQzhpYzRtOEk4In0.eyJleHAiOjE3MzczMDIzMzUsImlhdCI6MTczNzI5ODczNCwianRpIjoiMmYwYmIyYWMtYTYzMy00ZGMwLTg5NzctMTZkMDIyZTBjZDFjIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYWQ3YTc2YjktZWEyMy00YmEzLTllMWMtMTA3YjExZDJhODEyIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjZmZDQwM2U4LTgzYTMtNGY2NC1hYmE4LWViMzM0ZWFiMjBlYSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6ImxvY2FsIiwiZ2l2ZW5fbmFtZSI6IkR1b25nIiwiZmFtaWx5X25hbWUiOiJEaW5oIiwiZW1haWwiOiJxdWFuZ2R1b25nQGdtYWlsLmNvbSJ9.jHWX-iVEYk1Jtn8BmOuyLN34YIutb8Um0TRwQRDFmWZ0YqdEFWpYLL9YG2QRCMQtGSGnErG4b_6ZgHq4c3R5seFX4HaUchuy3WQUDAllTEFTQahVayqVCT08VZzdgyWsZecR6md39NJPXVDteWe9BELlpO1Upf4n2gmr9q8TlwkxehlRdxD63-RUH9JvU3L4SbTjvRvwpOeDvwzfJdPbTgZ42KPx5P2XrXiHFN5AaH7XRjQV0KKqLpYC_TNz4PoOtCKmUshuMhL_coHd5aES0CJavb9ehoofNrxLagD7zz0ETeEW8QpWV9---nBMTM440avr9k1P-bMfE14CJo4Ptw"
+					}
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": "http://{{dev}}/api/locations/ABCXYZ"
@@ -1248,6 +1278,12 @@
 		{
 			"name": "Delete List Locations",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRWDhOdDFvSGw4d2Y0dFNqXzF0d0pIdnlqOGZmVlBGVjJFQzhpYzRtOEk4In0.eyJleHAiOjE3MzczMDIzMzUsImlhdCI6MTczNzI5ODczNCwianRpIjoiMmYwYmIyYWMtYTYzMy00ZGMwLTg5NzctMTZkMDIyZTBjZDFjIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYWQ3YTc2YjktZWEyMy00YmEzLTllMWMtMTA3YjExZDJhODEyIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjZmZDQwM2U4LTgzYTMtNGY2NC1hYmE4LWViMzM0ZWFiMjBlYSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6ImxvY2FsIiwiZ2l2ZW5fbmFtZSI6IkR1b25nIiwiZmFtaWx5X25hbWUiOiJEaW5oIiwiZW1haWwiOiJxdWFuZ2R1b25nQGdtYWlsLmNvbSJ9.jHWX-iVEYk1Jtn8BmOuyLN34YIutb8Um0TRwQRDFmWZ0YqdEFWpYLL9YG2QRCMQtGSGnErG4b_6ZgHq4c3R5seFX4HaUchuy3WQUDAllTEFTQahVayqVCT08VZzdgyWsZecR6md39NJPXVDteWe9BELlpO1Upf4n2gmr9q8TlwkxehlRdxD63-RUH9JvU3L4SbTjvRvwpOeDvwzfJdPbTgZ42KPx5P2XrXiHFN5AaH7XRjQV0KKqLpYC_TNz4PoOtCKmUshuMhL_coHd5aES0CJavb9ehoofNrxLagD7zz0ETeEW8QpWV9---nBMTM440avr9k1P-bMfE14CJo4Ptw"
+					}
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
@@ -1267,6 +1303,33 @@
 						}
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Suggested Asset Information",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRWDhOdDFvSGw4d2Y0dFNqXzF0d0pIdnlqOGZmVlBGVjJFQzhpYzRtOEk4In0.eyJleHAiOjE3MzczMDIzMzUsImlhdCI6MTczNzI5ODczNCwianRpIjoiMmYwYmIyYWMtYTYzMy00ZGMwLTg5NzctMTZkMDIyZTBjZDFjIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDA4L3JlYWxtcy9ob21ldG9waWEiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYWQ3YTc2YjktZWEyMy00YmEzLTllMWMtMTA3YjExZDJhODEyIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaG9tZXRvcGlhLWNsaWVudCIsInNpZCI6IjZmZDQwM2U4LTgzYTMtNGY2NC1hYmE4LWViMzM0ZWFiMjBlYSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtaG9tZXRvcGlhIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiRHVvbmcgRGluaCIsInByZWZlcnJlZF91c2VybmFtZSI6ImxvY2FsIiwiZ2l2ZW5fbmFtZSI6IkR1b25nIiwiZmFtaWx5X25hbWUiOiJEaW5oIiwiZW1haWwiOiJxdWFuZ2R1b25nQGdtYWlsLmNvbSJ9.jHWX-iVEYk1Jtn8BmOuyLN34YIutb8Um0TRwQRDFmWZ0YqdEFWpYLL9YG2QRCMQtGSGnErG4b_6ZgHq4c3R5seFX4HaUchuy3WQUDAllTEFTQahVayqVCT08VZzdgyWsZecR6md39NJPXVDteWe9BELlpO1Upf4n2gmr9q8TlwkxehlRdxD63-RUH9JvU3L4SbTjvRvwpOeDvwzfJdPbTgZ42KPx5P2XrXiHFN5AaH7XRjQV0KKqLpYC_TNz4PoOtCKmUshuMhL_coHd5aES0CJavb9ehoofNrxLagD7zz0ETeEW8QpWV9---nBMTM440avr9k1P-bMfE14CJo4Ptw"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"url\": \"http://193.203.161.141:8000/api/files?fileName=20250101040118_phone.png\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://{{dev}}/api/assets/suggested-information"
 			},
 			"response": []
 		}
