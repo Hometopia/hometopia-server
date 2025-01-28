@@ -17,10 +17,8 @@ public record CreateScheduleRequest(
         @NotBlank
         String title,
         @NotNull
-        @FutureOrPresent
         LocalDateTime start,
         LocalDateTime end,
-        @NotNull
         Vendor vendor,
         @Positive
         BigDecimal cost,

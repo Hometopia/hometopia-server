@@ -41,7 +41,7 @@ public class Schedule extends BaseEntity {
     @Column(name = "\"end\"")
     private LocalDateTime end;
 
-    @Column(name = "vendor", columnDefinition = "JSONB", nullable = false)
+    @Column(name = "vendor", columnDefinition = "JSONB")
     @JdbcTypeCode(SqlTypes.JSON)
     private Vendor vendor;
 

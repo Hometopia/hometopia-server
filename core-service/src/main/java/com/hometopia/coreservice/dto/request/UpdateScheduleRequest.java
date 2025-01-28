@@ -19,7 +19,6 @@ public record UpdateScheduleRequest(
         @NotNull
         LocalDateTime start,
         LocalDateTime end,
-        @NotNull
         Vendor vendor,
         @Positive
         BigDecimal cost,
