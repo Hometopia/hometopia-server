@@ -97,10 +97,10 @@ public class AssetLifeCycleServiceImpl implements AssetLifeCycleService {
         StringBuilder sb = new StringBuilder();
         switch (schedule.getType()) {
             case REPAIR:
-                sb.append("Tài sản được bảo trì");
+                sb.append("Tài sản được sửa chữa");
                 break;
             case MAINTENANCE:
-                sb.append("Tài sản được sửa chữa");
+                sb.append("Tài sản được bảo trì");
                 break;
         }
         if (schedule.getVendor() != null) {
