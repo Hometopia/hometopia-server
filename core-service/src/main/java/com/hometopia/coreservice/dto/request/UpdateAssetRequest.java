@@ -23,7 +23,7 @@ public record UpdateAssetRequest(
         BigDecimal purchasePrice,
         String brand,
         String serialNumber,
-        String location,
+        String locationId,
         LocalDate warrantyExpiryDate,
         @NotNull
         ArrayList<File> documents,
@@ -34,7 +34,5 @@ public record UpdateAssetRequest(
         @Positive
         Integer usefulLife,
         @NotBlank
-        String categoryId,
-        @NotBlank
-        String locationId
+        String categoryId
 ) {}

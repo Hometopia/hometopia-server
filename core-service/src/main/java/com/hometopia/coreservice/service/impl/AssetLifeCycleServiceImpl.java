@@ -74,7 +74,10 @@ public class AssetLifeCycleServiceImpl implements AssetLifeCycleService {
         } else if (asset.getLocation() != null) {
             assetLifeCycle.setDescription("%s được đặt tại %s".formatted(asset.getName(), asset.getLocation().getName()));
         }
-        assetLifeCycleRepository.save(assetLifeCycle);
+
+        if (assetLifeCycle.getDescription() != null) {
+            assetLifeCycleRepository.save(assetLifeCycle);
+        }
     }
 
     @Override

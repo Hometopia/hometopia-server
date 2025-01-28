@@ -1,11 +1,14 @@
 import matplotlib.pyplot as plt
 import torch
+import random
 from torch import nn
 from torch.utils.data import DataLoader
 from torchvision import transforms, datasets
 from torchvision.transforms.functional import to_pil_image
 
 from model import SimpleCNN
+
+# matplotlib.use('TkAgg')
 
 train_transform = transforms.Compose([
     # Resize Image
@@ -19,14 +22,23 @@ validation_transform = transforms.Compose([
     transforms.ToTensor()
 ])
 
+test_transform = transforms.Compose([
+    transforms.Resize(size=(180, 180)),
+    transforms.ToTensor()
+])
+
 train_dir = "data/train"  # path to the train folder
 validation_dir = "data/validation"  # path to the validation folder
+test_dir = "data/test"
 
 train_data = datasets.ImageFolder(root=train_dir,
                                   transform=train_transform)
 
 validation_data = datasets.ImageFolder(root=validation_dir,
                                        transform=validation_transform)
+
+test_data = datasets.ImageFolder(root=test_dir,
+                                 transform=test_transform)
 
 train_set = DataLoader(dataset=train_data,
                        batch_size=32,
@@ -37,6 +49,11 @@ validation_set = DataLoader(dataset=validation_data,
                             batch_size=32,
                             num_workers=8,
                             shuffle=False)
+
+test_set = DataLoader(dataset=test_data,
+                      batch_size=32,
+                      num_workers=8,
+                      shuffle=False)
 
 # I create train_data above , and I will use it here
 label_dict = {y: x for x, y in train_data.class_to_idx.items()}
@@ -129,6 +146,62 @@ def validation(dataloader, model, loss_fn):
     print(f" Validation Accuracy: {accuracy:.2f}%, Validation Loss: {validation_loss:.4f}")
 
 
+def test(test_loader, model, loss_fn):
+    model.eval()
+    size = len(test_loader.dataset)
+    num_batches = len(test_loader)
+
+    test_loss, correct = 0, 0
+
+    with torch.no_grad():
+        for X, y in test_loader:
+            X, y = X.to(device), y.to(device)
+            pred = model(X)
+            test_loss += loss_fn(pred, y).item()
+            correct += (pred.argmax(1) == y).type(torch.float).sum().item()
+
+            num_images = len(X)
+
+            rows = (num_images + 4) // 5
+            fig, axs = plt.subplots(rows, 5, figsize=(15, rows * 3))
+
+            axs = axs.flatten()
+            for i in range(num_images):
+                image = to_pil_image(X[i].cpu())
+                true_label = label_dict[y[i].item()]
+                pred_label = label_dict[pred.argmax(1)[i].item()]
+
+                axs[i].imshow(image)
+                axs[i].axis('off')
+
+                axs[i].set_title(f"True: {true_label}\nPred: {pred_label}", fontsize=10)
+
+            for j in range(num_images, len(axs)):
+                axs[j].axis('off')
+
+            plt.tight_layout()
+            # plt.show()
+            plt.savefig('result/result-{}.png'.format(random.randint(1, 1000)))
+            plt.clf()
+
+            # for i in range(len(X)):
+            #     if i == 10:
+            #         break
+            #     image = to_pil_image(X[i].cpu())
+            #     true_label = label_dict[y[i].item()]
+            #     pred_label = label_dict[pred.argmax(1)[i].item()]
+            #
+            #     plt.imshow(image)
+            #     plt.title(f"True: {true_label}\nPred: {pred_label}")
+            #     plt.axis('off')
+            #     plt.show()
+
+    test_loss /= num_batches
+    accuracy = 100 * correct / size
+
+    print(f"Test Accuracy: {accuracy:.2f}%, Test Loss: {test_loss:.4f}")
+
+
 def visualize(train_accuracies, validation_accuracies):
     epoch_number = len(train_accuracies)
 
@@ -137,19 +210,12 @@ def visualize(train_accuracies, validation_accuracies):
     plt.legend()
     plt.xlabel("Epoch Number")
     plt.ylabel("Accuracies")
-    plt.grid()
-    plt.show()
+    # plt.show()
+    plt.savefig('result/accuracies.png')
+    plt.clf()
 
 
 if __name__ == "__main__":
-    # Optional for Windows to initialize
-    # freeze_support()
-
-    # for batch_idx, (images, labels) in enumerate(train_set):
-    #     if batch_idx == 0:  # Only process the first batch
-    #         show_images(images, labels)
-    #         break
-
     # if GPU is available , use it while training
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model = SimpleCNN(num_classes=6)
@@ -160,7 +226,7 @@ if __name__ == "__main__":
     optimizer = torch.optim.SGD(model.parameters(), lr=1e-3)
 
     # epoch number
-    epochs = 100
+    epochs = 30
 
     # loop for training model
     for t in range(epochs):
@@ -170,6 +236,8 @@ if __name__ == "__main__":
         print("----------------------------")
     print("Done!")
 
+    test(test_set, model, loss_fn)
+
     torch.save(model.state_dict(), 'model.pth')
 
-    # visualize(train_accuracies, validation_accuracies)
+    visualize(train_accuracies, validation_accuracies)
