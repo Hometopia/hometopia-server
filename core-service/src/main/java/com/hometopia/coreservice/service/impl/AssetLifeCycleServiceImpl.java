@@ -104,7 +104,7 @@ public class AssetLifeCycleServiceImpl implements AssetLifeCycleService {
                 break;
         }
         if (schedule.getVendor() != null) {
-            sb.append("tại %s".formatted(schedule.getVendor().name()));
+            sb.append(" tại %s".formatted(schedule.getVendor().name()));
         }
         return sb.toString();
     }
