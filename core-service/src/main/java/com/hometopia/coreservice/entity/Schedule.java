@@ -4,6 +4,7 @@ import com.hometopia.commons.persistence.BaseEntity;
 import com.hometopia.coreservice.entity.embedded.File;
 import com.hometopia.coreservice.entity.embedded.Vendor;
 import com.hometopia.coreservice.entity.enumeration.ScheduleType;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -11,6 +12,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -60,4 +62,7 @@ public class Schedule extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "asset_id", nullable = false)
     private Asset asset;
+
+    @OneToOne(mappedBy = "schedule", cascade = CascadeType.ALL)
+    private AssetLifeCycle assetLifeCycle;
 }
