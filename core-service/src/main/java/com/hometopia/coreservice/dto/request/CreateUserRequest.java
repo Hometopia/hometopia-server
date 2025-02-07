@@ -16,7 +16,6 @@ public record CreateUserRequest(
         String firstName,
         @NotBlank
         String lastName,
-        @NotNull
         Address address
 ) {
    public record Address(

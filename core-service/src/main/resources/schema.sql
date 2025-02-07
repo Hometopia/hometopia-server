@@ -123,7 +123,7 @@ CREATE TABLE "user"
     email      VARCHAR(255)                NOT NULL,
     first_name VARCHAR(255)                NOT NULL,
     last_name  VARCHAR(255)                NOT NULL,
-    address_id VARCHAR(255)                NOT NULL,
+    address_id VARCHAR(255)                        ,
     CONSTRAINT pk_user PRIMARY KEY (id)
 );
 
