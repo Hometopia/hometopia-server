@@ -17,6 +17,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
@@ -36,17 +38,19 @@ public class UserServiceImpl implements UserService {
         try {
             User user = userRepository.saveAndFlush(userMapper.toUser(request, id));
 
-            return RestResponse.created(userMapper.toUserResponse(user,
-                    provinceLanRepository
-                            .findOneByIdProvinceIdAndIdCountryCode(user.getAddress().getProvince().getCode(), CountryCode.VN)
-                            .orElseThrow(() -> new ResourceNotFoundException("Province", "code", user.getAddress().getProvince().getCode())),
-                    districtLanRepository
-                            .findOneByIdDistrictIdAndIdCountryCode(user.getAddress().getDistrict().getCode(), CountryCode.VN)
-                            .orElseThrow(() -> new ResourceNotFoundException("District", "code", user.getAddress().getDistrict().getCode())),
-                    wardLanRepository
-                            .findOneByIdWardIdAndIdCountryCode(user.getAddress().getWard().getCode(), CountryCode.VN)
-                            .orElseThrow(() -> new ResourceNotFoundException("Ward", "code", user.getAddress().getWard().getCode())))
-            );
+            return Optional.ofNullable(user.getAddress())
+                    .map(address -> RestResponse.created(userMapper.toUserResponse(user,
+                            provinceLanRepository
+                                    .findOneByIdProvinceIdAndIdCountryCode(address.getProvince().getCode(), CountryCode.VN)
+                                    .orElseThrow(() -> new ResourceNotFoundException("Province", "code", address.getProvince().getCode())),
+                            districtLanRepository
+                                    .findOneByIdDistrictIdAndIdCountryCode(address.getDistrict().getCode(), CountryCode.VN)
+                                    .orElseThrow(() -> new ResourceNotFoundException("District", "code", address.getDistrict().getCode())),
+                            wardLanRepository
+                                    .findOneByIdWardIdAndIdCountryCode(address.getWard().getCode(), CountryCode.VN)
+                                    .orElseThrow(() -> new ResourceNotFoundException("Ward", "code", address.getWard().getCode()))))
+                    )
+                    .orElseGet(() -> RestResponse.created(userMapper.toUserResponse(user, null, null, null)));
         } catch (Exception e) {
             keycloakService.deleteUser(id);
             throw new RuntimeException(e);
