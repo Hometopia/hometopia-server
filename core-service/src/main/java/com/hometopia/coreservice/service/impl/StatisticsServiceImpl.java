@@ -132,6 +132,10 @@ public class StatisticsServiceImpl implements StatisticsService {
         AssetStatisticsResponse.AssetStatisticsResponseBuilder builder = AssetStatisticsResponse.builder();
         List<Tuple> results = scheduleRepository.getRepairScheduleStatisticsOfAssetByYear(year);
 
+        if (results.isEmpty()) {
+            return RestResponse.ok(builder.build());
+        }
+
         builder.mostDurable(new AssetStatisticsResponse.AssetRepairCount(
                 results.get(0).get(0, String.class),
                 results.get(0).get(1, Long.class)
