@@ -44,6 +44,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -136,6 +137,10 @@ public class ScheduleServiceImpl implements ScheduleService {
                 .setLon(lon)
                 .build());
         List<Vendor> vendors = response.getVendorsList().stream().map(vendorMapper::toVendor).toList();
+
+        if (vendors.isEmpty()) {
+            return RestResponse.ok(ListResponse.of(Collections.emptyList()));
+        }
 
         LocalDate purchaseDate = asset.getPurchaseDate();
         LocalDate endOfLifeCycle = purchaseDate.plusYears(asset.getUsefulLife());
