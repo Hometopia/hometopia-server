@@ -1,5 +1,6 @@
 package com.hometopia.coreservice.dto.response;
 
+import com.hometopia.commons.enumeration.AssetCategory;
 import com.hometopia.coreservice.entity.embedded.File;
 import com.hometopia.coreservice.entity.enumeration.AssetStatus;
 
@@ -24,6 +25,7 @@ public record GetOneAssetResponse(
         LocalDate warrantyExpiryDate,
         ArrayList<File> documents,
         AssetStatus status,
+        AssetCategory label,
         Integer maintenanceCycle,
         Integer usefulLife,
         Category category
