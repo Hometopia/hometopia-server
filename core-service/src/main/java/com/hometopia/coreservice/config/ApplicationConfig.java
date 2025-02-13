@@ -1,5 +1,7 @@
 package com.hometopia.coreservice.config;
 
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hometopia.commons.mapper.MapperConfig;
 import com.hometopia.commons.persistence.AuditingConfig;
 import com.hometopia.commons.persistence.QueryDslConfig;
@@ -47,5 +49,12 @@ public class ApplicationConfig {
     @Bean
     public RealmResource realmResource(Keycloak keycloak) {
         return keycloak.realm(keycloakProperty.realm().hometopia());
+    }
+
+    @Bean
+    public ObjectMapper objectMapper() {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enable(JsonGenerator.Feature.WRITE_BIGDECIMAL_AS_PLAIN);
+        return mapper;
     }
 }

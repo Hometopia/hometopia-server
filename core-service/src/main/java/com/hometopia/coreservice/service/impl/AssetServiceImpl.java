@@ -42,6 +42,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.math.RoundingMode;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
@@ -145,8 +146,8 @@ public class AssetServiceImpl implements AssetService {
 
         List<GetAssetDepreciationResponse.Depreciation> straightLineDepreciation = new ArrayList<>();
         List<GetAssetDepreciationResponse.Depreciation> decliningBalanceDepreciation = new ArrayList<>();
-        BigDecimal straightLineDepreciationValue = asset.getPurchasePrice().divide(BigDecimal.valueOf(asset.getUsefulLife()), RoundingMode.HALF_UP);
-        BigDecimal straightLineDepreciationRate = straightLineDepreciationValue.divide(asset.getPurchasePrice(), RoundingMode.HALF_UP);
+        BigDecimal straightLineDepreciationValue = asset.getPurchasePrice().divide(BigDecimal.valueOf(asset.getUsefulLife()), new MathContext(2, RoundingMode.HALF_UP));
+        BigDecimal straightLineDepreciationRate = straightLineDepreciationValue.divide(asset.getPurchasePrice(), new MathContext(2, RoundingMode.HALF_UP));
         BigDecimal decliningBalanceDepreciationRate = straightLineDepreciationRate.multiply(BigDecimal
                 .valueOf(asset.getUsefulLife() <= 4 ? 1.5 : 2));
         BigDecimal residualValue = asset.getPurchasePrice();
@@ -165,10 +166,9 @@ public class AssetServiceImpl implements AssetService {
                     asset.getPurchaseDate().getYear() + i, residualValue));
             if (i != asset.getUsefulLife() - 1) {
                 residualValue = residualValue.multiply(BigDecimal.ONE.subtract(decliningBalanceDepreciationRate))
-                        .compareTo(residualValue.divide(BigDecimal.valueOf(asset.getUsefulLife() - i - 1), RoundingMode.HALF_UP)) >= 0
+                        .compareTo(residualValue.divide(BigDecimal.valueOf(asset.getUsefulLife() - i - 1), new MathContext(2, RoundingMode.HALF_UP))) >= 0
                         ? residualValue.multiply(BigDecimal.ONE.subtract(decliningBalanceDepreciationRate))
-                        : residualValue.divide(BigDecimal.valueOf(asset.getUsefulLife() - i - 1), RoundingMode.HALF_UP);
-
+                        : residualValue.divide(BigDecimal.valueOf(asset.getUsefulLife() - i - 1), new MathContext(2, RoundingMode.HALF_UP));
             }
         }
 
